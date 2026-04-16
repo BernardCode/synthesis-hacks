@@ -21,8 +21,8 @@ export default function SponsorsSection() {
         >
           <p className="text-sm leading-relaxed mb-6" style={{ color: '#aaa' }}>
             Synthesis Hacks is a free, beginner-friendly hackathon for high school students in the Bay Area.
-            We're building a space where first-timers feel welcome, collaboration beats competition, and
-            every student leaves having built something they're proud of.
+            We&apos;re building a space where first-timers feel welcome, collaboration beats competition, and
+            every student leaves having built something they&apos;re proud of.
           </p>
           <p className="text-sm leading-relaxed" style={{ color: '#aaa' }}>
             Sponsoring Synthesis Hacks gives your organization direct visibility with a passionate group
@@ -40,7 +40,7 @@ export default function SponsorsSection() {
               Interested in sponsoring?
             </p>
             <p className="text-xs" style={{ color: '#666' }}>
-              We'd love to tell you more about our audience and sponsorship tiers.
+              We&apos;d love to tell you more about our audience and sponsorship tiers.
             </p>
           </div>
           <a

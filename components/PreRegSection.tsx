@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { eventDetails } from '@/lib/eventDetails'
 
 // Replace with your Formspree endpoint: https://formspree.io/f/YOUR_ID
 // Or any other form backend. Set to '' to disable remote submission during dev.
@@ -43,7 +44,7 @@ export default function PreRegSection() {
             Be the first to know.
           </h2>
           <p className="mt-2 text-sm" style={{ color: '#888' }}>
-            Drop your info and we'll reach out when registration opens.
+            Join the interest list for {eventDetails.date} at {eventDetails.venue}.
           </p>
         </div>
 
@@ -53,14 +54,25 @@ export default function PreRegSection() {
             style={{ borderColor: 'var(--accent-orange)', backgroundColor: 'var(--surface)' }}
           >
             <p className="text-2xl font-extrabold mb-2" style={{ color: 'var(--text)' }}>
-              You're on the list! 🎉
+              You&apos;re on the list! 🎉
             </p>
             <p className="text-sm" style={{ color: '#888' }}>
-              We'll email you when registration opens.
+              We&apos;ll send event updates, registration info, and logistics for {eventDetails.timeShort}.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <div
+              className="rounded-xl border px-5 py-4 text-sm"
+              style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface)', color: '#aaa' }}
+            >
+              <p className="font-bold mb-1" style={{ color: 'var(--text)' }}>
+                Event snapshot
+              </p>
+              <p>{eventDetails.date} · {eventDetails.time}</p>
+              <p>{eventDetails.venue}, {eventDetails.address}</p>
+            </div>
+
             <div className="flex flex-col gap-1.5">
               <label htmlFor="name" className="text-xs font-bold tracking-widest" style={{ color: '#888' }}>
                 FULL NAME <span style={{ color: 'var(--accent-orange)' }}>*</span>

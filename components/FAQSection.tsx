@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { eventDetails } from '@/lib/eventDetails'
 
 const FAQS = [
   {
@@ -25,6 +26,10 @@ const FAQS = [
   {
     q: 'Who can participate?',
     a: "Synthesis Hacks is open to current high school students. You do not need to attend a specific school. Whether you're in 9th grade or graduating, you're welcome.",
+  },
+  {
+    q: 'Where and when is it happening?',
+    a: `We'll be at ${eventDetails.venue} on ${eventDetails.date} from ${eventDetails.time}. The venue is ${eventDetails.address}, ${eventDetails.city}.`,
   },
 ]
 

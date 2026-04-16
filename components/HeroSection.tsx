@@ -1,9 +1,5 @@
 import RegisterButton from './RegisterButton'
-
-// Update these constants when dates are confirmed
-const EVENT_MONTH = 'Summer 2026'
-const MORE_INFO_DATE = 'April 2026'
-const LOCATION = 'Bay Area, CA'
+import { eventDetails } from '@/lib/eventDetails'
 
 export default function HeroSection() {
   return (
@@ -21,7 +17,7 @@ export default function HeroSection() {
         }}
       >
         <span className="w-2 h-2 rounded-full bg-[#f68627] animate-pulse" />
-        {EVENT_MONTH} · {LOCATION}
+        {eventDetails.timeShort} · {eventDetails.venue}
       </div>
 
       {/* Title */}
@@ -44,11 +40,48 @@ export default function HeroSection() {
         No experience required — just curiosity.
       </p>
 
-      {/* More info teaser */}
-      <p className="text-sm mb-12" style={{ color: '#666' }}>
-        Full registration opens{' '}
-        <span style={{ color: 'var(--accent-blue)' }}>{MORE_INFO_DATE}</span>
-      </p>
+      <div className="grid w-full max-w-3xl gap-4 mb-12 md:grid-cols-3">
+        <div className="rounded-2xl border px-5 py-4 text-left" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface)' }}>
+          <p className="text-xs font-bold tracking-widest mb-2" style={{ color: 'var(--accent-orange)' }}>
+            DATE
+          </p>
+          <p className="text-base font-bold" style={{ color: 'var(--text)' }}>{eventDetails.date}</p>
+        </div>
+        <div className="rounded-2xl border px-5 py-4 text-left" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface)' }}>
+          <p className="text-xs font-bold tracking-widest mb-2" style={{ color: 'var(--accent-blue)' }}>
+            TIME
+          </p>
+          <p className="text-base font-bold" style={{ color: 'var(--text)' }}>{eventDetails.time}</p>
+        </div>
+        <div className="rounded-2xl border px-5 py-4 text-left" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface)' }}>
+          <p className="text-xs font-bold tracking-widest mb-2" style={{ color: 'var(--accent-orange)' }}>
+            LOCATION
+          </p>
+          <p className="text-base font-bold" style={{ color: 'var(--text)' }}>{eventDetails.address}</p>
+          <p className="text-sm mt-1" style={{ color: '#888' }}>{eventDetails.venue}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-12 text-sm font-bold">
+        <a
+          href={eventDetails.mapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border px-4 py-2 transition-colors hover:text-white"
+          style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface)', color: '#aaa' }}
+        >
+          Open in Maps
+        </a>
+        <a
+          href={eventDetails.calendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border px-4 py-2 transition-colors hover:text-white"
+          style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface)', color: '#aaa' }}
+        >
+          Add to Calendar
+        </a>
+      </div>
 
       {/* Animated CTA */}
       <RegisterButton />
