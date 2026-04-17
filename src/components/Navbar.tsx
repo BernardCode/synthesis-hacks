@@ -34,6 +34,7 @@ export default function Navbar() {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.75rem' }}>
             {[
+              { label: 'Schedule', href: '#schedule' },
               { label: 'FAQ', href: '#faq' },
               { label: 'Sponsors', href: '#sponsors' },
             ].map((link) => (

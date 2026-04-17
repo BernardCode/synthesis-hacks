@@ -109,7 +109,7 @@ export default function Hero() {
 
       {/* Badge */}
       <div className="fade-up fade-up-delay-1">
-        <span className="badge-accent">May 31, 2025 · Mountain View</span>
+        <span className="badge-accent">May 23, 2025 · Sunnyvale</span>
       </div>
 
       {/* Headline */}
@@ -170,7 +170,7 @@ export default function Hero() {
           <span style={{ fontSize: '1rem' }}>↗</span>
         </a>
         <a
-          href="https://discord.gg/jWN2MFkH"
+          href="https://discord.gg/RPBJwNvs"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -219,7 +219,7 @@ export default function Hero() {
         {/* Sweeping highlight on hover of entire row */}
         {[
           { value: '12H', label: 'DURATION', sub: 'of building' },
-          { value: 'MAY 31', label: 'DATE', sub: 'Mountain View' },
+          { value: 'MAY 23', label: 'DATE', sub: 'Sunnyvale' },
           { value: '2–4', label: 'TEAM SIZE', sub: 'per team' },
           { value: '$0', label: 'COST', sub: 'always free' },
         ].map((stat, i, arr) => (

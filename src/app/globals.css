@@ -491,6 +491,12 @@ section {
   }
 }
 
+@media (max-width: 640px) {
+  .location-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* ============================================================
    PRIZE DIAMOND ROTATION
    ============================================================ */

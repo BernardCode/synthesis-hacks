@@ -36,7 +36,7 @@ export default function Agenda() {
   }, []);
 
   return (
-    <section ref={sectionRef} style={{ padding: '6rem 1.5rem' }}>
+    <section ref={sectionRef} id="schedule" style={{ padding: '6rem 1.5rem' }}>
       <div style={{ maxWidth: '720px', margin: '0 auto' }}>
         <div style={{ marginBottom: '4rem' }}>
           <span className="badge-accent" style={{ marginBottom: '1rem', display: 'inline-block' }}>
@@ -46,11 +46,11 @@ export default function Agenda() {
             className="font-display"
             style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: 1.1 }}
           >
-            May 31st,{' '}
+            May 23rd,{' '}
             <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>minute by minute.</em>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.75rem', lineHeight: 1.7 }}>
-            Mountain View campus · 8 AM to 8 PM
+            Google Humbolt · 1225 Crossman Ave, Sunnyvale · 3rd Floor · 8 AM – 8 PM
           </p>
         </div>
 

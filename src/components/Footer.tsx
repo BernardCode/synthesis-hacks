@@ -2,7 +2,7 @@
 
 import { Logo } from './Logo';
 
-const DISCORD = 'https://discord.gg/jWN2MFkH';
+const DISCORD = 'https://discord.gg/RPBJwNvs';
 
 function DiscordSVG({ size = 20 }: { size?: number }) {
   return (
