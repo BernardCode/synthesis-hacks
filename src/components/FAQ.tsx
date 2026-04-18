@@ -5,31 +5,31 @@ import { useState, useEffect, useRef } from 'react';
 const faqs = [
   {
     q: 'What is a hackathon?',
-    a: "A hackathon is an event where you team up with others to build a project in a set amount of time. An app, website, game, or anything you can dream up. It's less about competition and more about learning, creating, and connecting with people who share your curiosity.",
+    a: "A hackathon is an event where you team up to build a project in a fixed amount of time. An app, website, game, or anything else you want to try. It's less about winning and more about learning, making things, and meeting people who share your interests.",
   },
   {
     q: 'Do I need to know how to code?',
-    a: "Nope. Synthesis Hacks is designed for beginners. You might be surprised what you can build with a little guidance and a good team. We'll have mentors available throughout the event.",
+    a: "Nope. Synthesis Hacks is built for beginners. You'll be surprised what you can build with a bit of guidance and a good team. Mentors are around the whole day.",
   },
   {
     q: 'What grade levels can participate?',
-    a: 'Synthesis Hacks is open to all high school students (grades 9–12). No prior experience required. Just curiosity and a willingness to try.',
+    a: 'Synthesis Hacks is open to high school students (grades 9 through 12). No prior experience needed.',
   },
   {
     q: 'Is it solo or team-based?',
-    a: "Teams of 2–4 people. Don't have a team yet? No worries. We'll have a team-matching session at the start so you can find collaborators.",
+    a: "Teams of 2 to 4. Don't have a team yet? No worries. We run a team-matching session at the start so you can find people to work with.",
   },
   {
     q: 'Is there a cost to attend?',
-    a: 'Synthesis Hacks is free to attend. We believe great opportunities should be accessible to everyone.',
+    a: 'Synthesis Hacks is free. Good opportunities should be open to everyone.',
   },
   {
     q: 'How long is the event?',
-    a: 'The hackathon runs for 12 hours at our Mountain View campus. Full schedule details will be released closer to the event.',
+    a: 'The hackathon runs for 12 hours at Google Humboldt in Sunnyvale. Full schedule details go up closer to the event.',
   },
   {
     q: 'How do I get involved as a sponsor or mentor?',
-    a: "We'd love to have you. Scroll down to our sponsors section or email us at sponsors@synthesishacks.com and we'll be in touch.",
+    a: "We'd love to have you. Scroll down to the sponsors section or email sponsors@synthesishacks.com and we'll get back to you.",
   },
 ];
 

@@ -5,15 +5,15 @@ import { useEffect, useRef, useState } from 'react';
 type Event = { time: string; label: string; desc: string };
 
 const events: Event[] = [
-  { time: '8:00 AM',  label: 'Doors open',         desc: 'Check in, grab breakfast, and find your team.' },
-  { time: '9:00 AM',  label: 'Opening ceremony',   desc: 'Welcome remarks, event rules, and sponsor introductions.' },
-  { time: '9:30 AM',  label: 'Hacking begins',     desc: 'Build starts. Mentors are available from this moment.' },
-  { time: '12:00 PM', label: 'Lunch',              desc: 'Catered lunch. Take a break, swap ideas, keep building.' },
-  { time: '1:00 PM',  label: 'Workshops',          desc: 'Optional skill sessions running in parallel. Attend or keep building.' },
-  { time: '5:00 PM',  label: 'Submissions due',    desc: 'Final code freeze. Submit your project to the judging panel.' },
-  { time: '5:30 PM',  label: 'Demos begin',        desc: 'Science-fair style presentations. Each team gets time in front of judges.' },
-  { time: '7:30 PM',  label: 'Awards ceremony',    desc: 'Prizes, acknowledgements, and closing remarks.' },
-  { time: '8:00 PM',  label: 'Doors close',        desc: 'Wrap up, exchange contacts, and head home.' },
+  { time: '8:00 AM',  label: 'Doors open',         desc: 'Check in, grab breakfast, meet your team.' },
+  { time: '9:00 AM',  label: 'Opening ceremony',   desc: 'Welcome, rules of the day, sponsor intros.' },
+  { time: '9:30 AM',  label: 'Hacking begins',     desc: 'Start building. Mentors are around from this point on.' },
+  { time: '12:00 PM', label: 'Lunch',              desc: 'Catered lunch. Take a break, talk to people, keep going.' },
+  { time: '1:00 PM',  label: 'Workshops',          desc: 'Optional skill sessions run in parallel. Drop in or keep building.' },
+  { time: '5:00 PM',  label: 'Submissions due',    desc: 'Final code freeze. Submit your project for judging.' },
+  { time: '5:30 PM',  label: 'Demos begin',        desc: 'Show your project to the judges, science-fair style. Each team gets a slot.' },
+  { time: '7:30 PM',  label: 'Awards ceremony',    desc: 'Prizes, thank-yous, closing remarks.' },
+  { time: '8:00 PM',  label: 'Doors close',        desc: 'Pack up, trade contacts, head home.' },
 ];
 
 export default function Agenda() {
@@ -59,10 +59,10 @@ export default function Agenda() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Row entry — uses state + inline transition (NOT a keyframe animation).
+  // Row entry - uses state + inline transition (NOT a keyframe animation).
   // Keyframe animations can restart on React re-renders; inline transitions
   // simply animate between states and won't re-trigger once the target state
-  // is reached. Observer only adds to the Set, never removes — so once a
+  // is reached. Observer only adds to the Set, never removes - so once a
   // row is visible, its props never change.
   useEffect(() => {
     const rows = timelineRef.current?.querySelectorAll<HTMLElement>('.agenda-row');
@@ -152,7 +152,7 @@ export default function Agenda() {
             <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>minute by minute.</em>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginTop: '0.75rem', lineHeight: 1.7 }}>
-            Google Humboldt · 1225 Crossman Ave, Sunnyvale · 3rd Floor · 8 AM – 8 PM
+            Google Humboldt · 1225 Crossman Ave, Sunnyvale · 3rd Floor · 8 AM to 8 PM
           </p>
         </div>
 

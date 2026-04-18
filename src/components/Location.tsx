@@ -100,7 +100,7 @@ export default function Location() {
               <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Sunnyvale.</em>
             </h2>
             <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginTop: '0.75rem', lineHeight: 1.6, maxWidth: '50ch' }}>
-              A modern campus space with a dedicated main hall, lounges, and breakout rooms — perfect for a hackathon.
+              A modern campus with a dedicated main hall, lounges, and breakout rooms. A great fit for a hackathon.
             </p>
           </div>
           <div style={{
@@ -139,7 +139,7 @@ export default function Location() {
               border: '1px solid var(--border)',
             }}
           >
-            {/* Render all photos stacked — fade between them for smooth transitions */}
+            {/* Render all photos stacked - fade between them for smooth transitions */}
             {photos.map((p, i) => (
               <div
                 key={p.src}
@@ -345,7 +345,7 @@ export default function Location() {
                 { label: 'CITY',    value: 'Sunnyvale, CA' },
                 { label: 'FLOOR',   value: 'Third floor' },
                 { label: 'DATE',    value: 'May 23, 2026' },
-                { label: 'HOURS',   value: '8:00 AM – 8:00 PM' },
+                { label: 'HOURS',   value: '8:00 AM to 8:00 PM' },
               ].map(({ label, value }) => (
                 <div key={label} style={{ display: 'flex', gap: '1rem', alignItems: 'baseline' }}>
                   <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.1em', color: 'var(--text-muted)', minWidth: '68px' }}>{label}</span>
@@ -369,17 +369,17 @@ export default function Location() {
               {
                 icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" strokeWidth="1.3" fill="none"/><line x1="2" y1="8" x2="22" y2="8" stroke="currentColor" strokeWidth="1.1"/><rect x="6" y="12" width="3" height="3" rx=".4" fill="currentColor" opacity=".7"/><rect x="10.5" y="12" width="3" height="3" rx=".4" fill="currentColor" opacity=".5"/></svg>),
                 title: 'Save the date',
-                desc: 'Saturday, May 23, 2026. Doors open at 8 AM — arrive early to check in and find your team.',
+                desc: 'Saturday, May 23, 2026. Doors open at 8 AM. Show up early to check in and meet your team.',
               },
               {
                 icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.3" fill="none"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.1" fill="none"/></svg>),
                 title: 'Getting there',
-                desc: 'Google Humboldt campus in Sunnyvale. Parking on-site. Caltrain and VTA bus routes nearby.',
+                desc: 'Google Humboldt campus in Sunnyvale. Parking on-site. Caltrain and VTA buses run nearby.',
               },
               {
                 icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.3" fill="none"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/><line x1="12" y1="12" x2="12" y2="16" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/><line x1="10" y1="14" x2="14" y2="14" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
                 title: 'What to bring',
-                desc: "Laptop, charger, and ideas. Food and drinks provided all day. Bring your student ID for check-in.",
+                desc: "Laptop, charger, and ideas. Food and drinks are provided. Bring your student ID for check-in.",
               },
             ].map((item) => (
               <div

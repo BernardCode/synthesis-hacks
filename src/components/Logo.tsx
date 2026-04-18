@@ -1,4 +1,4 @@
-/* Synthesis Hacks — custom logo mark + wordmark */
+/* Synthesis Hacks - custom logo mark + wordmark */
 
 interface LogoMarkProps {
   size?: number;
@@ -48,7 +48,7 @@ export function LogoMark({ size = 32 }: LogoMarkProps) {
         opacity="0.15"
       />
 
-      {/* Z-trace — two horizontal rails connected by a diagonal slash */}
+      {/* Z-trace - two horizontal rails connected by a diagonal slash */}
       {/* Top rail */}
       <line
         x1={s * 0.25}

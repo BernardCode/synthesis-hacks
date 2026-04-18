@@ -146,8 +146,7 @@ export default function Prizes() {
                 To be announced.
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.8 }}>
-                We&apos;re making it worth building for. Prize details will be revealed
-                as sponsors come on board. Worth staying up 12 hours for.
+                Prize details go up as sponsors come on board.
               </p>
             </div>
           </div>

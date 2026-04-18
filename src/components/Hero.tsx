@@ -174,7 +174,7 @@ export default function Hero() {
           maxWidth: '42ch',
         }}
       >
-        A beginner-friendly, collaborative hackathon for high schoolers.
+        A beginner-friendly hackathon for high schoolers.
         <br />
         Build something real. Meet people who get it.
       </p>
@@ -223,7 +223,7 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* HUD stats row — replaces the pill chips */}
+      {/* HUD stats row - replaces the pill chips */}
       <div
         className="fade-up fade-up-delay-5"
         style={{
@@ -242,7 +242,7 @@ export default function Hero() {
         {[
           { value: '12H', label: 'DURATION', sub: 'of building' },
           { value: 'MAY 23', label: 'DATE', sub: 'Sunnyvale' },
-          { value: '2–4', label: 'TEAM SIZE', sub: 'per team' },
+          { value: '2-4', label: 'TEAM SIZE', sub: 'per team' },
           { value: '$0', label: 'COST', sub: 'always free' },
         ].map((stat, i, arr) => (
           <div

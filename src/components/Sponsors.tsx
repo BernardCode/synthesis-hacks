@@ -15,7 +15,7 @@ function resetTilt(e: React.MouseEvent<HTMLDivElement>) {
   e.currentTarget.style.boxShadow = '';
 }
 
-/* Reticle — concentric angular squares with corner brackets */
+/* Reticle - concentric angular squares with corner brackets */
 function ExposureSVG() {
   return (
     <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -30,7 +30,7 @@ function ExposureSVG() {
   );
 }
 
-/* Directed graph — source node feeds two intermediaries into a destination */
+/* Directed graph - source node feeds two intermediaries into a destination */
 function PipelineSVG() {
   return (
     <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -47,7 +47,7 @@ function PipelineSVG() {
   );
 }
 
-/* Ascending line chart — bottom-left to top-right with a terminal upward arrow */
+/* Ascending line chart - bottom-left to top-right with a terminal upward arrow */
 function ImpactSVG() {
   return (
     <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -74,17 +74,17 @@ const benefits: { icon: ReactNode; title: string; desc: string }[] = [
   {
     icon: <ExposureSVG />,
     title: 'Direct exposure',
-    desc: "Your brand in front of motivated, curious high schoolers. Tomorrow's engineers, designers, and founders.",
+    desc: "Your brand in front of motivated high schoolers. The next wave of engineers, designers, and founders.",
   },
   {
     icon: <PipelineSVG />,
     title: 'Talent pipeline',
-    desc: 'Meet and connect with promising students early. Lead workshops or mentorship sessions.',
+    desc: 'Meet students early. Run a workshop or lead a mentorship session.',
   },
   {
     icon: <ImpactSVG />,
     title: 'Community impact',
-    desc: 'Help lower barriers to tech education in your local community.',
+    desc: 'Lower the barrier to tech education in your community.',
   },
 ];
 
