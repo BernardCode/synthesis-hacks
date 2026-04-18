@@ -541,7 +541,7 @@ section {
 
   /* Step stage height on mobile */
   .step-stage {
-    height: 85vh !important;
+    height: 260px !important;
   }
 
   /* Step panel padding */

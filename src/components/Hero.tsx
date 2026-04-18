@@ -108,8 +108,22 @@ export default function Hero() {
       <div className="float-orb float-orb-4" />
 
       {/* Badge */}
-      <div className="fade-up fade-up-delay-1">
-        <span className="badge-accent">May 23, 2025 · Sunnyvale</span>
+      <div className="fade-up fade-up-delay-1" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
+        <span className="badge-accent">May 23, 2026 · Sunnyvale</span>
+        <span style={{
+          fontFamily: 'DM Mono, monospace',
+          fontSize: '0.68rem',
+          letterSpacing: '0.12em',
+          color: 'var(--coral)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.45rem',
+        }}>
+          <svg width="7" height="7" viewBox="0 0 8 8" fill="none" aria-hidden="true">
+            <circle cx="4" cy="4" r="3.2" fill="var(--coral)" opacity="0.9" />
+          </svg>
+          APPLICATIONS DUE MAY 3RD
+        </span>
       </div>
 
       {/* Headline */}

@@ -61,7 +61,7 @@ export default function Location() {
                 { label: 'ADDRESS', value: '1225 Crossman Ave' },
                 { label: 'CITY', value: 'Sunnyvale, CA' },
                 { label: 'FLOOR', value: 'Third floor' },
-                { label: 'DATE', value: 'May 23, 2025' },
+                { label: 'DATE', value: 'May 23, 2026' },
                 { label: 'HOURS', value: '8:00 AM – 8:00 PM' },
               ].map(({ label, value }) => (
                 <div key={label} style={{ display: 'flex', gap: '1.25rem', alignItems: 'baseline' }}>
@@ -111,7 +111,7 @@ export default function Location() {
                   </svg>
                 ),
                 title: 'Save the date',
-                desc: 'Friday, May 23, 2025. Doors open at 8 AM — arrive early to check in and find your team.',
+                desc: 'Friday, May 23, 2026. Doors open at 8 AM — arrive early to check in and find your team.',
               },
               {
                 icon: (

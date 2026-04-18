@@ -67,7 +67,7 @@ export default function Image() {
             letterSpacing: '0.2em',
             marginBottom: 8,
           }}>
-            MAY 23, 2025 · SUNNYVALE
+            MAY 23, 2026 · SUNNYVALE
           </div>
           <div style={{
             color: '#f0ede6',
