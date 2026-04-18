@@ -133,12 +133,12 @@ export default function Agenda() {
           color: var(--accent) !important;
         }
         .agenda-row.active .agenda-dot-inner {
-          transform: scale(1.35);
+          transform: translate(-50%, -50%) scale(1.35);
           background: var(--accent) !important;
         }
         .agenda-row.active .dot-ring-active {
           opacity: 1 !important;
-          transform: translate(-50%, -50%) scale(1) !important;
+          transform: translate(-50%, -50%) scale(1.4) !important;
         }
         .agenda-row:hover .agenda-card {
           transform: translateX(6px);
@@ -253,6 +253,9 @@ export default function Agenda() {
                     Line center is at 15px from timeline edge.
                     So dot needs left: 15px - 56px = -41px from row's edge.
                     Center-offset by dot radius (9px) → left: -50px.
+
+                    All children use top:50%; left:50%; translate(-50%,-50%)
+                    so they ALL share the same center point, no flex conflicts.
                   */}
                   <div
                     style={{
@@ -261,38 +264,42 @@ export default function Agenda() {
                       top: '6px',
                       width: '18px',
                       height: '18px',
-                      borderRadius: '50%',
                       zIndex: 2,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
                       pointerEvents: 'none',
                     }}
                   >
-                    {/* Outer ring — solid border, transparent interior */}
+                    {/* Outer ring — centered via transform like all siblings */}
                     <div
                       style={{
                         position: 'absolute',
-                        inset: 0,
+                        top: '50%',
+                        left: '50%',
+                        width: '18px',
+                        height: '18px',
                         borderRadius: '50%',
                         border: `1.5px solid ${isKey || isActive ? 'var(--accent)' : 'rgba(255,255,255,0.25)'}`,
                         background: 'transparent',
+                        boxSizing: 'border-box',
+                        transform: 'translate(-50%, -50%)',
                         transition: 'border-color 0.4s',
                       }}
                     />
-                    {/* Inner pellet */}
+                    {/* Inner pellet — centered on same point */}
                     <div
                       className="agenda-dot-inner"
                       style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
                         width: '7px',
                         height: '7px',
                         borderRadius: '50%',
                         background: isKey ? 'var(--accent)' : 'rgba(255,255,255,0.3)',
-                        transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                        zIndex: 1,
+                        transform: 'translate(-50%, -50%)',
+                        transition: 'background 0.4s',
                       }}
                     />
-                    {/* Pulsing ring — active state */}
+                    {/* Active-state pulse ring */}
                     <div
                       className="dot-ring-active"
                       style={{
@@ -303,6 +310,7 @@ export default function Agenda() {
                         height: '18px',
                         borderRadius: '50%',
                         border: '1.5px solid var(--accent)',
+                        boxSizing: 'border-box',
                         opacity: 0,
                         transform: 'translate(-50%, -50%) scale(0.5)',
                         transition: 'opacity 0.5s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -318,6 +326,8 @@ export default function Agenda() {
                         height: '18px',
                         borderRadius: '50%',
                         border: '1.5px solid var(--accent)',
+                        boxSizing: 'border-box',
+                        transformOrigin: 'center',
                         animation: 'ringPulse 2.4s ease-out infinite',
                         animationDelay: `${i * 0.4}s`,
                       }} />
