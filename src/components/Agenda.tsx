@@ -208,13 +208,14 @@ export default function Agenda() {
                 willChange: 'height',
               }}
             />
-            {/* Comet head — leads the fill as it moves */}
+            {/* Comet head — leads the fill as it moves. Line column is 2px wide,
+                comet is 10px, so left:-4px centers it on the line. */}
             <div
               ref={cometRef}
               style={{
                 position: 'absolute',
                 left: '-4px',
-                top: 0,
+                top: '-5px',
                 width: '10px',
                 height: '10px',
                 borderRadius: '50%',
@@ -247,15 +248,17 @@ export default function Agenda() {
                   }}
                 >
                   {/*
-                    DOT: NO solid background. Uses a ring (border only) so the
-                    line behind it is visible through the hollow center,
-                    eliminating the "gaps" problem entirely.
+                    DOT: absolute-positioned relative to the row.
+                    Row sits inside timeline's paddingLeft:3.5rem (56px).
+                    Line center is at 15px from timeline edge.
+                    So dot needs left: 15px - 56px = -41px from row's edge.
+                    Center-offset by dot radius (9px) → left: -50px.
                   */}
                   <div
                     style={{
                       position: 'absolute',
-                      left: '6px',
-                      top: '4px',
+                      left: '-50px',
+                      top: '6px',
                       width: '18px',
                       height: '18px',
                       borderRadius: '50%',
@@ -360,27 +363,10 @@ export default function Agenda() {
                           color: isKey ? 'var(--text-primary)' : 'var(--text-muted)',
                           marginBottom: '0.3rem',
                           letterSpacing: '-0.01em',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.65rem',
                           transition: 'color 0.3s',
                         }}
                       >
                         {ev.label}
-                        {isKey && (
-                          <span style={{
-                            fontSize: '0.6rem',
-                            fontFamily: 'DM Mono, monospace',
-                            letterSpacing: '0.14em',
-                            color: 'var(--accent)',
-                            padding: '0.15rem 0.5rem',
-                            border: '1px solid var(--border-accent)',
-                            borderRadius: '3px',
-                            background: 'rgba(196, 255, 80, 0.08)',
-                          }}>
-                            KEY
-                          </span>
-                        )}
                       </div>
                       <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>
                         {ev.desc}
