@@ -82,11 +82,12 @@ const steps = [
 ];
 
 const DEG_PER_STEP = 70;
-const MAX_SPEED_PER_FRAME = 0.045;
-const SPRING_STRENGTH = 0.08;
-const STEP_HOLD_MS = 4000;
+const MAX_SPEED_PER_FRAME = 0.028; // slower transition
+const SPRING_STRENGTH = 0.055;     // softer spring
+const STEP_HOLD_MS = 6000;         // 6 seconds per step
 
 export default function HowItWorks() {
+  const sectionRef = useRef<HTMLElement>(null);
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rafRef = useRef<number>(0);
   const progressBarRef = useRef<HTMLDivElement>(null);
@@ -95,6 +96,12 @@ export default function HowItWorks() {
   const displayStepRef = useRef(0);
   const stepStartTimeRef = useRef(0);
   const currentStepRef = useRef(0);
+  // Timer only counts while section is visible
+  const isVisibleRef = useRef(false);
+  // Accumulated time actually spent viewing the current step
+  const accruedMsRef = useRef(0);
+  // Timestamp when we last resumed (became visible)
+  const visibleSinceRef = useRef(0);
 
   const applyFrame = (displayStep: number) => {
     steps.forEach((_, i) => {
@@ -124,18 +131,42 @@ export default function HowItWorks() {
   const goToStep = (n: number) => {
     targetStepRef.current = n;
     currentStepRef.current = n;
-    stepStartTimeRef.current = performance.now();
+    accruedMsRef.current = 0;
+    if (isVisibleRef.current) {
+      visibleSinceRef.current = performance.now();
+    }
   };
 
   useEffect(() => {
-    stepStartTimeRef.current = performance.now();
     applyFrame(0);
+
+    // IntersectionObserver — start/pause timer based on visibility
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const now = performance.now();
+        if (entry.isIntersecting) {
+          // Resume: record when we became visible
+          isVisibleRef.current = true;
+          visibleSinceRef.current = now;
+        } else {
+          // Pause: bank the time spent visible so far
+          if (isVisibleRef.current) {
+            accruedMsRef.current += now - visibleSinceRef.current;
+          }
+          isVisibleRef.current = false;
+        }
+      },
+      { threshold: 0.4 } // at least 40% of section must be visible
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     const tick = () => {
       const now = performance.now();
       let display = displayStepRef.current;
       const target = targetStepRef.current;
 
+      // Smooth display toward target
       const rawDelta = target - display;
       const capped = Math.max(-MAX_SPEED_PER_FRAME, Math.min(MAX_SPEED_PER_FRAME, rawDelta));
       display += capped;
@@ -144,19 +175,23 @@ export default function HowItWorks() {
       } else {
         display = target;
       }
-
       displayStepRef.current = display;
       applyFrame(display);
 
-      const settled = Math.abs(display - target) < 0.02;
-      if (settled) {
-        const elapsed = now - stepStartTimeRef.current;
-        const progress = Math.min(1, elapsed / STEP_HOLD_MS);
-        if (progressBarRef.current) {
-          progressBarRef.current.style.width = `${progress * 100}%`;
-        }
-        if (elapsed >= STEP_HOLD_MS) {
-          goToStep((currentStepRef.current + 1) % steps.length);
+      // Only count down and advance when the section is visible
+      if (isVisibleRef.current) {
+        const settled = Math.abs(display - target) < 0.02;
+        if (settled) {
+          const viewingMs = accruedMsRef.current + (now - visibleSinceRef.current);
+          const progress = Math.min(1, viewingMs / STEP_HOLD_MS);
+
+          if (progressBarRef.current) {
+            progressBarRef.current.style.width = `${progress * 100}%`;
+          }
+
+          if (viewingMs >= STEP_HOLD_MS) {
+            goToStep((currentStepRef.current + 1) % steps.length);
+          }
         }
       }
 
@@ -164,12 +199,16 @@ export default function HowItWorks() {
     };
 
     rafRef.current = requestAnimationFrame(tick);
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      observer.disconnect();
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <section style={{ padding: '6rem 1.5rem' }}>
+    <section ref={sectionRef} style={{ padding: '6rem 1.5rem' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
 
         <div style={{ marginBottom: '3.5rem' }}>
@@ -213,7 +252,7 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* Auto-advance progress bar */}
+        {/* Progress bar — only fills while section is in view */}
         <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '3rem', overflow: 'hidden' }}>
           <div ref={progressBarRef} style={{ height: '100%', width: '0%', background: 'var(--accent)', opacity: 0.45 }} />
         </div>
