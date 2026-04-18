@@ -21,7 +21,7 @@ export default function Footer() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
           <Logo size={26} />
           <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', marginTop: '0.15rem' }}>
-            hello@synthesishacks.com
+            team@synthesishacks.com
           </p>
         </div>
 

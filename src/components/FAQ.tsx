@@ -194,7 +194,7 @@ export default function FAQ() {
             <p style={{ fontWeight: 500, marginBottom: '0.2rem', fontSize: '0.95rem' }}>Still have questions?</p>
             <p style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>We're happy to help.</p>
           </div>
-          <a href="mailto:hello@synthesishacks.com" className="btn-primary" style={{ textDecoration: 'none', fontSize: '1rem', padding: '0.65rem 1.5rem' }}>
+          <a href="mailto:team@synthesishacks.com" className="btn-primary" style={{ textDecoration: 'none', fontSize: '1rem', padding: '0.65rem 1.5rem' }}>
             Email us
           </a>
         </div>

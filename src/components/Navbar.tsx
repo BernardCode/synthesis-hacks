@@ -55,7 +55,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="mailto:hello@synthesishacks.com"
+              href="mailto:team@synthesishacks.com"
               style={{
                 background: 'var(--accent-dim)',
                 border: '1px solid var(--border-accent)',
