@@ -142,8 +142,8 @@ export default function Sponsors() {
             >
               <div style={{ color: 'var(--accent)' }}>{item.icon}</div>
               <div>
-                <p style={{ fontWeight: 500, fontSize: '0.95rem', marginBottom: '0.35rem' }}>{item.title}</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.65 }}>{item.desc}</p>
+                <p style={{ fontWeight: 500, fontSize: '1rem', marginBottom: '0.35rem' }}>{item.title}</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.65 }}>{item.desc}</p>
               </div>
             </div>
           ))}
@@ -238,7 +238,7 @@ export default function Sponsors() {
               <div style={{ width: '1px', height: '32px', background: 'var(--border)' }} />
               <div>
                 <p style={{ fontSize: '0.82rem', fontWeight: 500, marginBottom: '0.15rem' }}>Venue Sponsor</p>
-                <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace' }}>Google Humboldt · Sunnyvale</p>
+                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace' }}>Google Humboldt · Sunnyvale</p>
               </div>
             </div>
           </div>

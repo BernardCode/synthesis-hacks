@@ -8,7 +8,7 @@
   --border: rgba(255,255,255,0.08);
   --border-accent: rgba(196,255,80,0.3);
   --text-primary: #f0ede6;
-  --text-muted: #7a7a8c;
+  --text-muted: #9a9aae;
   --accent: #c4ff50;
   --accent-dim: rgba(196,255,80,0.12);
   --accent-glow: rgba(196,255,80,0.25);
@@ -95,8 +95,8 @@ body::before {
   border: 1px solid var(--border-accent);
   color: var(--accent);
   font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.35rem 0.9rem;
   border-radius: 100px;

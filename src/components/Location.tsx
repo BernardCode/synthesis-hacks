@@ -56,7 +56,7 @@ export default function Location() {
             background: 'var(--bg-card)',
             flexShrink: 0,
           }}>
-            <span style={{ fontSize: '0.65rem', fontFamily: 'DM Mono, monospace', color: 'var(--text-muted)', letterSpacing: '0.1em' }}>HOSTED BY</span>
+            <span style={{ fontSize: '0.78rem', fontFamily: 'DM Mono, monospace', color: 'var(--text-muted)', letterSpacing: '0.08em' }}>HOSTED BY</span>
             <GoogleLogo height={20} />
           </div>
         </div>
@@ -91,8 +91,8 @@ export default function Location() {
               padding: '0.6rem 1rem',
               background: 'linear-gradient(to top, rgba(13,13,20,0.85), transparent)',
               fontFamily: 'DM Mono, monospace',
-              fontSize: '0.62rem',
-              letterSpacing: '0.12em',
+              fontSize: '0.78rem',
+              letterSpacing: '0.1em',
               color: 'rgba(240,237,230,0.8)',
               textTransform: 'uppercase',
             }}>
@@ -148,7 +148,7 @@ export default function Location() {
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <GoogleLogo height={22} />
-              <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.62rem', color: 'var(--text-muted)', letterSpacing: '0.1em' }}>HUMBOLDT</span>
+              <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.78rem', color: 'var(--text-muted)', letterSpacing: '0.08em' }}>HUMBOLDT</span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -160,8 +160,8 @@ export default function Location() {
                 { label: 'HOURS',   value: '8:00 AM – 8:00 PM' },
               ].map(({ label, value }) => (
                 <div key={label} style={{ display: 'flex', gap: '1rem', alignItems: 'baseline' }}>
-                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.52rem', letterSpacing: '0.16em', color: 'var(--text-muted)', minWidth: '60px', opacity: 0.65 }}>{label}</span>
-                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 400 }}>{value}</span>
+                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.1em', color: 'var(--text-muted)', minWidth: '68px' }}>{label}</span>
+                  <span style={{ fontSize: '0.98rem', color: 'var(--text-primary)', fontWeight: 400 }}>{value}</span>
                 </div>
               ))}
             </div>
@@ -209,8 +209,8 @@ export default function Location() {
               >
                 <div style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '1px' }}>{item.icon}</div>
                 <div>
-                  <p style={{ fontWeight: 500, fontSize: '0.9rem', marginBottom: '0.3rem' }}>{item.title}</p>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', lineHeight: 1.65 }}>{item.desc}</p>
+                  <p style={{ fontWeight: 500, fontSize: '1rem', marginBottom: '0.3rem' }}>{item.title}</p>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>{item.desc}</p>
                 </div>
               </div>
             ))}

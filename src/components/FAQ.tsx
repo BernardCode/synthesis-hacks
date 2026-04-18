@@ -86,7 +86,7 @@ function AccordionItem({
           gap: '1rem',
         }}
       >
-        <span style={{ fontSize: '0.95rem', fontWeight: 500, color: 'var(--text-primary)', lineHeight: 1.4, flex: 1 }}>
+        <span style={{ fontSize: '1rem', fontWeight: 500, color: 'var(--text-primary)', lineHeight: 1.4, flex: 1 }}>
           {faq.q}
         </span>
         <svg
@@ -192,9 +192,9 @@ export default function FAQ() {
         >
           <div>
             <p style={{ fontWeight: 500, marginBottom: '0.2rem', fontSize: '0.95rem' }}>Still have questions?</p>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>We're happy to help.</p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>We're happy to help.</p>
           </div>
-          <a href="mailto:hello@synthesishacks.com" className="btn-primary" style={{ textDecoration: 'none', fontSize: '0.85rem', padding: '0.65rem 1.5rem' }}>
+          <a href="mailto:hello@synthesishacks.com" className="btn-primary" style={{ textDecoration: 'none', fontSize: '1rem', padding: '0.65rem 1.5rem' }}>
             Email us
           </a>
         </div>

@@ -108,12 +108,20 @@ export default function Hero() {
       <div className="float-orb float-orb-4" />
 
       {/* Badge */}
-      <div className="fade-up fade-up-delay-1" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
-        <span className="badge-accent">May 23, 2026 · Sunnyvale</span>
+      <div className="fade-up fade-up-delay-1" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.65rem' }}>
+        <span className="badge-accent">May 23, 2026 · Google Humboldt</span>
         <span style={{
           fontFamily: 'DM Mono, monospace',
-          fontSize: '0.68rem',
-          letterSpacing: '0.12em',
+          fontSize: '0.82rem',
+          letterSpacing: '0.1em',
+          color: 'var(--text-muted)',
+        }}>
+          1225 Crossman Ave, Sunnyvale · 3rd Floor
+        </span>
+        <span style={{
+          fontFamily: 'DM Mono, monospace',
+          fontSize: '0.82rem',
+          letterSpacing: '0.1em',
           color: 'var(--coral)',
           display: 'flex',
           alignItems: 'center',
@@ -122,7 +130,7 @@ export default function Hero() {
           <svg width="7" height="7" viewBox="0 0 8 8" fill="none" aria-hidden="true">
             <circle cx="4" cy="4" r="3.2" fill="var(--coral)" opacity="0.9" />
           </svg>
-          APPLICATIONS DUE MAY 3RD
+          Applications due May 3rd
         </span>
       </div>
 
@@ -269,8 +277,8 @@ export default function Hero() {
             <span
               style={{
                 fontFamily: 'DM Mono, monospace',
-                fontSize: '0.5rem',
-                letterSpacing: '0.18em',
+                fontSize: '0.68rem',
+                letterSpacing: '0.14em',
                 color: 'var(--text-primary)',
                 fontWeight: 500,
                 marginTop: '0.15rem',
@@ -278,7 +286,7 @@ export default function Hero() {
             >
               {stat.label}
             </span>
-            <span style={{ fontSize: '0.62rem', color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
               {stat.sub}
             </span>
           </div>

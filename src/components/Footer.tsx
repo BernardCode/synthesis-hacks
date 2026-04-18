@@ -20,7 +20,7 @@ export default function Footer() {
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
           <Logo size={26} />
-          <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', marginTop: '0.15rem' }}>
+          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', marginTop: '0.15rem' }}>
             hello@synthesishacks.com
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function Footer() {
           Join Discord
         </a>
 
-        <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', opacity: 0.5 }}>
+        <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', opacity: 0.65 }}>
           © {year} Synthesis Hacks
         </p>
       </div>

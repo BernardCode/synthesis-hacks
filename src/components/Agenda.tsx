@@ -49,7 +49,7 @@ export default function Agenda() {
             May 23rd,{' '}
             <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>minute by minute.</em>
           </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.75rem', lineHeight: 1.7 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginTop: '0.75rem', lineHeight: 1.7 }}>
             Google Humbolt · 1225 Crossman Ave, Sunnyvale · 3rd Floor · 8 AM – 8 PM
           </p>
         </div>
@@ -156,7 +156,7 @@ function AgendaRow({ ev, index }: { ev: typeof events[0]; index: number }) {
       {/* Content */}
       <div style={{ flex: 1 }}>
         <div style={{
-          fontSize: '0.95rem',
+          fontSize: '1rem',
           fontWeight: isKeyEvent ? 500 : 400,
           color: isKeyEvent ? 'var(--text-primary)' : 'var(--text-primary)',
           marginBottom: '0.3rem',
@@ -164,7 +164,7 @@ function AgendaRow({ ev, index }: { ev: typeof events[0]; index: number }) {
         }}>
           {ev.label}
         </div>
-        <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>
+        <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>
           {ev.desc}
         </div>
       </div>

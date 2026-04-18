@@ -235,7 +235,7 @@ export default function HowItWorks() {
               <span
                 className="step-ind-label"
                 data-active={i === 0 ? 'true' : 'false'}
-                style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.58rem', letterSpacing: '0.2em', transition: 'color 0.4s ease, opacity 0.4s ease' }}
+                style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.74rem', letterSpacing: '0.2em', transition: 'color 0.4s ease, opacity 0.4s ease' }}
               >
                 {s.number} / {s.label}
               </span>
@@ -274,7 +274,7 @@ export default function HowItWorks() {
                           <rect x="0" y="0" width="8" height="8" stroke="currentColor" strokeWidth="0.8" fill="none" opacity="0.3" />
                           <rect x="2.5" y="2.5" width="3" height="3" fill="currentColor" opacity="0.55" />
                         </svg>
-                        <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', letterSpacing: '0.04em' }}>{d}</span>
+                        <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', letterSpacing: '0.04em' }}>{d}</span>
                       </div>
                     ))}
                   </div>
