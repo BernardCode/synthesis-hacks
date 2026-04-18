@@ -81,116 +81,112 @@ const steps = [
   },
 ];
 
-const DEG_PER_STEP = 70;
-const MAX_SPEED_PER_FRAME = 0.028; // slower transition
-const SPRING_STRENGTH = 0.055;     // softer spring
-const STEP_HOLD_MS = 6000;         // 6 seconds per step
+const DEG_PER_STEP   = 70;
+const MAX_SPEED      = 0.018;   // slower flip
+const SPRING         = 0.038;   // softer spring
+const STEP_HOLD_MS   = 8000;    // 8 seconds per step
 
 export default function HowItWorks() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const rafRef = useRef<number>(0);
+  const sectionRef     = useRef<HTMLElement>(null);
+  const panelRefs      = useRef<(HTMLDivElement | null)[]>([]);
+  const rafRef         = useRef<number>(0);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const prevBtnRef     = useRef<HTMLButtonElement>(null);
+  const nextBtnRef     = useRef<HTMLButtonElement>(null);
 
-  const targetStepRef = useRef(0);
-  const displayStepRef = useRef(0);
-  const stepStartTimeRef = useRef(0);
-  const currentStepRef = useRef(0);
-  // Timer only counts while section is visible
-  const isVisibleRef = useRef(false);
-  // Accumulated time actually spent viewing the current step
-  const accruedMsRef = useRef(0);
-  // Timestamp when we last resumed (became visible)
-  const visibleSinceRef = useRef(0);
+  const targetRef      = useRef(0);
+  const displayRef     = useRef(0);
+  const currentRef     = useRef(0);
+  const isVisibleRef   = useRef(false);
+  const accruedRef     = useRef(0);
+  const visibleSince   = useRef(0);
 
-  const applyFrame = (displayStep: number) => {
+  // ── render one animation frame ──────────────────────────────
+  const applyFrame = (d: number) => {
     steps.forEach((_, i) => {
       const el = panelRefs.current[i];
       if (!el) return;
-      const delta = i - displayStep;
+      const delta   = i - d;
       const rotateX = delta * DEG_PER_STEP;
-      const absDelta = Math.abs(delta);
-      const opacity = Math.max(0, 1 - Math.pow(absDelta, 1.6) * 2.2);
+      const opacity = Math.max(0, 1 - Math.pow(Math.abs(delta), 1.6) * 2.2);
       el.style.transform = `rotateX(${rotateX}deg)`;
-      el.style.opacity = String(opacity);
-      el.classList.toggle('is-active', absDelta < 0.5);
+      el.style.opacity   = String(opacity);
+      el.classList.toggle('is-active', Math.abs(delta) < 0.5);
     });
 
-    const activeIndex = Math.round(displayStep);
+    const active = Math.round(d);
     document.querySelectorAll('.step-indicator-btn').forEach((btn, i) => {
-      const isActive = i === activeIndex;
-      btn.querySelector('.step-ind-label')?.setAttribute('data-active', String(isActive));
+      const on = i === active;
+      btn.querySelector('.step-ind-label')?.setAttribute('data-active', String(on));
       const bar = btn.querySelector('.step-ind-bar') as HTMLElement | null;
       if (bar) {
-        bar.style.width = isActive ? '52px' : '20px';
-        bar.style.background = isActive ? 'var(--accent)' : 'rgba(255,255,255,0.1)';
+        bar.style.width      = on ? '52px' : '20px';
+        bar.style.background = on ? 'var(--accent)' : 'rgba(255,255,255,0.1)';
       }
     });
+
+    // arrow button opacity
+    if (prevBtnRef.current) prevBtnRef.current.style.opacity = active === 0 ? '0.25' : '1';
+    if (nextBtnRef.current) nextBtnRef.current.style.opacity = active === steps.length - 1 ? '0.25' : '1';
   };
 
+  // ── jump to a step (resets timer) ───────────────────────────
   const goToStep = (n: number) => {
-    targetStepRef.current = n;
-    currentStepRef.current = n;
-    accruedMsRef.current = 0;
-    if (isVisibleRef.current) {
-      visibleSinceRef.current = performance.now();
-    }
+    const clamped = Math.max(0, Math.min(steps.length - 1, n));
+    targetRef.current  = clamped;
+    currentRef.current = clamped;
+    accruedRef.current = 0;
+    if (isVisibleRef.current) visibleSince.current = performance.now();
   };
 
   useEffect(() => {
     applyFrame(0);
 
-    // IntersectionObserver — start/pause timer based on visibility
+    // ── IntersectionObserver: require 60% visible before starting ──
     const observer = new IntersectionObserver(
       ([entry]) => {
         const now = performance.now();
         if (entry.isIntersecting) {
-          // Resume: record when we became visible
-          isVisibleRef.current = true;
-          visibleSinceRef.current = now;
+          isVisibleRef.current  = true;
+          visibleSince.current  = now;
         } else {
-          // Pause: bank the time spent visible so far
           if (isVisibleRef.current) {
-            accruedMsRef.current += now - visibleSinceRef.current;
+            accruedRef.current += now - visibleSince.current;
           }
           isVisibleRef.current = false;
         }
       },
-      { threshold: 0.4 } // at least 40% of section must be visible
+      { threshold: 0.6 }   // 60% — user is clearly looking at it
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
 
+    // ── rAF loop ────────────────────────────────────────────────
     const tick = () => {
-      const now = performance.now();
-      let display = displayStepRef.current;
-      const target = targetStepRef.current;
+      const now    = performance.now();
+      let   disp   = displayRef.current;
+      const target = targetRef.current;
 
-      // Smooth display toward target
-      const rawDelta = target - display;
-      const capped = Math.max(-MAX_SPEED_PER_FRAME, Math.min(MAX_SPEED_PER_FRAME, rawDelta));
-      display += capped;
-      if (Math.abs(target - display) > 0.001) {
-        display += (target - display) * SPRING_STRENGTH;
+      const delta  = target - disp;
+      const capped = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, delta));
+      disp += capped;
+      if (Math.abs(target - disp) > 0.0005) {
+        disp += (target - disp) * SPRING;
       } else {
-        display = target;
+        disp = target;
       }
-      displayStepRef.current = display;
-      applyFrame(display);
+      displayRef.current = disp;
+      applyFrame(disp);
 
-      // Only count down and advance when the section is visible
       if (isVisibleRef.current) {
-        const settled = Math.abs(display - target) < 0.02;
+        const settled = Math.abs(disp - target) < 0.02;
         if (settled) {
-          const viewingMs = accruedMsRef.current + (now - visibleSinceRef.current);
-          const progress = Math.min(1, viewingMs / STEP_HOLD_MS);
-
+          const elapsed  = accruedRef.current + (now - visibleSince.current);
+          const progress = Math.min(1, elapsed / STEP_HOLD_MS);
           if (progressBarRef.current) {
             progressBarRef.current.style.width = `${progress * 100}%`;
           }
-
-          if (viewingMs >= STEP_HOLD_MS) {
-            goToStep((currentStepRef.current + 1) % steps.length);
+          if (elapsed >= STEP_HOLD_MS) {
+            goToStep((currentRef.current + 1) % steps.length);
           }
         }
       }
@@ -199,18 +195,34 @@ export default function HowItWorks() {
     };
 
     rafRef.current = requestAnimationFrame(tick);
-
     return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      cancelAnimationFrame(rafRef.current);
       observer.disconnect();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // ── arrow button style ───────────────────────────────────────
+  const arrowStyle: React.CSSProperties = {
+    background: 'none',
+    border: '1px solid var(--border)',
+    borderRadius: '50%',
+    width: '40px',
+    height: '40px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    color: 'var(--text-primary)',
+    transition: 'border-color 0.2s, opacity 0.2s, background 0.2s',
+    flexShrink: 0,
+  };
+
   return (
     <section ref={sectionRef} style={{ padding: '6rem 1.5rem' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
 
+        {/* Header */}
         <div style={{ marginBottom: '3.5rem' }}>
           <span className="badge-accent" style={{ marginBottom: '1rem', display: 'inline-block' }}>
             How it works
@@ -224,39 +236,73 @@ export default function HowItWorks() {
           </h2>
         </div>
 
-        <div style={{ display: 'flex', gap: '2.5rem', marginBottom: '1rem' }}>
-          {steps.map((s, i) => (
-            <button
-              key={s.number}
-              className="step-indicator-btn"
-              onClick={() => goToStep(i)}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.45rem', alignItems: 'flex-start' }}
-            >
-              <span
-                className="step-ind-label"
-                data-active={i === 0 ? 'true' : 'false'}
-                style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.74rem', letterSpacing: '0.2em', transition: 'color 0.4s ease, opacity 0.4s ease' }}
+        {/* Controls row: indicators + arrows */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+
+          {/* Step indicator tabs */}
+          <div style={{ display: 'flex', gap: '2.5rem' }}>
+            {steps.map((s, i) => (
+              <button
+                key={s.number}
+                className="step-indicator-btn"
+                onClick={() => goToStep(i)}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.45rem', alignItems: 'flex-start' }}
               >
-                {s.number} / {s.label}
-              </span>
-              <div
-                className="step-ind-bar"
-                style={{
-                  height: '1px',
-                  width: i === 0 ? '52px' : '20px',
-                  background: i === 0 ? 'var(--accent)' : 'rgba(255,255,255,0.1)',
-                  transition: 'width 0.6s cubic-bezier(0.16,1,0.3,1), background 0.5s ease',
-                }}
-              />
+                <span
+                  className="step-ind-label"
+                  data-active={i === 0 ? 'true' : 'false'}
+                  style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.74rem', letterSpacing: '0.2em', transition: 'color 0.4s ease, opacity 0.4s ease' }}
+                >
+                  {s.number} / {s.label}
+                </span>
+                <div
+                  className="step-ind-bar"
+                  style={{
+                    height: '1px',
+                    width: i === 0 ? '52px' : '20px',
+                    background: i === 0 ? 'var(--accent)' : 'rgba(255,255,255,0.1)',
+                    transition: 'width 0.6s cubic-bezier(0.16,1,0.3,1), background 0.5s ease',
+                  }}
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Prev / Next arrows */}
+          <div style={{ display: 'flex', gap: '0.6rem' }}>
+            <button
+              ref={prevBtnRef}
+              onClick={() => goToStep(currentRef.current - 1)}
+              style={{ ...arrowStyle, opacity: 0.25 }}
+              aria-label="Previous step"
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--border-accent)'; e.currentTarget.style.background = 'var(--accent-dim)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'none'; }}
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M10 3 L5 8 L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
-          ))}
+            <button
+              ref={nextBtnRef}
+              onClick={() => goToStep(currentRef.current + 1)}
+              style={arrowStyle}
+              aria-label="Next step"
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--border-accent)'; e.currentTarget.style.background = 'var(--accent-dim)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'none'; }}
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3 L11 8 L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Progress bar — only fills while section is in view */}
+        {/* Progress bar */}
         <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '3rem', overflow: 'hidden' }}>
           <div ref={progressBarRef} style={{ height: '100%', width: '0%', background: 'var(--accent)', opacity: 0.45 }} />
         </div>
 
+        {/* 3D stage */}
         <div className="step-stage">
           {steps.map((step, i) => (
             <div
