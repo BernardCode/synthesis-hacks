@@ -16,8 +16,6 @@ const events: Event[] = [
   { time: '8:00 PM',  label: 'Doors close',        desc: 'Wrap up, exchange contacts, and head home.' },
 ];
 
-const KEY_EVENTS = new Set([2, 4, 7]);
-
 export default function Agenda() {
   const sectionRef  = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -29,8 +27,8 @@ export default function Agenda() {
   // Scroll-driven line fill and active dot detection
   useEffect(() => {
     const onScroll = () => {
-      const tl   = timelineRef.current;
-      const fill = fillRef.current;
+      const tl    = timelineRef.current;
+      const fill  = fillRef.current;
       const comet = cometRef.current;
       if (!tl || !fill) return;
 
@@ -41,14 +39,12 @@ export default function Agenda() {
 
       fill.style.height = `${progress * 100}%`;
 
-      // Comet head position
       if (comet) {
         const cometY = progress * rect.height;
         comet.style.transform = `translateY(${cometY}px)`;
         comet.style.opacity = progress > 0.01 && progress < 0.99 ? '1' : '0';
       }
 
-      // Find the latest dot above target line
       const rows = tl.querySelectorAll<HTMLElement>('.agenda-row');
       let newActive = -1;
       rows.forEach((row, i) => {
@@ -87,7 +83,7 @@ export default function Agenda() {
 
   return (
     <section ref={sectionRef} id="schedule" style={{ padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
-      {/* Ambient accent glow behind section */}
+      {/* Ambient accent glow */}
       <div style={{
         position: 'absolute',
         width: '500px',
@@ -102,14 +98,6 @@ export default function Agenda() {
       }} />
 
       <style jsx>{`
-        @keyframes ringPulse {
-          0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.7; }
-          100% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
-        }
-        @keyframes dotGlow {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(196, 255, 80, 0); }
-          50%      { box-shadow: 0 0 0 6px rgba(196, 255, 80, 0.12); }
-        }
         @keyframes cometTrail {
           0%, 100% { transform: scale(1); opacity: 1; }
           50%      { transform: scale(1.15); opacity: 0.7; }
@@ -118,35 +106,31 @@ export default function Agenda() {
           from { opacity: 0; transform: translateX(-24px); }
           to   { opacity: 1; transform: translateX(0); }
         }
-        .row-enter { opacity: 0; transform: translateX(-24px); }
+        .row-enter   { opacity: 0; transform: translateX(-24px); }
         .row-visible { animation: rowSlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
         .agenda-row.active .agenda-card {
           border-color: var(--border-accent) !important;
           background: linear-gradient(135deg, var(--bg-card) 0%, rgba(196,255,80,0.04) 100%) !important;
           transform: translateX(6px);
           box-shadow: -4px 0 24px rgba(196, 255, 80, 0.06);
         }
-        .agenda-row.active .agenda-label {
-          color: var(--text-primary) !important;
-        }
-        .agenda-row.active .agenda-time {
-          color: var(--accent) !important;
-        }
+        .agenda-row.active .agenda-label { color: var(--text-primary) !important; }
+        .agenda-row.active .agenda-time  { color: var(--accent) !important; }
         .agenda-row.active .agenda-dot-inner {
-          transform: translate(-50%, -50%) scale(1.35);
+          transform: translate(-50%, -50%) scale(1.4);
           background: var(--accent) !important;
+        }
+        .agenda-row.active .agenda-dot-outer {
+          border-color: var(--accent) !important;
         }
         .agenda-row.active .dot-ring-active {
           opacity: 1 !important;
-          transform: translate(-50%, -50%) scale(1.4) !important;
+          transform: translate(-50%, -50%) scale(1.5) !important;
         }
         .agenda-row:hover .agenda-card {
           transform: translateX(6px);
           border-color: var(--border-accent);
-        }
-        .agenda-row.key .agenda-dot-inner {
-          background: var(--accent);
-          animation: dotGlow 2.4s ease-in-out infinite;
         }
       `}</style>
 
@@ -173,14 +157,14 @@ export default function Agenda() {
         <div ref={timelineRef} style={{ position: 'relative', paddingLeft: '3.5rem' }}>
 
           {/*
-            LINE LAYER: sits in its OWN column to the left of rows.
-            Dots overlap it visually but do NOT have a solid bg to punch through.
+            LINE: 2px wide column, positioned at left:14px so its center X = 15px.
+            Starts at top:15px (the y-center of the first dot) and ends 15px before bottom.
           */}
           <div style={{
             position: 'absolute',
             left: '14px',
-            top: '6px',
-            bottom: '6px',
+            top: '15px',
+            bottom: '15px',
             width: '2px',
             pointerEvents: 'none',
             zIndex: 0,
@@ -208,8 +192,7 @@ export default function Agenda() {
                 willChange: 'height',
               }}
             />
-            {/* Comet head — leads the fill as it moves. Line column is 2px wide,
-                comet is 10px, so left:-4px centers it on the line. */}
+            {/* Comet head */}
             <div
               ref={cometRef}
               style={{
@@ -231,14 +214,13 @@ export default function Agenda() {
           {/* Event rows */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {events.map((ev, i) => {
-              const isKey     = KEY_EVENTS.has(i);
               const isActive  = i === activeIndex;
               const isVisible = visibleRows.has(i);
               return (
                 <div
                   key={i}
                   data-idx={i}
-                  className={`agenda-row ${isKey ? 'key' : ''} ${isActive ? 'active' : ''} ${isVisible ? 'row-visible' : 'row-enter'}`}
+                  className={`agenda-row ${isActive ? 'active' : ''} ${isVisible ? 'row-visible' : 'row-enter'}`}
                   style={{
                     display: 'flex',
                     gap: '1.25rem',
@@ -248,14 +230,9 @@ export default function Agenda() {
                   }}
                 >
                   {/*
-                    DOT: absolute-positioned relative to the row.
-                    Row sits inside timeline's paddingLeft:3.5rem (56px).
-                    Line center is at 15px from timeline edge.
-                    So dot needs left: 15px - 56px = -41px from row's edge.
-                    Center-offset by dot radius (9px) → left: -50px.
-
-                    All children use top:50%; left:50%; translate(-50%,-50%)
-                    so they ALL share the same center point, no flex conflicts.
+                    DOT wrapper at left:-50px (so dot center lands on line center at 15px from timeline edge).
+                    Top:6px so dot center y = 15px (matches line's top:15px start).
+                    All children use identical top/left/translate for perfect concentric centering.
                   */}
                   <div
                     style={{
@@ -268,8 +245,9 @@ export default function Agenda() {
                       pointerEvents: 'none',
                     }}
                   >
-                    {/* Outer ring — centered via transform like all siblings */}
+                    {/* Outer ring */}
                     <div
+                      className="agenda-dot-outer"
                       style={{
                         position: 'absolute',
                         top: '50%',
@@ -277,14 +255,14 @@ export default function Agenda() {
                         width: '18px',
                         height: '18px',
                         borderRadius: '50%',
-                        border: `1.5px solid ${isKey || isActive ? 'var(--accent)' : 'rgba(255,255,255,0.25)'}`,
+                        border: `1.5px solid ${isActive ? 'var(--accent)' : 'rgba(255,255,255,0.25)'}`,
                         background: 'transparent',
                         boxSizing: 'border-box',
                         transform: 'translate(-50%, -50%)',
                         transition: 'border-color 0.4s',
                       }}
                     />
-                    {/* Inner pellet — centered on same point */}
+                    {/* Inner pellet */}
                     <div
                       className="agenda-dot-inner"
                       style={{
@@ -294,9 +272,9 @@ export default function Agenda() {
                         width: '7px',
                         height: '7px',
                         borderRadius: '50%',
-                        background: isKey ? 'var(--accent)' : 'rgba(255,255,255,0.3)',
+                        background: 'rgba(255,255,255,0.3)',
                         transform: 'translate(-50%, -50%)',
-                        transition: 'background 0.4s',
+                        transition: 'background 0.4s, transform 0.4s',
                       }}
                     />
                     {/* Active-state pulse ring */}
@@ -316,33 +294,16 @@ export default function Agenda() {
                         transition: 'opacity 0.5s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
                       }}
                     />
-                    {/* Continuous key-event pulse */}
-                    {isKey && (
-                      <div style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        width: '18px',
-                        height: '18px',
-                        borderRadius: '50%',
-                        border: '1.5px solid var(--accent)',
-                        boxSizing: 'border-box',
-                        transformOrigin: 'center',
-                        animation: 'ringPulse 2.4s ease-out infinite',
-                        animationDelay: `${i * 0.4}s`,
-                      }} />
-                    )}
                   </div>
 
-                  {/* Push content right past dot */}
+                  {/* Content */}
                   <div style={{ paddingLeft: '1.5rem', display: 'flex', gap: '1.25rem', flex: 1 }}>
-                    {/* Time */}
                     <div
                       className="agenda-time"
                       style={{
                         fontFamily: 'DM Mono, monospace',
                         fontSize: '0.82rem',
-                        color: isKey ? 'var(--accent)' : 'var(--text-muted)',
+                        color: 'var(--text-muted)',
                         letterSpacing: '0.04em',
                         minWidth: '72px',
                         paddingTop: '8px',
@@ -353,14 +314,13 @@ export default function Agenda() {
                       {ev.time}
                     </div>
 
-                    {/* Card */}
                     <div
                       className="agenda-card"
                       style={{
                         flex: 1,
                         padding: '0.95rem 1.2rem',
-                        background: isKey ? 'rgba(196, 255, 80, 0.025)' : 'var(--bg-card)',
-                        border: `1px solid ${isKey ? 'var(--border-accent)' : 'var(--border)'}`,
+                        background: 'var(--bg-card)',
+                        border: '1px solid var(--border)',
                         borderRadius: '8px',
                         transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
                       }}
@@ -369,8 +329,8 @@ export default function Agenda() {
                         className="agenda-label"
                         style={{
                           fontSize: '1rem',
-                          fontWeight: isKey ? 500 : 400,
-                          color: isKey ? 'var(--text-primary)' : 'var(--text-muted)',
+                          fontWeight: 400,
+                          color: 'var(--text-muted)',
                           marginBottom: '0.3rem',
                           letterSpacing: '-0.01em',
                           transition: 'color 0.3s',
@@ -395,7 +355,7 @@ export default function Agenda() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '2rem',
+          gap: '2.5rem',
           padding: '1.25rem 1.5rem',
           background: 'var(--bg-card)',
           border: '1px solid var(--border)',
@@ -421,16 +381,6 @@ export default function Agenda() {
             <div>
               <div style={{ fontSize: '0.65rem', fontFamily: 'DM Mono, monospace', letterSpacing: '0.14em', color: 'var(--text-muted)' }}>MILESTONES</div>
               <div style={{ fontSize: '0.95rem', fontWeight: 500 }}>{events.length} events</div>
-            </div>
-          </div>
-          <div style={{ width: '1px', height: '30px', background: 'var(--border)' }} />
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ color: 'var(--accent)' }}>
-              <path d="M12 2 L15 9 L22 9.5 L16.5 14 L18.5 21 L12 17 L5.5 21 L7.5 14 L2 9.5 L9 9 Z" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinejoin="round" />
-            </svg>
-            <div>
-              <div style={{ fontSize: '0.65rem', fontFamily: 'DM Mono, monospace', letterSpacing: '0.14em', color: 'var(--text-muted)' }}>HIGHLIGHTS</div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 500 }}>{KEY_EVENTS.size} key moments</div>
             </div>
           </div>
         </div>
