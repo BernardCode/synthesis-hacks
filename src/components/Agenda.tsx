@@ -59,7 +59,11 @@ export default function Agenda() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Row entry observer — staggered fade-in
+  // Row entry — uses state + inline transition (NOT a keyframe animation).
+  // Keyframe animations can restart on React re-renders; inline transitions
+  // simply animate between states and won't re-trigger once the target state
+  // is reached. Observer only adds to the Set, never removes — so once a
+  // row is visible, its props never change.
   useEffect(() => {
     const rows = timelineRef.current?.querySelectorAll<HTMLElement>('.agenda-row');
     if (!rows) return;
@@ -69,7 +73,12 @@ export default function Agenda() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const idx = Number((entry.target as HTMLElement).dataset.idx);
-            setVisibleRows((prev) => new Set(prev).add(idx));
+            setVisibleRows((prev) => {
+              if (prev.has(idx)) return prev;
+              const next = new Set(prev);
+              next.add(idx);
+              return next;
+            });
             observer.unobserve(entry.target);
           }
         });
@@ -102,12 +111,6 @@ export default function Agenda() {
           0%, 100% { transform: scale(1); opacity: 1; }
           50%      { transform: scale(1.15); opacity: 0.7; }
         }
-        @keyframes rowSlideIn {
-          from { opacity: 0; transform: translateX(-24px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-        .row-enter   { opacity: 0; transform: translateX(-24px); }
-        .row-visible { animation: rowSlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
         .agenda-row.active .agenda-card {
           border-color: var(--border-accent) !important;
@@ -220,13 +223,18 @@ export default function Agenda() {
                 <div
                   key={i}
                   data-idx={i}
-                  className={`agenda-row ${isActive ? 'active' : ''} ${isVisible ? 'row-visible' : 'row-enter'}`}
+                  className={`agenda-row ${isActive ? 'active' : ''}`}
                   style={{
                     display: 'flex',
                     gap: '1.25rem',
                     paddingBottom: '1.75rem',
                     position: 'relative',
-                    animationDelay: `${i * 0.08}s`,
+                    // Entry uses inline transition (NOT @keyframes) so React
+                    // re-renders can't restart it. Once isVisible flips to
+                    // true, props stop changing for this row.
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateX(0)' : 'translateX(-24px)',
+                    transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.08}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.08}s`,
                   }}
                 >
                   {/*
