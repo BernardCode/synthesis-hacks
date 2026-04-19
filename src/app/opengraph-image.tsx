@@ -39,20 +39,19 @@ export default function Image() {
           display: 'flex',
         }} />
 
-        {/* Logo mark SVG-equivalent */}
+        {/* Logo mark */}
         <div style={{
           position: 'absolute', top: 72, left: 80,
           display: 'flex', alignItems: 'center', gap: 16,
         }}>
-          <div style={{
-            width: 48, height: 48,
-            border: '2px solid rgba(196,255,80,0.4)',
-            borderRadius: 10,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            background: 'rgba(196,255,80,0.08)',
-          }}>
-            <div style={{ color: '#c4ff50', fontSize: 22, fontWeight: 700, fontFamily: 'monospace' }}>Z</div>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://synthesishacks.com/logo.png"
+            alt=""
+            width={56}
+            height={56}
+            style={{ display: 'block' }}
+          />
           <div style={{ color: '#f0ede6', fontSize: 22, fontWeight: 300, letterSpacing: '-0.01em' }}>
             Synthesis Hacks
           </div>
