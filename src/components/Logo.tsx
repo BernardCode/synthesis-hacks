@@ -16,7 +16,7 @@ export function LogoMark({ size = 40 }: LogoMarkProps) {
         justifyContent: 'center',
         width: size,
         height: size,
-        filter: 'drop-shadow(0 0 10px rgba(196, 255, 80, 0.45)) drop-shadow(0 0 2px rgba(196, 255, 80, 0.6))',
+        filter: 'drop-shadow(0 0 8px #c4ff5099) drop-shadow(0 0 20px #c4ff5044)',
       }}
     >
       <Image
