@@ -19,7 +19,7 @@ export default function Footer() {
     <footer style={{ borderTop: '1px solid var(--border)', padding: '3rem 1.5rem', position: 'relative', zIndex: 1 }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-          <Logo size={26} />
+          <Logo size={36} />
           <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', marginTop: '0.15rem' }}>
             team@synthesishacks.com
           </p>

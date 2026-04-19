@@ -6,16 +6,28 @@ interface LogoMarkProps {
   size?: number;
 }
 
-export function LogoMark({ size = 32 }: LogoMarkProps) {
+export function LogoMark({ size = 40 }: LogoMarkProps) {
   return (
-    <Image
-      src="/logo.png"
-      alt="Synthesis Hacks"
-      width={size}
-      height={size}
-      style={{ display: 'block' }}
-      priority
-    />
+    <span
+      style={{
+        position: 'relative',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: size,
+        height: size,
+        filter: 'drop-shadow(0 0 10px rgba(196, 255, 80, 0.45)) drop-shadow(0 0 2px rgba(196, 255, 80, 0.6))',
+      }}
+    >
+      <Image
+        src="/logo.png"
+        alt="Synthesis Hacks"
+        width={size}
+        height={size}
+        style={{ display: 'block', objectFit: 'contain' }}
+        priority
+      />
+    </span>
   );
 }
 
@@ -24,15 +36,15 @@ interface LogoProps {
   showWordmark?: boolean;
 }
 
-export function Logo({ size = 32, showWordmark = true }: LogoProps) {
+export function Logo({ size = 40, showWordmark = true }: LogoProps) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
       <LogoMark size={size} />
       {showWordmark && (
         <span
           style={{
             fontFamily: 'Fraunces, serif',
-            fontSize: size * 0.48,
+            fontSize: size * 0.52,
             fontWeight: 400,
             color: '#f0ede6',
             letterSpacing: '-0.015em',

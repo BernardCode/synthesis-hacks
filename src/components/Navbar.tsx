@@ -27,9 +27,9 @@ export default function Navbar() {
       }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
           <a href="#" style={{ textDecoration: 'none' }}>
-            <Logo size={40} />
+            <Logo size={52} />
           </a>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.75rem' }}>
