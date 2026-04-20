@@ -20,7 +20,7 @@ export function LogoMark({ size = 40 }: LogoMarkProps) {
       }}
     >
       <Image
-        src="/logo.png"
+        src="/nobackgroundlogo.png"
         alt="Synthesis Hacks"
         width={size}
         height={size}

@@ -46,7 +46,7 @@ export default function Image() {
         }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://synthesishacks.com/logo.png"
+            src="https://synthesishacks.com/nobackgroundlogo.png"
             alt=""
             width={56}
             height={56}
