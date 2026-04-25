@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 
 export default function CursorEffect() {
   useEffect(() => {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
     const glow = document.createElement('div');
     glow.id = 'grid-glow';
     document.body.appendChild(glow);

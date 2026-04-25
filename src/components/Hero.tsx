@@ -189,7 +189,9 @@ export default function Hero() {
           className="btn-primary btn-magnetic"
         >
           Pre-register now
-          <span style={{ fontSize: '1rem' }}>↗</span>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+            <path d="M1.5 11.5 L11.5 1.5 M4 1.5 L11.5 1.5 L11.5 9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </a>
         <a
           href="https://discord.gg/RPBJwNvs"

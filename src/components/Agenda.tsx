@@ -24,34 +24,41 @@ export default function Agenda() {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [visibleRows, setVisibleRows] = useState<Set<number>>(new Set());
 
-  // Scroll-driven line fill and active dot detection
+  // Scroll-driven line fill and active dot detection — RAF-throttled to avoid jank
   useEffect(() => {
+    let rafPending = false;
+
     const onScroll = () => {
-      const tl    = timelineRef.current;
-      const fill  = fillRef.current;
-      const comet = cometRef.current;
-      if (!tl || !fill) return;
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(() => {
+        rafPending = false;
+        const tl    = timelineRef.current;
+        const fill  = fillRef.current;
+        const comet = cometRef.current;
+        if (!tl || !fill) return;
 
-      const rect     = tl.getBoundingClientRect();
-      const targetY  = window.innerHeight * 0.45;
-      const relY     = targetY - rect.top;
-      const progress = Math.max(0, Math.min(1, relY / rect.height));
+        const rect     = tl.getBoundingClientRect();
+        const targetY  = window.innerHeight * 0.45;
+        const relY     = targetY - rect.top;
+        const progress = Math.max(0, Math.min(1, relY / rect.height));
 
-      fill.style.height = `${progress * 100}%`;
+        fill.style.height = `${progress * 100}%`;
 
-      if (comet) {
-        const cometY = progress * rect.height;
-        comet.style.transform = `translateY(${cometY}px)`;
-        comet.style.opacity = progress > 0.01 && progress < 0.99 ? '1' : '0';
-      }
+        if (comet) {
+          const cometY = progress * rect.height;
+          comet.style.transform = `translateY(${cometY}px)`;
+          comet.style.opacity = progress > 0.01 && progress < 0.99 ? '1' : '0';
+        }
 
-      const rows = tl.querySelectorAll<HTMLElement>('.agenda-row');
-      let newActive = -1;
-      rows.forEach((row, i) => {
-        const rr = row.getBoundingClientRect();
-        if (rr.top + 14 < targetY) newActive = i;
+        const rows = tl.querySelectorAll<HTMLElement>('.agenda-row');
+        let newActive = -1;
+        rows.forEach((row, i) => {
+          const rr = row.getBoundingClientRect();
+          if (rr.top + 14 < targetY) newActive = i;
+        });
+        setActiveIndex(newActive);
       });
-      setActiveIndex(newActive);
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -157,7 +164,7 @@ export default function Agenda() {
         </div>
 
         {/* Timeline */}
-        <div ref={timelineRef} style={{ position: 'relative', paddingLeft: '3.5rem' }}>
+        <div ref={timelineRef} className="agenda-timeline" style={{ position: 'relative', paddingLeft: '3.5rem' }}>
 
           {/*
             LINE: 2px wide column, positioned at left:14px so its center X = 15px.
