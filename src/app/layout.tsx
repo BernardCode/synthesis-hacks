@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: "Synthesis Hacks · High School Hackathon · May 23, 2026",
   description:
     "Synthesis Hacks is a free, beginner-friendly 12-hour hackathon for high school students at Google Humbolt in Sunnyvale on May 23, 2026. Build something real. Meet people who get it.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon.png', sizes: '64x64', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/icon.png',
+  },
   openGraph: {
     title: "Synthesis Hacks",
     description: "A free 12-hour hackathon for high schoolers in Sunnyvale. May 23, 2026.",
