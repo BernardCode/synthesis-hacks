@@ -6,6 +6,7 @@ import Agenda from "@/components/Agenda";
 import Location from "@/components/Location";
 import RegisterForm from "@/components/RegisterForm";
 import FAQ from "@/components/FAQ";
+import Team from "@/components/Team";
 import Sponsors from "@/components/Sponsors";
 import Footer from "@/components/Footer";
 
@@ -56,6 +57,12 @@ export default function Home() {
         </div>
 
         <FAQ />
+
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <hr className="divider" />
+        </div>
+
+        <Team />
 
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
           <hr className="divider" />

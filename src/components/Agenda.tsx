@@ -117,7 +117,7 @@ export default function Agenda() {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.05, rootMargin: '0px 0px 40px 0px' }
     );
 
     rows.forEach((row) => observer.observe(row));
