@@ -21,7 +21,7 @@ export default function Agenda() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const fillRef     = useRef<HTMLDivElement>(null);
   const cometRef    = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const activeIndexRef = useRef(-1);
   const [visibleRows, setVisibleRows] = useState<Set<number>>(new Set());
 
   // Scroll-driven line fill and active dot detection — RAF-throttled to avoid jank
@@ -57,7 +57,10 @@ export default function Agenda() {
           const rr = row.getBoundingClientRect();
           if (rr.top + 14 < targetY) newActive = i;
         });
-        setActiveIndex(newActive);
+        if (newActive !== activeIndexRef.current) {
+          rows.forEach((row, i) => row.classList.toggle('active', i === newActive));
+          activeIndexRef.current = newActive;
+        }
       });
     };
 
@@ -198,7 +201,6 @@ export default function Agenda() {
                 background: 'linear-gradient(to bottom, #c4ff50, #c4ff50 85%, rgba(196,255,80,0.3))',
                 borderRadius: '2px',
                 boxShadow: '0 0 14px rgba(196, 255, 80, 0.45), 0 0 30px rgba(196, 255, 80, 0.18)',
-                transition: 'height 0.12s linear',
                 willChange: 'height',
               }}
             />
@@ -224,13 +226,12 @@ export default function Agenda() {
           {/* Event rows */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {events.map((ev, i) => {
-              const isActive  = i === activeIndex;
               const isVisible = visibleRows.has(i);
               return (
                 <div
                   key={i}
                   data-idx={i}
-                  className={`agenda-row ${isActive ? 'active' : ''}`}
+                  className="agenda-row"
                   style={{
                     display: 'flex',
                     gap: '1.25rem',
@@ -270,7 +271,7 @@ export default function Agenda() {
                         width: '18px',
                         height: '18px',
                         borderRadius: '50%',
-                        border: `1.5px solid ${isActive ? 'var(--accent)' : 'rgba(255,255,255,0.25)'}`,
+                        border: '1.5px solid rgba(255,255,255,0.25)',
                         background: 'transparent',
                         boxSizing: 'border-box',
                         transform: 'translate(-50%, -50%)',
