@@ -129,6 +129,7 @@ export default function Location() {
         >
           {/* Main photo frame */}
           <div
+            className="venue-carousel-frame"
             style={{
               position: 'relative',
               width: '100%',
@@ -178,7 +179,7 @@ export default function Location() {
             </svg>
 
             {/* Counter top-right */}
-            <div style={{
+            <div className="venue-counter" style={{
               position: 'absolute',
               top: '1.25rem',
               right: '2.5rem',
@@ -199,7 +200,7 @@ export default function Location() {
             </div>
 
             {/* Caption bottom-left */}
-            <div style={{
+            <div className="venue-caption" style={{
               position: 'absolute',
               bottom: '2rem',
               left: '2.5rem',
@@ -211,10 +212,10 @@ export default function Location() {
               pointerEvents: 'none',
               maxWidth: 'calc(100% - 5rem)',
             }}>
-              <span style={{ fontSize: '0.6rem', fontFamily: 'DM Mono, monospace', letterSpacing: '0.16em', color: 'var(--text-muted)', display: 'block', marginBottom: '0.2rem', textTransform: 'uppercase' }}>
+              <span className="venue-caption-label" style={{ fontSize: '0.6rem', fontFamily: 'DM Mono, monospace', letterSpacing: '0.16em', color: 'var(--text-muted)', display: 'block', marginBottom: '0.2rem', textTransform: 'uppercase' }}>
                 Venue Tour
               </span>
-              <span style={{ fontSize: '1rem', fontWeight: 400, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
+              <span className="venue-caption-text" style={{ fontSize: '1rem', fontWeight: 400, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
                 {photos[active].caption}
               </span>
             </div>

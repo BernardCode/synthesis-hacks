@@ -596,4 +596,47 @@ section {
     width: 100%;
     justify-content: center;
   }
+
+  /* Hide scroll indicator — overlaps stats row on small screens */
+  .scroll-indicator {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+   VENUE CAROUSEL — MOBILE OVERRIDES
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Taller image on mobile */
+  .venue-carousel-frame {
+    aspect-ratio: 4/3 !important;
+  }
+
+  /* Counter: smaller, more transparent */
+  .venue-counter {
+    top: 0.6rem !important;
+    right: 0.75rem !important;
+    padding: 0.2rem 0.5rem !important;
+    font-size: 0.6rem !important;
+    opacity: 0.65;
+  }
+
+  /* Caption: smaller, tucked into corner */
+  .venue-caption {
+    bottom: 0.75rem !important;
+    left: 0.75rem !important;
+    padding: 0.3rem 0.6rem !important;
+    max-width: calc(60% - 1rem) !important;
+    background: rgba(13,13,20,0.5) !important;
+    border-color: transparent !important;
+  }
+
+  /* Hide "Venue Tour" label — just show the photo name */
+  .venue-caption-label {
+    display: none !important;
+  }
+
+  .venue-caption-text {
+    font-size: 0.72rem !important;
+  }
 }

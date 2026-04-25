@@ -295,8 +295,9 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — hidden on mobile via CSS */}
       <div
+        className="scroll-indicator"
         style={{
           position: 'absolute',
           bottom: '2rem',
