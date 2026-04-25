@@ -21,10 +21,31 @@ export default function Agenda() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const fillRef     = useRef<HTMLDivElement>(null);
   const cometRef    = useRef<HTMLDivElement>(null);
-  const activeIndexRef = useRef(-1);
+  const activeIndexRef  = useRef(-1);
+  const rowOffsetsRef   = useRef<number[]>([]);
+  const rowElemsRef     = useRef<HTMLElement[]>([]);
   const [visibleRows, setVisibleRows] = useState<Set<number>>(new Set());
 
-  // Scroll-driven line fill and active dot detection — RAF-throttled to avoid jank
+  // Pre-calculate row offsets once at mount (and on resize) so the scroll
+  // handler never calls getBoundingClientRect per-row.
+  useEffect(() => {
+    const calculate = () => {
+      const tl = timelineRef.current;
+      if (!tl) return;
+      const tlTop = tl.getBoundingClientRect().top + window.scrollY;
+      const rows = Array.from(tl.querySelectorAll<HTMLElement>('.agenda-row'));
+      rowElemsRef.current = rows;
+      rowOffsetsRef.current = rows.map(
+        r => r.getBoundingClientRect().top + window.scrollY - tlTop
+      );
+    };
+    calculate();
+    window.addEventListener('resize', calculate);
+    return () => window.removeEventListener('resize', calculate);
+  }, []);
+
+  // Scroll handler — one getBoundingClientRect (the timeline), pure math for rows.
+  // scaleY on the fill bar keeps it GPU-composited (no layout thrash).
   useEffect(() => {
     let rafPending = false;
 
@@ -33,9 +54,8 @@ export default function Agenda() {
       rafPending = true;
       requestAnimationFrame(() => {
         rafPending = false;
-        const tl    = timelineRef.current;
-        const fill  = fillRef.current;
-        const comet = cometRef.current;
+        const tl   = timelineRef.current;
+        const fill = fillRef.current;
         if (!tl || !fill) return;
 
         const rect     = tl.getBoundingClientRect();
@@ -43,22 +63,26 @@ export default function Agenda() {
         const relY     = targetY - rect.top;
         const progress = Math.max(0, Math.min(1, relY / rect.height));
 
-        fill.style.height = `${progress * 100}%`;
+        fill.style.transform = `scaleY(${progress})`;
 
+        const comet = cometRef.current;
         if (comet) {
-          const cometY = progress * rect.height;
-          comet.style.transform = `translateY(${cometY}px)`;
-          comet.style.opacity = progress > 0.01 && progress < 0.99 ? '1' : '0';
+          comet.style.transform = `translateY(${progress * rect.height}px)`;
+          comet.style.opacity   = progress > 0.01 && progress < 0.99 ? '1' : '0';
         }
 
-        const rows = tl.querySelectorAll<HTMLElement>('.agenda-row');
+        // Pure arithmetic — no per-row DOM reads
+        const offsets  = rowOffsetsRef.current;
+        const tlScrollY = rect.top;
         let newActive = -1;
-        rows.forEach((row, i) => {
-          const rr = row.getBoundingClientRect();
-          if (rr.top + 14 < targetY) newActive = i;
-        });
+        for (let i = 0; i < offsets.length; i++) {
+          if (offsets[i] + tlScrollY + 14 < targetY) newActive = i;
+        }
+
         if (newActive !== activeIndexRef.current) {
-          rows.forEach((row, i) => row.classList.toggle('active', i === newActive));
+          rowElemsRef.current.forEach((row, i) =>
+            row.classList.toggle('active', i === newActive)
+          );
           activeIndexRef.current = newActive;
         }
       });
@@ -197,11 +221,13 @@ export default function Agenda() {
                 left: 0,
                 top: 0,
                 width: '100%',
-                height: '0%',
+                height: '100%',
                 background: 'linear-gradient(to bottom, #c4ff50, #c4ff50 85%, rgba(196,255,80,0.3))',
                 borderRadius: '2px',
                 boxShadow: '0 0 14px rgba(196, 255, 80, 0.45), 0 0 30px rgba(196, 255, 80, 0.18)',
-                willChange: 'height',
+                transformOrigin: 'top',
+                transform: 'scaleY(0)',
+                willChange: 'transform',
               }}
             />
             {/* Comet head */}
