@@ -341,8 +341,8 @@ export default function Location() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
-                { label: 'ADDRESS', value: '1225 Crossman Ave' },
-                { label: 'CITY',    value: 'Sunnyvale, CA' },
+                { label: 'ADDRESS', value: '227 Humboldt Ct' },
+                { label: 'CITY',    value: 'Sunnyvale, CA 94089' },
                 { label: 'FLOOR',   value: 'Third floor' },
                 { label: 'DATE',    value: 'May 23, 2026' },
                 { label: 'HOURS',   value: '8:00 AM to 8:00 PM' },
@@ -354,7 +354,7 @@ export default function Location() {
               ))}
             </div>
             <a
-              href="https://maps.google.com/?q=1225+Crossman+Ave+Sunnyvale+CA"
+              href="https://maps.google.com/?q=227+Humboldt+Ct+Sunnyvale+CA+94089"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

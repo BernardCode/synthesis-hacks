@@ -152,7 +152,7 @@ export default function Agenda() {
             <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>minute by minute.</em>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginTop: '0.75rem', lineHeight: 1.7 }}>
-            Google Humboldt · 1225 Crossman Ave, Sunnyvale · 3rd Floor · 8 AM to 8 PM
+            Google Humboldt · 227 Humboldt Ct, Sunnyvale, CA 94089 · 3rd Floor · 8 AM to 8 PM
           </p>
         </div>
 

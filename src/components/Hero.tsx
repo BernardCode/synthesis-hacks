@@ -116,7 +116,7 @@ export default function Hero() {
           letterSpacing: '0.1em',
           color: 'var(--text-muted)',
         }}>
-          1225 Crossman Ave, Sunnyvale · 3rd Floor
+          227 Humboldt Ct, Sunnyvale, CA 94089 · 3rd Floor
         </span>
         <span style={{
           fontFamily: 'DM Mono, monospace',
