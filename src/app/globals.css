@@ -604,23 +604,6 @@ section {
 }
 
 /* ============================================================
-   REGISTER SECTION — GRID LAYOUT
-   ============================================================ */
-.register-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .register-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-}
-
-/* ============================================================
    VENUE CAROUSEL — MOBILE OVERRIDES
    ============================================================ */
 @media (max-width: 768px) {
