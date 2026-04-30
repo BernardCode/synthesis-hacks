@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import CursorEffect from "@/components/CursorEffect";
 
 const SITE_URL = 'https://synthesishacks.com';
 
@@ -128,7 +127,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <CursorEffect />
         {children}
       </body>
     </html>

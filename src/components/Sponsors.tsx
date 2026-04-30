@@ -1,19 +1,4 @@
-'use client';
-
 import { ReactNode } from 'react';
-
-function handleTilt(e: React.MouseEvent<HTMLDivElement>) {
-  const rect = e.currentTarget.getBoundingClientRect();
-  const x = (e.clientX - rect.left) / rect.width - 0.5;
-  const y = (e.clientY - rect.top) / rect.height - 0.5;
-  e.currentTarget.style.transform = `perspective(600px) rotateX(${-y * 12}deg) rotateY(${x * 12}deg) translateZ(8px)`;
-  e.currentTarget.style.boxShadow = `${-x * 14}px ${-y * 14}px 28px rgba(196,255,80,0.07), 0 8px 32px rgba(0,0,0,0.35)`;
-}
-
-function resetTilt(e: React.MouseEvent<HTMLDivElement>) {
-  e.currentTarget.style.transform = '';
-  e.currentTarget.style.boxShadow = '';
-}
 
 /* Reticle - concentric angular squares with corner brackets */
 function ExposureSVG() {
@@ -73,18 +58,18 @@ function ImpactSVG() {
 const benefits: { icon: ReactNode; title: string; desc: string }[] = [
   {
     icon: <ExposureSVG />,
-    title: 'Direct exposure',
-    desc: "Your brand in front of motivated high schoolers. The next wave of engineers, designers, and founders.",
+    title: 'On the t-shirt',
+    desc: 'Your logo on the shirt every attendee wears, on the website, and at the venue.',
   },
   {
     icon: <PipelineSVG />,
-    title: 'Talent pipeline',
-    desc: 'Meet students early. Run a workshop or lead a mentorship session.',
+    title: 'In the room',
+    desc: 'Send mentors, run a 30-minute workshop, or just sit at a table and answer questions.',
   },
   {
     icon: <ImpactSVG />,
-    title: 'Community impact',
-    desc: 'Lower the barrier to tech education in your community.',
+    title: 'Pay it forward',
+    desc: 'Free events change who gets to start building. We’re keeping this open to everyone.',
   },
 ];
 
@@ -118,8 +103,8 @@ export default function Sponsors() {
               margin: '0 auto',
             }}
           >
-            Synthesis Hacks is made possible by sponsors who believe in giving young people the
-            space to create, experiment, and grow together.
+            Synthesis Hacks is free. That works because sponsors cover food, prizes, supplies,
+            and the rest. Here&apos;s what we offer in return.
           </p>
         </div>
 
@@ -135,10 +120,8 @@ export default function Sponsors() {
           {benefits.map((item) => (
             <div
               key={item.title}
-              className="card tilt-card"
+              className="card"
               style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}
-              onMouseMove={handleTilt}
-              onMouseLeave={resetTilt}
             >
               <div style={{ color: 'var(--accent)' }}>{item.icon}</div>
               <div>
@@ -152,9 +135,9 @@ export default function Sponsors() {
         {/* CTA card */}
         <div
           style={{
-            background: 'linear-gradient(135deg, var(--bg-card) 0%, rgba(196,255,80,0.05) 100%)',
+            background: 'var(--bg-card)',
             border: '1px solid var(--border-accent)',
-            borderRadius: '14px',
+            borderRadius: '2px',
             padding: '2.5rem',
             display: 'flex',
             alignItems: 'center',
@@ -171,8 +154,8 @@ export default function Sponsors() {
               Interested in sponsoring?
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '40ch', lineHeight: 1.6 }}>
-              Sponsorship packages will be finalized in Spring 2026. Reach out early and we&apos;ll
-              send you our prospectus when it&apos;s ready.
+              We&apos;re putting the sponsorship deck together now. Email us and we&apos;ll send it
+              over as soon as it&apos;s ready.
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexShrink: 0 }}>

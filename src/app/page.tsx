@@ -12,10 +12,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      {/* Ambient background blobs */}
-      <div className="ambient-blob ambient-blob-1" />
-      <div className="ambient-blob ambient-blob-2" />
-
       <Navbar />
 
       <main>

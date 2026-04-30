@@ -10,7 +10,6 @@ function GrandPrizeSVG() {
       viewBox="0 0 96 96"
       fill="none"
       aria-hidden="true"
-      className="prize-diamond"
     >
       {/* Outer diamond */}
       <polygon
@@ -97,7 +96,7 @@ export default function Prizes() {
               lineHeight: 1.1,
             }}
           >
-            Worth building for.
+            What you can win.
           </h2>
         </div>
 
@@ -110,7 +109,7 @@ export default function Prizes() {
               padding: '2.5rem',
               border: '1px solid var(--border-accent)',
               borderRadius: '2px',
-              background: 'linear-gradient(145deg, var(--bg-card) 0%, rgba(196,255,80,0.035) 100%)',
+              background: 'var(--bg-card)',
               display: 'flex',
               flexDirection: 'column',
               gap: '2rem',

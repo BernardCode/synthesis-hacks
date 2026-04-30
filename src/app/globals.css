@@ -4,7 +4,7 @@
 :root {
   --bg: #0d0d14;
   --bg-card: #13131f;
-  --bg-card-hover: #1a1a2e;
+  --bg-card-hover: #181828;
   --border: rgba(255,255,255,0.08);
   --border-accent: rgba(196,255,80,0.3);
   --text-primary: #f0ede6;
@@ -13,7 +13,7 @@
   --accent-dim: rgba(196,255,80,0.12);
   --accent-glow: rgba(196,255,80,0.25);
   --coral: #ff7c5c;
-  --radius: 12px;
+  --radius: 4px;
 }
 
 * {
@@ -37,7 +37,7 @@ body {
   max-width: 100vw;
 }
 
-/* Noise texture overlay */
+/* Subtle film grain — kept low so it's a texture, not an effect */
 body::before {
   content: '';
   position: fixed;
@@ -46,41 +46,15 @@ body::before {
   background-size: 180px;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.35;
+  opacity: 0.18;
 }
 
-/* Ambient gradient blobs */
-.ambient-blob {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.ambient-blob-1 {
-  width: 600px;
-  height: 600px;
-  background: var(--accent);
-  top: -200px;
-  right: -100px;
-}
-
-.ambient-blob-2 {
-  width: 400px;
-  height: 400px;
-  background: var(--coral);
-  bottom: 20%;
-  left: -150px;
-}
-
-/* Grid pattern */
+/* Engineering grid — only painted where requested via .grid-bg */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
 /* Typography */
@@ -92,17 +66,17 @@ body::before {
   font-family: 'DM Mono', monospace;
 }
 
-/* Glowing accent badge */
+/* System mark — square, not pill. Reads as a label, not a badge */
 .badge-accent {
-  background: var(--accent-dim);
+  background: transparent;
   border: 1px solid var(--border-accent);
   color: var(--accent);
   font-family: 'DM Mono', monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 0.35rem 0.9rem;
-  border-radius: 100px;
+  padding: 0.32rem 0.7rem;
+  border-radius: 2px;
   display: inline-block;
 }
 
@@ -111,25 +85,24 @@ body::before {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color 0.25s ease, background 0.25s ease;
+  transition: border-color 0.25s ease;
 }
 
 .card:hover {
-  border-color: var(--border-accent);
-  background: var(--bg-card-hover);
+  border-color: rgba(255,255,255,0.18);
 }
 
 /* Input style */
 .input-field {
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 4px;
   color: var(--text-primary);
   font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
   padding: 0.75rem 1rem;
   width: 100%;
-  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
   outline: none;
 }
 
@@ -140,7 +113,6 @@ body::before {
 .input-field:focus {
   border-color: var(--accent);
   background: rgba(196,255,80,0.04);
-  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 /* Button */
@@ -152,23 +124,17 @@ body::before {
   font-size: 0.9rem;
   letter-spacing: 0.03em;
   padding: 0.8rem 2rem;
-  border-radius: 8px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition: background 0.18s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .btn-primary:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(196,255,80,0.2);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
+  background: #d4ff7a;
 }
 
 /* Divider */
@@ -178,7 +144,6 @@ body::before {
   margin: 0;
 }
 
-/* Section spacing */
 section {
   position: relative;
   z-index: 1;
@@ -200,218 +165,17 @@ section {
   animation: fadeUp 0.7s ease forwards;
 }
 
-.fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
-.fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
-.fade-up-delay-3 { animation-delay: 0.35s; opacity: 0; }
-.fade-up-delay-4 { animation-delay: 0.5s; opacity: 0; }
-.fade-up-delay-5 { animation-delay: 0.65s; opacity: 0; }
-
-/* Blinking cursor */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.cursor-blink::after {
-  content: '_';
-  animation: blink 1.1s step-end infinite;
-  color: var(--accent);
-}
+.fade-up-delay-1 { animation-delay: 0.05s; opacity: 0; }
+.fade-up-delay-2 { animation-delay: 0.15s; opacity: 0; }
+.fade-up-delay-3 { animation-delay: 0.28s; opacity: 0; }
+.fade-up-delay-4 { animation-delay: 0.42s; opacity: 0; }
+.fade-up-delay-5 { animation-delay: 0.55s; opacity: 0; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
-
-/* ============================================================
-   3D WIREFRAME CUBE (primary — hero right side)
-   ============================================================ */
-.cube-scene {
-  perspective: 1100px;
-  position: absolute;
-  right: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0;
-  animation: cube-appear 2s ease 1s forwards;
-}
-
-@keyframes cube-appear {
-  from { opacity: 0; }
-  to   { opacity: 0.5; }
-}
-
-.cube-3d {
-  width: 220px;
-  height: 220px;
-  transform-style: preserve-3d;
-  animation: cube-rotate 24s linear infinite;
-}
-
-@keyframes cube-rotate {
-  from { transform: rotateX(20deg) rotateY(0deg); }
-  to   { transform: rotateX(20deg) rotateY(360deg); }
-}
-
-.cube-face {
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  border: 1px solid rgba(196,255,80,0.22);
-  background: rgba(196,255,80,0.012);
-  background-image:
-    linear-gradient(rgba(196,255,80,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196,255,80,0.07) 1px, transparent 1px);
-  background-size: 44px 44px;
-}
-
-.cube-front  { transform: translateZ(110px); }
-.cube-back   { transform: rotateY(180deg) translateZ(110px); }
-.cube-left   { transform: rotateY(-90deg) translateZ(110px); }
-.cube-right  { transform: rotateY(90deg)  translateZ(110px); }
-.cube-top    { transform: rotateX(90deg)  translateZ(110px); }
-.cube-bottom { transform: rotateX(-90deg) translateZ(110px); }
-
-/* Secondary smaller cube — hero left side, counter-rotating */
-.cube-scene-2 {
-  right: auto;
-  left: 4%;
-  top: 30%;
-  animation: cube-appear 2s ease 1.3s forwards;
-}
-
-.cube-3d-sm {
-  width: 100px;
-  height: 100px;
-  transform-style: preserve-3d;
-  animation: cube-rotate-rev 18s linear infinite;
-}
-
-@keyframes cube-rotate-rev {
-  from { transform: rotateX(-15deg) rotateY(360deg); }
-  to   { transform: rotateX(-15deg) rotateY(0deg); }
-}
-
-.cube-face-sm {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  border: 1px solid rgba(255,124,92,0.25);
-  background: rgba(255,124,92,0.01);
-  background-image:
-    linear-gradient(rgba(255,124,92,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,124,92,0.08) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-.cube-sm-front  { transform: translateZ(50px); }
-.cube-sm-back   { transform: rotateY(180deg) translateZ(50px); }
-.cube-sm-left   { transform: rotateY(-90deg) translateZ(50px); }
-.cube-sm-right  { transform: rotateY(90deg)  translateZ(50px); }
-.cube-sm-top    { transform: rotateX(90deg)  translateZ(50px); }
-.cube-sm-bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-@media (max-width: 960px) {
-  .cube-scene,
-  .cube-scene-2 { display: none; }
-}
-
-/* ============================================================
-   FLOATING ORBS
-   ============================================================ */
-.float-orb {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.float-orb-1 {
-  width: 5px; height: 5px;
-  background: var(--accent);
-  box-shadow: 0 0 16px 4px rgba(196,255,80,0.55);
-  top: 22%; left: 18%;
-  animation: orb-drift 6s ease-in-out infinite;
-}
-
-.float-orb-2 {
-  width: 3px; height: 3px;
-  background: var(--coral);
-  box-shadow: 0 0 12px 3px rgba(255,124,92,0.55);
-  top: 67%; right: 18%;
-  animation: orb-drift 8s ease-in-out infinite 1.5s;
-}
-
-.float-orb-3 {
-  width: 4px; height: 4px;
-  background: var(--accent);
-  box-shadow: 0 0 10px 2px rgba(196,255,80,0.4);
-  top: 40%; right: 28%;
-  animation: orb-drift 5s ease-in-out infinite 0.7s;
-  opacity: 0.6;
-}
-
-.float-orb-4 {
-  width: 2px; height: 2px;
-  background: rgba(255,255,255,0.7);
-  top: 75%; left: 30%;
-  animation: orb-drift 7.5s ease-in-out infinite 2.2s;
-  opacity: 0.45;
-}
-
-@keyframes orb-drift {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(14px, -20px); }
-  50%  { transform: translate(-10px, -14px); }
-  75%  { transform: translate(8px, -26px); }
-  100% { transform: translate(0, 0); }
-}
-
-/* ============================================================
-   HUD STAT ROW
-   ============================================================ */
-.stat-item {
-  transition: background 0.2s ease;
-}
-
-.stat-item:hover {
-  background: rgba(196,255,80,0.03);
-}
-
-.stat-scan {
-  position: absolute;
-  left: 0; right: 0;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(196,255,80,0.07) 50%,
-    transparent 100%
-  );
-  transform: translateY(-100%);
-  pointer-events: none;
-}
-
-.stat-item:hover .stat-scan {
-  animation: scan-sweep 0.65s ease forwards;
-}
-
-@keyframes scan-sweep {
-  from { transform: translateY(-100%); }
-  to   { transform: translateY(100%); }
-}
-
-/* ============================================================
-   MAGNETIC BUTTON
-   ============================================================ */
-.btn-magnetic {
-  transition: opacity 0.2s ease,
-              transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
-              box-shadow 0.2s ease !important;
-}
 
 /* ============================================================
    FAQ SCROLL REVEAL
@@ -428,17 +192,7 @@ section {
 }
 
 /* ============================================================
-   3D TILT CARD (sponsor benefits)
-   ============================================================ */
-.tilt-card {
-  transition: transform 0.12s ease, box-shadow 0.25s ease !important;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-/* ============================================================
    HOW IT WORKS — continuous scroll-driven panels
-   No transitions. Transform+opacity set every rAF frame directly.
    ============================================================ */
 .step-stage {
   position: relative;
@@ -453,7 +207,6 @@ section {
   left: 0;
   width: 100%;
   transform-origin: center center;
-  /* NO transition — values are set every frame from scroll */
   pointer-events: none;
   will-change: transform, opacity;
 }
@@ -466,16 +219,6 @@ section {
 .step-ind-label[data-active="true"]  { color: var(--accent); opacity: 1; }
 .step-ind-label[data-active="false"] { color: var(--text-muted); opacity: 0.4; }
 .step-ind-label { transition: color 0.3s ease, opacity 0.3s ease; }
-
-/* ============================================================
-   GRID MOUSE GLOW
-   ============================================================ */
-#grid-glow {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* ============================================================
    PRIZES LAYOUT
@@ -501,20 +244,6 @@ section {
 }
 
 /* ============================================================
-   PRIZE DIAMOND ROTATION
-   ============================================================ */
-.prize-diamond {
-  animation: diamond-spin 28s linear infinite;
-  transform-origin: center;
-  display: block;
-}
-
-@keyframes diamond-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* ============================================================
    STEP CONTENT GRID (default: 2-col)
    ============================================================ */
 .step-content-grid {
@@ -522,9 +251,22 @@ section {
   gap: 5rem;
 }
 
+/* Hide the editorial side-marks on narrower viewports — they would overlap
+   the headline. */
+.hero-margin-mark {
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .hero-margin-mark {
+    display: none !important;
+  }
+}
+
 /* ============================================================
    MOBILE RESPONSIVE
    ============================================================ */
+
 @media (max-width: 768px) {
   /* Navbar */
   nav {
@@ -566,18 +308,6 @@ section {
   .faq-question {
     font-size: 0.9rem !important;
   }
-
-  /* Cube scenes: hide on small screens to reduce visual clutter */
-  .cube-scene,
-  .cube-scene-2 {
-    display: none !important;
-  }
-
-  /* Float orbs: reduce on mobile */
-  .float-orb-3,
-  .float-orb-4 {
-    display: none !important;
-  }
 }
 
 @media (max-width: 480px) {
@@ -586,7 +316,7 @@ section {
     font-size: clamp(2.8rem, 14vw, 4rem) !important;
   }
 
-  /* HUD stat row: allow wrapping */
+  /* HUD stat row */
   .stat-item {
     padding: 1rem 0.25rem !important;
   }
@@ -596,23 +326,16 @@ section {
     width: 100%;
     justify-content: center;
   }
-
-  /* Hide scroll indicator — overlaps stats row on small screens */
-  .scroll-indicator {
-    display: none !important;
-  }
 }
 
 /* ============================================================
    VENUE CAROUSEL — MOBILE OVERRIDES
    ============================================================ */
 @media (max-width: 768px) {
-  /* Taller image on mobile */
   .venue-carousel-frame {
     aspect-ratio: 4/3 !important;
   }
 
-  /* Counter: smaller, more transparent */
   .venue-counter {
     top: 0.6rem !important;
     right: 0.75rem !important;
@@ -621,7 +344,6 @@ section {
     opacity: 0.65;
   }
 
-  /* Caption: smaller, tucked into corner */
   .venue-caption {
     bottom: 0.75rem !important;
     left: 0.75rem !important;
@@ -631,7 +353,6 @@ section {
     border-color: transparent !important;
   }
 
-  /* Hide "Venue Tour" label — just show the photo name */
   .venue-caption-label {
     display: none !important;
   }

@@ -1,73 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-
-const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%0123456789';
-
-function useScramble(target: string, startDelay = 700) {
-  const [text, setText] = useState(target);
-
-  useEffect(() => {
-    let iteration = 0;
-    let interval: ReturnType<typeof setInterval> | null = null;
-
-    const timeout = setTimeout(() => {
-      interval = setInterval(() => {
-        setText(
-          target
-            .split('')
-            .map((char, idx) => {
-              if (idx < iteration) return char;
-              return CHARS[Math.floor(Math.random() * CHARS.length)];
-            })
-            .join('')
-        );
-        iteration += 0.35;
-        if (iteration > target.length) {
-          if (interval) clearInterval(interval);
-          setText(target);
-        }
-      }, 35);
-    }, startDelay);
-
-    return () => {
-      clearTimeout(timeout);
-      if (interval) clearInterval(interval);
-    };
-  }, [target, startDelay]);
-
-  return text;
-}
-
 export default function Hero() {
-  const btnRef = useRef<HTMLAnchorElement>(null);
-  const scrambledHacks = useScramble('Hacks');
-
-  useEffect(() => {
-    const btn = btnRef.current;
-    if (!btn) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = btn.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = e.clientX - cx;
-      const dy = e.clientY - cy;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      const maxDist = 90;
-
-      if (dist < maxDist) {
-        const factor = (1 - dist / maxDist) * 0.4;
-        btn.style.transform = `translate(${dx * factor}px, ${dy * factor}px)`;
-      } else {
-        btn.style.transform = '';
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
     <section
       className="grid-bg"
@@ -83,31 +16,47 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* 3D Wireframe Cube */}
-      <div className="cube-scene">
-        <div className="cube-3d">
-          {(['front', 'back', 'left', 'right', 'top', 'bottom'] as const).map((face) => (
-            <div key={face} className={`cube-face cube-${face}`} />
-          ))}
-        </div>
+      {/* Editorial margin marks — desktop only, content-meaningful */}
+      <div
+        aria-hidden="true"
+        className="hero-margin-mark hero-margin-left"
+        style={{
+          position: 'absolute',
+          left: '2rem',
+          top: '50%',
+          transform: 'translateY(-50%) rotate(-90deg)',
+          transformOrigin: 'left center',
+          fontFamily: 'DM Mono, monospace',
+          fontSize: '0.62rem',
+          letterSpacing: '0.32em',
+          color: 'var(--text-muted)',
+          opacity: 0.4,
+          whiteSpace: 'nowrap',
+        }}
+      >
+        VOL.01 · 2026
+      </div>
+      <div
+        aria-hidden="true"
+        className="hero-margin-mark hero-margin-right"
+        style={{
+          position: 'absolute',
+          right: '2rem',
+          top: '50%',
+          transform: 'translateY(-50%) rotate(90deg)',
+          transformOrigin: 'right center',
+          fontFamily: 'DM Mono, monospace',
+          fontSize: '0.62rem',
+          letterSpacing: '0.32em',
+          color: 'var(--text-muted)',
+          opacity: 0.4,
+          whiteSpace: 'nowrap',
+        }}
+      >
+        37.41°N · 122.04°W
       </div>
 
-      {/* Secondary smaller cube */}
-      <div className="cube-scene cube-scene-2">
-        <div className="cube-3d cube-3d-sm">
-          {(['front', 'back', 'left', 'right', 'top', 'bottom'] as const).map((face) => (
-            <div key={face} className={`cube-face-sm cube-sm-${face}`} />
-          ))}
-        </div>
-      </div>
-
-      {/* Floating accent orbs */}
-      <div className="float-orb float-orb-1" />
-      <div className="float-orb float-orb-2" />
-      <div className="float-orb float-orb-3" />
-      <div className="float-orb float-orb-4" />
-
-      {/* Badge */}
+      {/* Date / location / deadline stack */}
       <div className="fade-up fade-up-delay-1" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.65rem' }}>
         <span className="badge-accent">May 23, 2026 · Google Humboldt</span>
         <span style={{
@@ -153,12 +102,10 @@ export default function Hero() {
           style={{
             fontStyle: 'italic',
             color: 'var(--accent)',
-            fontVariantNumeric: 'tabular-nums',
             display: 'inline-block',
-            minWidth: '3ch',
           }}
         >
-          {scrambledHacks}
+          Hacks
         </em>
       </h1>
 
@@ -174,19 +121,18 @@ export default function Hero() {
           maxWidth: '42ch',
         }}
       >
-        A beginner-friendly hackathon for high schoolers.
+        A free hackathon for high schoolers. Beginners welcome.
         <br />
-        Build something real. Meet people who get it.
+        Show up alone or with friends. We&apos;ll match you into a team.
       </p>
 
       {/* CTA row */}
       <div className="fade-up fade-up-delay-4" style={{ marginTop: '2.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         <a
-          ref={btnRef}
           href="https://synthesishacks.fillout.com/t/grGiZ8GF2rus"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary btn-magnetic"
+          className="btn-primary"
         >
           Pre-register now
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
@@ -194,7 +140,7 @@ export default function Hero() {
           </svg>
         </a>
         <a
-          href="https://discord.gg/RPBJwNvs"
+          href="https://discord.gg/gdt4hTcv"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -225,7 +171,7 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* HUD stats row - replaces the pill chips */}
+      {/* Stat row */}
       <div
         className="fade-up fade-up-delay-5"
         style={{
@@ -240,7 +186,6 @@ export default function Hero() {
           zIndex: 1,
         }}
       >
-        {/* Sweeping highlight on hover of entire row */}
         {[
           { value: '12H', label: 'DURATION', sub: 'of building' },
           { value: 'MAY 23', label: 'DATE', sub: 'Sunnyvale' },
@@ -259,11 +204,9 @@ export default function Hero() {
               alignItems: 'center',
               gap: '0.2rem',
               position: 'relative',
-              overflow: 'hidden',
               cursor: 'default',
             }}
           >
-            <div className="stat-scan" />
             <span
               style={{
                 fontFamily: 'DM Mono, monospace',
@@ -293,41 +236,6 @@ export default function Hero() {
             </span>
           </div>
         ))}
-      </div>
-
-      {/* Scroll indicator — hidden on mobile via CSS */}
-      <div
-        className="scroll-indicator"
-        style={{
-          position: 'absolute',
-          bottom: '2rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '0.4rem',
-          opacity: 0,
-          animation: 'fadeUp 1s ease 1.5s forwards',
-        }}
-      >
-        <div
-          style={{
-            width: '1px',
-            height: '40px',
-            background: 'linear-gradient(to bottom, transparent, var(--text-muted))',
-          }}
-        />
-        <span
-          style={{
-            fontSize: '0.65rem',
-            fontFamily: 'DM Mono, monospace',
-            letterSpacing: '0.1em',
-            color: 'var(--text-muted)',
-          }}
-        >
-          SCROLL
-        </span>
       </div>
     </section>
   );

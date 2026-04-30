@@ -126,31 +126,11 @@ export default function Agenda() {
 
   return (
     <section ref={sectionRef} id="schedule" style={{ padding: '6rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
-      {/* Ambient accent glow */}
-      <div style={{
-        position: 'absolute',
-        width: '500px',
-        height: '500px',
-        borderRadius: '50%',
-        background: 'var(--accent)',
-        filter: 'blur(140px)',
-        opacity: 0.04,
-        top: '20%',
-        left: '-150px',
-        pointerEvents: 'none',
-      }} />
-
       <style jsx>{`
-        @keyframes cometTrail {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50%      { transform: scale(1.15); opacity: 0.7; }
-        }
-
         .agenda-row.active .agenda-card {
           border-color: var(--border-accent) !important;
-          background: linear-gradient(135deg, var(--bg-card) 0%, rgba(196,255,80,0.04) 100%) !important;
+          background: rgba(196,255,80,0.04) !important;
           transform: translateX(6px);
-          box-shadow: -4px 0 24px rgba(196, 255, 80, 0.06);
         }
         .agenda-row.active .agenda-label { color: var(--text-primary) !important; }
         .agenda-row.active .agenda-time  { color: var(--accent) !important; }
@@ -160,10 +140,6 @@ export default function Agenda() {
         }
         .agenda-row.active .agenda-dot-outer {
           border-color: var(--accent) !important;
-        }
-        .agenda-row.active .dot-ring-active {
-          opacity: 1 !important;
-          transform: translate(-50%, -50%) scale(1.5) !important;
         }
         .agenda-row:hover .agenda-card {
           transform: translateX(6px);
@@ -222,27 +198,24 @@ export default function Agenda() {
                 top: 0,
                 width: '100%',
                 height: '100%',
-                background: 'linear-gradient(to bottom, #c4ff50, #c4ff50 85%, rgba(196,255,80,0.3))',
+                background: 'var(--accent)',
                 borderRadius: '2px',
-                boxShadow: '0 0 14px rgba(196, 255, 80, 0.45), 0 0 30px rgba(196, 255, 80, 0.18)',
                 transformOrigin: 'top',
                 transform: 'scaleY(0)',
                 willChange: 'transform',
               }}
             />
-            {/* Comet head */}
+            {/* Position marker */}
             <div
               ref={cometRef}
               style={{
                 position: 'absolute',
-                left: '-4px',
-                top: '-5px',
-                width: '10px',
-                height: '10px',
+                left: '-3px',
+                top: '-4px',
+                width: '8px',
+                height: '8px',
                 borderRadius: '50%',
                 background: '#c4ff50',
-                boxShadow: '0 0 18px 4px rgba(196, 255, 80, 0.65), 0 0 40px 8px rgba(196, 255, 80, 0.25)',
-                animation: 'cometTrail 1.4s ease-in-out infinite',
                 opacity: 0,
                 willChange: 'transform, opacity',
               }}
@@ -317,23 +290,6 @@ export default function Agenda() {
                         background: 'rgba(255,255,255,0.3)',
                         transform: 'translate(-50%, -50%)',
                         transition: 'background 0.4s, transform 0.4s',
-                      }}
-                    />
-                    {/* Active-state pulse ring */}
-                    <div
-                      className="dot-ring-active"
-                      style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        width: '18px',
-                        height: '18px',
-                        borderRadius: '50%',
-                        border: '1.5px solid var(--accent)',
-                        boxSizing: 'border-box',
-                        opacity: 0,
-                        transform: 'translate(-50%, -50%) scale(0.5)',
-                        transition: 'opacity 0.5s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
                       }}
                     />
                   </div>

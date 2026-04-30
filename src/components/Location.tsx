@@ -96,11 +96,10 @@ export default function Location() {
           <div>
             <span className="badge-accent" style={{ marginBottom: '1rem', display: 'inline-block' }}>Venue</span>
             <h2 className="font-display" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Google Humboldt,{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Sunnyvale.</em>
+              Google Humboldt, Sunnyvale.
             </h2>
             <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginTop: '0.75rem', lineHeight: 1.6, maxWidth: '50ch' }}>
-              A modern campus with a dedicated main hall, lounges, and breakout rooms. A great fit for a hackathon.
+              Big main hall for the build, breakout rooms for workshops, a kitchen with snacks. Plenty of room to spread out.
             </p>
           </div>
           <div style={{
@@ -163,20 +162,6 @@ export default function Location() {
                 />
               </div>
             ))}
-
-            {/* Corner brackets */}
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{ position: 'absolute', top: '14px', left: '14px', pointerEvents: 'none' }}>
-              <path d="M2 10 L2 2 L10 2" stroke="#c4ff50" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.8" />
-            </svg>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{ position: 'absolute', top: '14px', right: '14px', pointerEvents: 'none' }}>
-              <path d="M18 2 L26 2 L26 10" stroke="#c4ff50" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.8" />
-            </svg>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{ position: 'absolute', bottom: '14px', right: '14px', pointerEvents: 'none' }}>
-              <path d="M26 18 L26 26 L18 26" stroke="#c4ff50" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.8" />
-            </svg>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{ position: 'absolute', bottom: '14px', left: '14px', pointerEvents: 'none' }}>
-              <path d="M10 26 L2 26 L2 18" stroke="#c4ff50" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.8" />
-            </svg>
 
             {/* Counter top-right */}
             <div className="venue-counter" style={{
@@ -331,7 +316,7 @@ export default function Location() {
             padding: '2rem',
             border: '1px solid var(--border-accent)',
             borderRadius: '2px',
-            background: 'linear-gradient(145deg, var(--bg-card) 0%, rgba(196,255,80,0.03) 100%)',
+            background: 'var(--bg-card)',
             display: 'flex',
             flexDirection: 'column',
             gap: '1.4rem',
@@ -368,34 +353,43 @@ export default function Location() {
             </a>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.25rem', paddingTop: '0.25rem' }}>
             {[
               {
-                icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" strokeWidth="1.3" fill="none"/><line x1="2" y1="8" x2="22" y2="8" stroke="currentColor" strokeWidth="1.1"/><rect x="6" y="12" width="3" height="3" rx=".4" fill="currentColor" opacity=".7"/><rect x="10.5" y="12" width="3" height="3" rx=".4" fill="currentColor" opacity=".5"/></svg>),
-                title: 'Save the date',
-                desc: 'Saturday, May 23, 2026. Doors open at 8 AM. Show up early to check in and meet your team.',
+                label: 'GETTING HERE',
+                body: 'Google Humboldt is in Sunnyvale, just off Highway 101. Parking on-site, no permit needed. The closest Caltrain stop is Sunnyvale; VTA buses run nearby.',
               },
               {
-                icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.3" fill="none"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.1" fill="none"/></svg>),
-                title: 'Getting there',
-                desc: 'Google Humboldt campus in Sunnyvale. Parking on-site. Caltrain and VTA buses run nearby.',
+                label: 'WHAT TO BRING',
+                body: 'Laptop, charger, and a school ID for check-in at the front desk. Headphones if you want them. We provide food, drinks, snacks, WiFi, and power strips.',
               },
               {
-                icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.3" fill="none"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/><line x1="12" y1="12" x2="12" y2="16" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/><line x1="10" y1="14" x2="14" y2="14" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
-                title: 'What to bring',
-                desc: "Laptop, charger, and ideas. Food and drinks are provided. Bring your student ID for check-in.",
+                label: 'WHEN TO ARRIVE',
+                body: 'Doors open at 8 AM. Aim for 8:30 — that gives you time to check in, grab breakfast, and find a team before the opening ceremony at 9.',
               },
             ].map((item) => (
-              <div
-                key={item.title}
-                className="card"
-                style={{ padding: '1.2rem 1.35rem', display: 'flex', gap: '0.95rem', alignItems: 'flex-start' }}
-              >
-                <div style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '1px' }}>{item.icon}</div>
-                <div>
-                  <p style={{ fontWeight: 500, fontSize: '1rem', marginBottom: '0.3rem' }}>{item.title}</p>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>{item.desc}</p>
+              <div key={item.label}>
+                <div
+                  style={{
+                    fontFamily: 'DM Mono, monospace',
+                    fontSize: '0.7rem',
+                    letterSpacing: '0.2em',
+                    color: 'var(--text-muted)',
+                    marginBottom: '0.7rem',
+                  }}
+                >
+                  {item.label}
                 </div>
+                <p
+                  style={{
+                    color: 'var(--text-primary)',
+                    fontSize: '0.98rem',
+                    lineHeight: 1.7,
+                    fontWeight: 300,
+                  }}
+                >
+                  {item.body}
+                </p>
               </div>
             ))}
           </div>

@@ -68,7 +68,7 @@ const steps = [
     label: 'HACK',
     icon: <HackSVG />,
     title: 'Build for 12 hours',
-    desc: "Mentors are here the whole time. Workshops run in parallel. Build an app, game, website, or anything else. Just make something that didn't exist this morning.",
+    desc: 'Mentors are around the whole day. Optional short workshops run in parallel — drop in if you want a hand. Build an app, a game, a website, a hardware hack; anything you can finish by 5 PM.',
     details: ['Mentors always available', 'Multiple workshops', 'Any project type', 'Free food & drinks'],
   },
   {
@@ -76,7 +76,7 @@ const steps = [
     label: 'DEMO',
     icon: <DemoSVG />,
     title: 'Present & win prizes',
-    desc: 'Show your project to a panel of judges, science-fair style. Prize categories cover design, technical depth, creativity, and first-time builders. You leave with finished work and new friends.',
+    desc: 'Demo your project to a small judging panel, science-fair style. Categories include design, technical depth, creativity, and best first hackathon. Then we hand out prizes and call it a day.',
     details: ['Multiple prize categories', 'Judge panel presentation', 'Audience favorite award', 'Networking reception'],
   },
 ];
