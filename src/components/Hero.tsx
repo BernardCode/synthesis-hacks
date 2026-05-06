@@ -140,7 +140,7 @@ export default function Hero() {
           </svg>
         </a>
         <a
-          href="https://discord.gg/Pwkn86hH"
+          href="https://discord.gg/yZpgnKVG"
           target="_blank"
           rel="noopener noreferrer"
           style={{
