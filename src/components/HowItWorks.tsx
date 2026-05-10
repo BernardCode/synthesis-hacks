@@ -57,10 +57,10 @@ function DemoSVG() {
 const steps = [
   {
     number: '01',
-    label: 'REGISTER',
+    label: 'CHECK IN',
     icon: <RegisterSVG />,
-    title: 'Form your team',
-    desc: 'Sign up alone or bring friends. No experience needed. We run a team-matching session at the start so nobody arrives without a team.',
+    title: 'Meet your team',
+    desc: 'Accepted participants can arrive alone or with friends. No experience needed. We run a team-matching session at the start so nobody builds without a team.',
     details: ['Grades 9 through 12', 'Teams of 2 to 4', 'All skill levels welcome', 'Free to attend'],
   },
   {

@@ -79,7 +79,7 @@ export default function Hero() {
           <svg width="7" height="7" viewBox="0 0 8 8" fill="none" aria-hidden="true">
             <circle cx="4" cy="4" r="3.2" fill="var(--coral)" opacity="0.9" />
           </svg>
-          Applications due May 3rd
+          Applications closed
         </span>
       </div>
 
@@ -128,17 +128,21 @@ export default function Hero() {
 
       {/* CTA row */}
       <div className="fade-up fade-up-delay-4" style={{ marginTop: '2.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-        <a
-          href="https://synthesishacks.fillout.com/t/grGiZ8GF2rus"
-          target="_blank"
-          rel="noopener noreferrer"
+        <span
           className="btn-primary"
+          aria-disabled="true"
+          style={{
+            cursor: 'default',
+            background: 'var(--bg-card-hover)',
+            border: '1px solid var(--border-accent)',
+            color: 'var(--accent)',
+          }}
         >
-          Pre-register now
+          Applications closed
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
-            <path d="M1.5 11.5 L11.5 1.5 M4 1.5 L11.5 1.5 L11.5 9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3 6.5 L5.6 9 L10 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </a>
+        </span>
         <a
           href="https://discord.gg/yZpgnKVG"
           target="_blank"

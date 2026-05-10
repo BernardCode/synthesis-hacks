@@ -87,8 +87,8 @@ const jsonLd = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD',
-        availability: 'https://schema.org/InStock',
-        url: 'https://synthesishacks.fillout.com/t/grGiZ8GF2rus',
+        availability: 'https://schema.org/SoldOut',
+        url: SITE_URL,
         validFrom: '2026-04-01',
       },
       organizer: {

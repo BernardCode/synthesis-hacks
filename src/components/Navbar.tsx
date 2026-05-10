@@ -44,25 +44,23 @@ export default function Navbar() {
 
           {isMobile ? (
             /* Mobile: Register CTA only */
-            <a
-              href="https://synthesishacks.fillout.com/t/grGiZ8GF2rus"
-              target="_blank"
-              rel="noopener noreferrer"
+            <span
+              aria-disabled="true"
               style={{
-                background: 'var(--accent)',
-                color: '#0d0d14',
+                background: 'var(--bg-card-hover)',
+                border: '1px solid var(--border-accent)',
+                color: 'var(--accent)',
                 fontSize: '0.78rem',
                 fontWeight: 600,
                 padding: '0.45rem 1rem',
                 borderRadius: '6px',
-                textDecoration: 'none',
                 fontFamily: 'DM Sans, sans-serif',
                 letterSpacing: '0.01em',
                 whiteSpace: 'nowrap',
               }}
             >
-              Register
-            </a>
+              Closed
+            </span>
           ) : (
             /* Desktop: nav links + Contact */
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.75rem' }}>
