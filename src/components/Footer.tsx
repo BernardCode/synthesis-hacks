@@ -61,6 +61,12 @@ export default function Footer() {
           © {year} Synthesis Hacks
         </p>
       </div>
+
+      <div style={{ maxWidth: '1100px', margin: '1.75rem auto 0', color: 'var(--text-muted)', fontFamily: 'DM Mono, monospace', fontSize: '0.78rem', lineHeight: 1.6, opacity: 0.75, textAlign: 'center' }}>
+        <p style={{ margin: 0 }}>
+          Lead Organizer: Bernard Freund · Outreach Lead: Tanish Savla · Logistics Lead: Eric Yan · Tech Lead: Stephen Lin
+        </p>
+      </div>
     </footer>
   );
 }
