@@ -306,21 +306,24 @@ export default function Prospectus() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'center' }}>
               <a
-                href="mailto:sponsors@synthesishacks.com"
+                href="/Synthesis_Hacks_2026_Prospectus.pdf"
                 className="btn-primary"
                 style={{ textDecoration: 'none' }}
+                download
               >
-                Email us about sponsoring
+                Download Full Prospectus (PDF)
               </a>
-              <p
+              <a
+                href="mailto:sponsors@synthesishacks.com"
                 style={{
                   fontSize: '0.85rem',
                   color: 'var(--text-muted)',
                   fontFamily: 'DM Mono, monospace',
+                  textDecoration: 'none',
                 }}
               >
                 sponsors@synthesishacks.com
-              </p>
+              </a>
             </div>
           </div>
         </section>
