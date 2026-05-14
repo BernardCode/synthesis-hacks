@@ -186,16 +186,21 @@ const tierLabelStyle: CSSProperties = {
 const titleTierLabelStyle: CSSProperties = {
   ...tierLabelStyle,
   color: 'var(--accent)',
-  fontSize: '0.85rem',
+  fontSize: '1rem',
   letterSpacing: '0.22em',
   fontWeight: 700,
   opacity: 1,
+  fontFamily: 'Georgia, serif',
+};
+
+const silverTierLabelStyle: CSSProperties = {
+  ...titleTierLabelStyle,
 };
 
 const bronzeTierLabelStyle: CSSProperties = {
   ...tierLabelStyle,
   color: '#cd7f32',
-  fontSize: '0.85rem',
+  fontSize: '1rem',
   letterSpacing: '0.22em',
   fontWeight: 700,
   opacity: 1,
@@ -220,12 +225,14 @@ const titleSponsorStyle: CSSProperties = {
 
 const silverSponsorStyle: CSSProperties = {
   ...sponsorItemStyle,
-  maxWidth: '380px',
+  maxWidth: '400px',
+  padding: '1.5rem 0',
 };
 
 const bronzeSponsorStyle: CSSProperties = {
   ...sponsorItemStyle,
-  maxWidth: '320px',
+  maxWidth: '280px',
+  padding: '1rem 0',
 };
 
 const sponsorLogoStyle: CSSProperties = {
@@ -412,7 +419,7 @@ export default function Sponsors() {
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>SILVER</p>
+            <p style={silverTierLabelStyle}>SILVER</p>
             <a
               href="https://yri.ai"
               target="_blank"
@@ -428,47 +435,53 @@ export default function Sponsors() {
             </a>
           </div>
 
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ width: '100%', textAlign: 'center' }}>
             <p style={bronzeTierLabelStyle}>BRONZE</p>
-            <a
-              href="https://artofproblemsolving.com"
-              target="_blank"
-              rel="noreferrer"
-              style={sponsorLinkStyle}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                gap: '1.5rem',
+                alignItems: 'start',
+                marginTop: '1rem',
+              }}
             >
-              <div style={bronzeSponsorStyle}>
-                <Image
-                  src="/AoPS_Main_Logo.png"
-                  alt="Art of Problem Solving"
-                  width={220}
-                  height={70}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    maxWidth: '320px',
-                    filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
-                  }}
-                />
-                <p style={cardSubtitleStyle}>Art of Problem Solving</p>
-              </div>
-            </a>
-          </div>
-
-          <div style={{ textAlign: 'center' }}>
-            <p style={bronzeTierLabelStyle}>BRONZE</p>
-            <a
-              href="https://arrcus.com"
-              target="_blank"
-              rel="noreferrer"
-              style={sponsorLinkStyle}
-            >
-              <div style={bronzeSponsorStyle}>
-                <div style={{ width: '100%', maxWidth: '320px' }}>
-                  <ArrcusLogo />
+              <a
+                href="https://artofproblemsolving.com"
+                target="_blank"
+                rel="noreferrer"
+                style={sponsorLinkStyle}
+              >
+                <div style={bronzeSponsorStyle}>
+                  <Image
+                    src="/AoPS_Main_Logo.png"
+                    alt="Art of Problem Solving"
+                    width={220}
+                    height={70}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: '280px',
+                      filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
+                    }}
+                  />
+                  <p style={cardSubtitleStyle}>Art of Problem Solving</p>
                 </div>
-                <p style={cardSubtitleStyle}>Arrcus</p>
-              </div>
-            </a>
+              </a>
+              <a
+                href="https://arrcus.com"
+                target="_blank"
+                rel="noreferrer"
+                style={sponsorLinkStyle}
+              >
+                <div style={bronzeSponsorStyle}>
+                  <div style={{ width: '100%', maxWidth: '280px' }}>
+                    <ArrcusLogo />
+                  </div>
+                  <p style={cardSubtitleStyle}>Arrcus</p>
+                </div>
+              </a>
+            </div>
           </div>
 
           <div style={{ textAlign: 'center' }}>
