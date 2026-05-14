@@ -58,40 +58,56 @@ function ImpactSVG() {
 
 function NttvcLogo() {
   return (
-    <svg
-      width="100%"
-      height="auto"
-      viewBox="0 0 260 80"
-      fill="none"
-      aria-hidden="true"
-      role="img"
-      style={{ overflow: 'visible' }}
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '1rem',
+        width: '100%',
+        maxWidth: '420px',
+        padding: '0.5rem 0',
+      }}
     >
-      <defs>
-        <filter id="nttvcGlow" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="glowColor" />
-          <feComposite in="glowColor" in2="blur" operator="in" result="glow" />
-          <feMerge>
-            <feMergeNode in="glow" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <text
-        x="50%"
-        y="62"
-        textAnchor="middle"
-        fill="#111111"
-        fontFamily="Georgia, serif"
-        fontWeight="900"
-        fontSize="68"
-        letterSpacing="-1.5"
-        filter="url(#nttvcGlow)"
+      <div
+        style={{
+          width: '64px',
+          height: '64px',
+          borderRadius: '999px',
+          background: 'rgba(255,255,255,0.08)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.9))',
+        }}
       >
-        NTTVC
-      </text>
-    </svg>
+        <Image
+          src="/nttvc_icon.png"
+          alt="NTTVC icon"
+          width={36}
+          height={36}
+          style={{ width: '36px', height: '36px', filter: 'brightness(0) invert(1)' }}
+        />
+      </div>
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '300px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          filter: 'drop-shadow(0 0 18px rgba(255,255,255,0.9))',
+        }}
+      >
+        <Image
+          src="/nttvc_logo.png"
+          alt="NTTVC"
+          width={260}
+          height={72}
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -136,7 +152,14 @@ function ArrcusLogo() {
 
 function YriLogo() {
   return (
-    <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+    <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        filter: 'drop-shadow(0 0 22px rgba(255,255,255,0.9))',
+      }}
+    >
       <Image
         src="/YRI_Fellowship.png"
         alt="YRI Fellowship"
@@ -379,7 +402,7 @@ export default function Sponsors() {
           <div style={{ textAlign: 'center' }}>
             <p style={titleTierLabelStyle}>TITLE SPONSOR</p>
             <a
-              href="https://www.nttvc.co.jp/"
+              href="https://nttvc.com/"
               target="_blank"
               rel="noreferrer"
               style={sponsorLinkStyle}
@@ -396,7 +419,7 @@ export default function Sponsors() {
           <div style={{ textAlign: 'center' }}>
             <p style={silverTierLabelStyle}>SILVER</p>
             <a
-              href="https://yri.ai"
+              href="https://www.yriscience.com/"
               target="_blank"
               rel="noreferrer"
               style={sponsorLinkStyle}
