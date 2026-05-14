@@ -229,63 +229,6 @@ const sponsorLogoStyle: CSSProperties = {
   height: 'auto',
 };
 
-const sponsorSectionStyle: CSSProperties = {
-  position: 'relative',
-  padding: '6rem 1.5rem',
-  overflow: 'hidden',
-};
-
-const sponsorBackgroundDot: CSSProperties = {
-  position: 'absolute',
-  borderRadius: '50%',
-  filter: 'blur(86px)',
-  opacity: 0.35,
-  pointerEvents: 'none',
-};
-
-const sponsorGridStyle: CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gap: '1.75rem',
-  justifyItems: 'center',
-};
-
-const sponsorCardStyle: CSSProperties = {
-  position: 'relative',
-  width: '100%',
-  borderRadius: '28px',
-  padding: '2rem',
-  background: 'rgba(14, 14, 20, 0.92)',
-  border: '1px solid rgba(255,255,255,0.07)',
-  boxShadow: '0 35px 95px rgba(0,0,0,0.24)',
-  backdropFilter: 'blur(18px)',
-};
-
-const sponsorCardTitleStyle: CSSProperties = {
-  fontSize: '0.78rem',
-  fontFamily: 'DM Mono, monospace',
-  letterSpacing: '0.24em',
-  color: '#9bdc9b',
-  marginBottom: '1rem',
-};
-
-const sponsorCardLabelStyle: CSSProperties = {
-  fontSize: '1rem',
-  fontWeight: 700,
-  letterSpacing: '-0.04em',
-  marginTop: '1rem',
-  color: '#fff',
-};
-
-const sponsorLogoPanelStyle: CSSProperties = {
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%',
-  minHeight: '180px',
-};
-
 const sponsorLinkStyle: CSSProperties = {
   display: 'block',
   textDecoration: 'none',
@@ -330,7 +273,7 @@ const benefits: { icon: ReactNode; title: string; desc: string }[] = [
 
 export default function Sponsors() {
   return (
-    <section id="sponsors" style={sponsorSectionStyle}>
+    <section id="sponsors" style={{ padding: '6rem 1.5rem' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
         {/* Header */}
         <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
@@ -437,66 +380,58 @@ export default function Sponsors() {
         </div>
 
         {/* Current sponsors */}
-        <div style={{ marginTop: '3.5rem', position: 'relative' }}>
-          <div style={{
-            ...sponsorBackgroundDot,
-            width: '360px',
-            height: '360px',
-            background: 'radial-gradient(circle, rgba(109,255,184,0.16), transparent 55%)',
-            top: '-80px',
-            right: '-120px',
-          }} />
-          <div style={{
-            ...sponsorBackgroundDot,
-            width: '260px',
-            height: '260px',
-            background: 'radial-gradient(circle, rgba(143,215,255,0.14), transparent 52%)',
-            bottom: '-90px',
-            left: '-70px',
-          }} />
-
-          <div style={sponsorGridStyle}>
-            <div style={{ ...sponsorCardStyle, maxWidth: '720px' }}>
-              <div style={sponsorCardTitleStyle}>TITLE SPONSOR</div>
-              <div style={sponsorLogoPanelStyle}>
-                <div style={{
-                  position: 'absolute',
-                  inset: '12px',
-                  borderRadius: '28px',
-                  background: 'radial-gradient(circle at top, rgba(127, 255, 175, 0.12), transparent 55%)',
-                }} />
-                <div style={{ position: 'relative', width: '100%', maxWidth: '520px' }}>
+        <div
+          style={{
+            marginTop: '3.5rem',
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '2.5rem',
+            justifyItems: 'center',
+          }}
+        >
+          <div style={{ textAlign: 'center' }}>
+            <p style={tierLabelStyle}>TITLE SPONSOR</p>
+            <a
+              href="https://www.nttvc.co.jp/"
+              target="_blank"
+              rel="noreferrer"
+              style={sponsorLinkStyle}
+            >
+              <div style={titleSponsorStyle}>
+                <div style={{ width: '100%', maxWidth: '420px' }}>
                   <NttvcLogo />
                 </div>
+                <p style={cardSubtitleStyle}>NTTVC</p>
               </div>
-              <p style={sponsorCardLabelStyle}>NTTVC</p>
-            </div>
+            </a>
+          </div>
 
-            <div style={{ ...sponsorCardStyle, maxWidth: '660px', background: 'linear-gradient(180deg, rgba(9,14,20,0.96), rgba(18,24,35,0.98))' }}>
-              <div style={sponsorCardTitleStyle}>SILVER SPONSOR</div>
-              <div style={sponsorLogoPanelStyle}>
-                <div style={{
-                  position: 'absolute',
-                  inset: '10px',
-                  borderRadius: '28px',
-                  background: 'radial-gradient(circle at 30% 30%, rgba(123, 255, 214, 0.14), transparent 45%)',
-                }} />
-                <div style={{ position: 'relative', width: '100%', maxWidth: '460px' }}>
+          <div style={{ textAlign: 'center' }}>
+            <p style={tierLabelStyle}>SILVER</p>
+            <a
+              href="https://yri.ai"
+              target="_blank"
+              rel="noreferrer"
+              style={sponsorLinkStyle}
+            >
+              <div style={silverSponsorStyle}>
+                <div style={{ width: '100%', maxWidth: '380px' }}>
                   <YriLogo />
                 </div>
+                <p style={cardSubtitleStyle}>YRI</p>
               </div>
-              <p style={sponsorCardLabelStyle}>YRI</p>
-            </div>
+            </a>
+          </div>
 
-            <div style={{ ...sponsorCardStyle, maxWidth: '620px', background: 'linear-gradient(180deg, rgba(6,14,20,0.92), rgba(12,18,30,0.96))' }}>
-              <div style={sponsorCardTitleStyle}>BRONZE PARTNER</div>
-              <div style={sponsorLogoPanelStyle}>
-                <div style={{
-                  position: 'absolute',
-                  inset: '10px',
-                  borderRadius: '28px',
-                  background: 'radial-gradient(circle at 70% 30%, rgba(147, 203, 255, 0.12), transparent 45%)',
-                }} />
+          <div style={{ textAlign: 'center' }}>
+            <p style={tierLabelStyle}>BRONZE</p>
+            <a
+              href="https://artofproblemsolving.com"
+              target="_blank"
+              rel="noreferrer"
+              style={sponsorLinkStyle}
+            >
+              <div style={bronzeSponsorStyle}>
                 <Image
                   src="/AoPS_Main_Logo.png"
                   alt="Art of Problem Solving"
@@ -506,43 +441,41 @@ export default function Sponsors() {
                     width: '100%',
                     height: 'auto',
                     maxWidth: '320px',
-                    filter: 'drop-shadow(0 0 26px rgba(255,255,255,0.92)) drop-shadow(0 0 18px rgba(110,255,180,0.24))',
-                    position: 'relative',
-                    zIndex: 1,
+                    filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.95)) drop-shadow(0 0 18px rgba(116,255,172,0.28))',
                   }}
                 />
+                <p style={cardSubtitleStyle}>Art of Problem Solving</p>
               </div>
-              <p style={sponsorCardLabelStyle}>Art of Problem Solving</p>
-            </div>
+            </a>
+          </div>
 
-            <div style={{ ...sponsorCardStyle, maxWidth: '620px', background: 'radial-gradient(circle at 20% 20%, rgba(111, 255, 196, 0.08), transparent 52%), rgba(16,22,32,0.92)' }}>
-              <div style={sponsorCardTitleStyle}>BRONZE PARTNER</div>
-              <div style={sponsorLogoPanelStyle}>
-                <div style={{
-                  position: 'absolute',
-                  inset: '10px',
-                  borderRadius: '28px',
-                  background: 'radial-gradient(circle at 40% 60%, rgba(255,255,255,0.08), transparent 42%)',
-                }} />
-                <div style={{ position: 'relative', width: '100%', maxWidth: '360px' }}>
+          <div style={{ textAlign: 'center' }}>
+            <p style={tierLabelStyle}>BRONZE</p>
+            <a
+              href="https://arrcus.com"
+              target="_blank"
+              rel="noreferrer"
+              style={sponsorLinkStyle}
+            >
+              <div style={bronzeSponsorStyle}>
+                <div style={{ width: '100%', maxWidth: '320px' }}>
                   <ArrcusLogo />
                 </div>
+                <p style={cardSubtitleStyle}>Arrcus</p>
               </div>
-              <p style={sponsorCardLabelStyle}>Arrcus</p>
-            </div>
+            </a>
+          </div>
 
-            <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
-              <p style={{
-                fontSize: '0.72rem',
-                fontFamily: 'DM Mono, monospace',
-                color: 'var(--text-muted)',
-                letterSpacing: '0.08em',
-                opacity: 0.45,
-                margin: 0,
-              }}>
-                MORE SPONSORS COMING SOON
-              </p>
-            </div>
+          <div style={{ textAlign: 'center' }}>
+            <p style={{
+              fontSize: '0.72rem',
+              fontFamily: 'DM Mono, monospace',
+              color: 'var(--text-muted)',
+              letterSpacing: '0.08em',
+              opacity: 0.4,
+            }}>
+              MORE SPONSORS COMING SOON
+            </p>
           </div>
         </div>
       </div>
