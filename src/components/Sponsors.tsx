@@ -68,15 +68,12 @@ function NttvcLogo() {
       style={{ overflow: 'visible' }}
     >
       <defs>
-        <filter id="nttvcGlow" x="-45%" y="-45%" width="190%" height="190%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="whiteColor" />
-          <feComposite in="whiteColor" in2="blur" operator="in" result="whiteGlow" />
-          <feFlood floodColor="#6effb1" floodOpacity="0.18" result="greenColor" />
-          <feComposite in="greenColor" in2="blur" operator="in" result="greenGlow" />
+        <filter id="nttvcGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="glowColor" />
+          <feComposite in="glowColor" in2="blur" operator="in" result="glow" />
           <feMerge>
-            <feMergeNode in="greenGlow" />
-            <feMergeNode in="whiteGlow" />
+            <feMergeNode in="glow" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
@@ -110,35 +107,29 @@ function ArrcusLogo() {
       style={{ overflow: 'visible' }}
     >
       <defs>
-        <filter id="arrcusGlow" x="-40%" y="-40%" width="180%" height="180%">
-          <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="dilated" />
-          <feGaussianBlur in="dilated" stdDeviation="5" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="whiteColor" />
-          <feComposite in="whiteColor" in2="blur" operator="in" result="whiteGlow" />
-          <feFlood floodColor="#8cffb8" floodOpacity="0.15" result="greenColor" />
-          <feComposite in="greenColor" in2="blur" operator="in" result="greenGlow" />
+        <filter id="arrcusGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="glowColor" />
+          <feComposite in="glowColor" in2="blur" operator="in" result="glow" />
           <feMerge>
-            <feMergeNode in="greenGlow" />
-            <feMergeNode in="whiteGlow" />
+            <feMergeNode in="glow" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
-      <g transform="translate(18,0)">
-        <path d="M12 60 L42 12 L74 60 H58 L46 31 L32 60 H12 Z" fill="#0B69C6" />
-        <text
-          x="108"
-          y="50"
-          fill="#111111"
-          fontFamily="Inter, sans-serif"
-          fontWeight="800"
-          fontSize="36"
-          letterSpacing="-0.02em"
-          filter="url(#arrcusGlow)"
-        >
-          ARRCUS
-        </text>
-      </g>
+      <path d="M12 60 L42 12 L74 60 H58 L46 31 L32 60 H12 Z" fill="#0B69C6" />
+      <text
+        x="90"
+        y="50"
+        fill="#111111"
+        fontFamily="Inter, sans-serif"
+        fontWeight="800"
+        fontSize="36"
+        letterSpacing="-0.02em"
+        filter="url(#arrcusGlow)"
+      >
+        ARRCUS
+      </text>
     </svg>
   );
 }
@@ -155,16 +146,12 @@ function YriLogo() {
       style={{ overflow: 'visible' }}
     >
       <defs>
-        <filter id="yriGlow" x="-45%" y="-45%" width="190%" height="190%">
-          <feMorphology in="SourceAlpha" operator="dilate" radius="1.5" result="dilated" />
-          <feGaussianBlur in="dilated" stdDeviation="6" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="whiteColor" />
-          <feComposite in="whiteColor" in2="blur" operator="in" result="whiteGlow" />
-          <feFlood floodColor="#7dffab" floodOpacity="0.18" result="greenColor" />
-          <feComposite in="greenColor" in2="blur" operator="in" result="greenGlow" />
+        <filter id="yriGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="glowColor" />
+          <feComposite in="glowColor" in2="blur" operator="in" result="glow" />
           <feMerge>
-            <feMergeNode in="greenGlow" />
-            <feMergeNode in="whiteGlow" />
+            <feMergeNode in="glow" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
@@ -194,6 +181,18 @@ const tierLabelStyle: CSSProperties = {
   marginBottom: '1.25rem',
   textAlign: 'center',
   opacity: 0.55,
+};
+
+const titleTierLabelStyle: CSSProperties = {
+  ...tierLabelStyle,
+  color: 'var(--accent)',
+  opacity: 1,
+};
+
+const bronzeTierLabelStyle: CSSProperties = {
+  ...tierLabelStyle,
+  color: '#cd7f32',
+  opacity: 1,
 };
 
 const sponsorItemStyle: CSSProperties = {
@@ -390,7 +389,7 @@ export default function Sponsors() {
           }}
         >
           <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>TITLE SPONSOR</p>
+            <p style={titleTierLabelStyle}>TITLE SPONSOR</p>
             <a
               href="https://www.nttvc.co.jp/"
               target="_blank"
@@ -424,7 +423,7 @@ export default function Sponsors() {
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>BRONZE</p>
+            <p style={bronzeTierLabelStyle}>BRONZE</p>
             <a
               href="https://artofproblemsolving.com"
               target="_blank"
@@ -441,7 +440,7 @@ export default function Sponsors() {
                     width: '100%',
                     height: 'auto',
                     maxWidth: '320px',
-                    filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.95)) drop-shadow(0 0 18px rgba(116,255,172,0.28))',
+                    filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.9))',
                   }}
                 />
                 <p style={cardSubtitleStyle}>Art of Problem Solving</p>
@@ -450,7 +449,7 @@ export default function Sponsors() {
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>BRONZE</p>
+            <p style={bronzeTierLabelStyle}>BRONZE</p>
             <a
               href="https://arrcus.com"
               target="_blank"
