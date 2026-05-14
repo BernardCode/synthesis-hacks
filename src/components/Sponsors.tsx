@@ -59,7 +59,27 @@ function ImpactSVG() {
 function NttvcLogo() {
   return (
     <svg width="260" height="80" viewBox="0 0 260 80" fill="none" aria-hidden="true" role="img">
-      <text x="0" y="62" fill="#111111" fontFamily="Georgia, serif" fontWeight="900" fontSize="68" letterSpacing="-1.5">
+      <defs>
+        <filter id="nttvcGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.8" result="color" />
+          <feComposite in="color" in2="blur" operator="in" result="glow" />
+          <feMerge>
+            <feMergeNode in="glow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <text
+        x="0"
+        y="62"
+        fill="#111111"
+        fontFamily="Georgia, serif"
+        fontWeight="900"
+        fontSize="68"
+        letterSpacing="-1.5"
+        filter="url(#nttvcGlow)"
+      >
         NTTVC
       </text>
     </svg>
@@ -69,10 +89,61 @@ function NttvcLogo() {
 function ArrcusLogo() {
   return (
     <svg width="260" height="72" viewBox="0 0 260 72" fill="none" aria-hidden="true" role="img">
+      <defs>
+        <filter id="arrcusGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="color" />
+          <feComposite in="color" in2="blur" operator="in" result="glow" />
+          <feMerge>
+            <feMergeNode in="glow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
       <path d="M12 60 L42 12 L74 60 H58 L46 31 L32 60 H12 Z" fill="#0B69C6" />
-      <text x="90" y="50" fill="#111111" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="36" letterSpacing="-0.02em">
+      <text
+        x="90"
+        y="50"
+        fill="#111111"
+        fontFamily="Inter, sans-serif"
+        fontWeight="800"
+        fontSize="36"
+        letterSpacing="-0.02em"
+        filter="url(#arrcusGlow)"
+      >
         ARRCUS
       </text>
+    </svg>
+  );
+}
+
+function YriLogo() {
+  return (
+    <svg width="260" height="80" viewBox="0 0 260 80" fill="none" aria-hidden="true" role="img">
+      <defs>
+        <filter id="yriGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="color" />
+          <feComposite in="color" in2="blur" operator="in" result="glow" />
+          <feMerge>
+            <feMergeNode in="glow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <g filter="url(#yriGlow)">
+        <text
+          x="0"
+          y="62"
+          fill="#111111"
+          fontFamily="Georgia, serif"
+          fontWeight="900"
+          fontSize="68"
+          letterSpacing="-2"
+        >
+          YRI
+        </text>
+      </g>
     </svg>
   );
 }
@@ -292,9 +363,29 @@ export default function Sponsors() {
                   alt="Art of Problem Solving"
                   width={220}
                   height={70}
-                  style={{ width: '100%', height: 'auto', maxWidth: '180px' }}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    maxWidth: '180px',
+                    filter: 'drop-shadow(0 0 18px rgba(255,255,255,0.85))',
+                  }}
                 />
                 <p style={cardSubtitleStyle}>Art of Problem Solving</p>
+              </div>
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <p style={tierLabelStyle}>BRONZE</p>
+            <a
+              href="https://yri.ai"
+              target="_blank"
+              rel="noreferrer"
+              style={sponsorLinkStyle}
+            >
+              <div style={sponsorItemStyle}>
+                <YriLogo />
+                <p style={cardSubtitleStyle}>YRI</p>
               </div>
             </a>
           </div>
