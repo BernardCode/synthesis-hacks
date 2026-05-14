@@ -280,8 +280,10 @@ export default function Sponsors() {
               </div>
               </a>
             </div>
-          </div>
-                href="https://www.nttvc.co.jp/"
+          </div>          <div>
+            <p style={tierLabelStyle}>TITLE SPONSOR</p>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <a                href="https://www.nttvc.co.jp/"
                 target="_blank"
                 rel="noreferrer"
                 style={sponsorLinkStyle}
