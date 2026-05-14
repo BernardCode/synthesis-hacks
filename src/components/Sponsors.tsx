@@ -58,13 +58,14 @@ function ImpactSVG() {
 
 function NttvcLogo() {
   return (
-    <svg width="260" height="80" viewBox="0 0 260 80" fill="none" aria-hidden="true" role="img">
+    <svg width="100%" height="auto" viewBox="0 0 260 80" fill="none" aria-hidden="true" role="img">
       <defs>
-        <filter id="nttvcGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.8" result="color" />
+        <filter id="nttvcGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+          <feFlood floodColor="#ffffff" floodOpacity="1" result="color" />
           <feComposite in="color" in2="blur" operator="in" result="glow" />
           <feMerge>
+            <feMergeNode in="glow" />
             <feMergeNode in="glow" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
@@ -88,10 +89,11 @@ function NttvcLogo() {
 
 function ArrcusLogo() {
   return (
-    <svg width="260" height="72" viewBox="0 0 260 72" fill="none" aria-hidden="true" role="img">
+    <svg width="100%" height="auto" viewBox="0 0 260 72" fill="none" aria-hidden="true" role="img">
       <defs>
-        <filter id="arrcusGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+        <filter id="arrcusGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="dilated" />
+          <feGaussianBlur in="dilated" stdDeviation="5" result="blur" />
           <feFlood floodColor="#ffffff" floodOpacity="0.9" result="color" />
           <feComposite in="color" in2="blur" operator="in" result="glow" />
           <feMerge>
@@ -119,10 +121,11 @@ function ArrcusLogo() {
 
 function YriLogo() {
   return (
-    <svg width="260" height="80" viewBox="0 0 260 80" fill="none" aria-hidden="true" role="img">
+    <svg width="100%" height="auto" viewBox="0 0 260 80" fill="none" aria-hidden="true" role="img">
       <defs>
-        <filter id="yriGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+        <filter id="yriGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feMorphology in="SourceAlpha" operator="dilate" radius="1.5" result="dilated" />
+          <feGaussianBlur in="dilated" stdDeviation="6" result="blur" />
           <feFlood floodColor="#ffffff" floodOpacity="0.9" result="color" />
           <feComposite in="color" in2="blur" operator="in" result="glow" />
           <feMerge>
@@ -166,6 +169,23 @@ const sponsorItemStyle: CSSProperties = {
   gap: '0.85rem',
   padding: '1rem 0',
   background: 'transparent',
+  width: '100%',
+};
+
+const titleSponsorStyle: CSSProperties = {
+  ...sponsorItemStyle,
+  maxWidth: '420px',
+  padding: '2rem 0',
+};
+
+const silverSponsorStyle: CSSProperties = {
+  ...sponsorItemStyle,
+  maxWidth: '380px',
+};
+
+const bronzeSponsorStyle: CSSProperties = {
+  ...sponsorItemStyle,
+  maxWidth: '320px',
 };
 
 const sponsorLogoStyle: CSSProperties = {
@@ -329,7 +349,7 @@ export default function Sponsors() {
           style={{
             marginTop: '3.5rem',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gridTemplateColumns: '1fr',
             gap: '2.5rem',
             justifyItems: 'center',
           }}
@@ -342,9 +362,28 @@ export default function Sponsors() {
               rel="noreferrer"
               style={sponsorLinkStyle}
             >
-              <div style={sponsorItemStyle}>
-                <NttvcLogo />
+              <div style={titleSponsorStyle}>
+                <div style={{ width: '100%', maxWidth: '420px' }}>
+                  <NttvcLogo />
+                </div>
                 <p style={cardSubtitleStyle}>NTTVC</p>
+              </div>
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <p style={tierLabelStyle}>SILVER</p>
+            <a
+              href="https://yri.ai"
+              target="_blank"
+              rel="noreferrer"
+              style={sponsorLinkStyle}
+            >
+              <div style={silverSponsorStyle}>
+                <div style={{ width: '100%', maxWidth: '380px' }}>
+                  <YriLogo />
+                </div>
+                <p style={cardSubtitleStyle}>YRI</p>
               </div>
             </a>
           </div>
@@ -357,7 +396,7 @@ export default function Sponsors() {
               rel="noreferrer"
               style={sponsorLinkStyle}
             >
-              <div style={sponsorItemStyle}>
+              <div style={bronzeSponsorStyle}>
                 <Image
                   src="/AoPS_Main_Logo.png"
                   alt="Art of Problem Solving"
@@ -366,26 +405,11 @@ export default function Sponsors() {
                   style={{
                     width: '100%',
                     height: 'auto',
-                    maxWidth: '180px',
-                    filter: 'drop-shadow(0 0 18px rgba(255,255,255,0.85))',
+                    maxWidth: '320px',
+                    filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.95))',
                   }}
                 />
                 <p style={cardSubtitleStyle}>Art of Problem Solving</p>
-              </div>
-            </a>
-          </div>
-
-          <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>BRONZE</p>
-            <a
-              href="https://yri.ai"
-              target="_blank"
-              rel="noreferrer"
-              style={sponsorLinkStyle}
-            >
-              <div style={sponsorItemStyle}>
-                <YriLogo />
-                <p style={cardSubtitleStyle}>YRI</p>
               </div>
             </a>
           </div>
@@ -398,14 +422,16 @@ export default function Sponsors() {
               rel="noreferrer"
               style={sponsorLinkStyle}
             >
-              <div style={sponsorItemStyle}>
-                <ArrcusLogo />
+              <div style={bronzeSponsorStyle}>
+                <div style={{ width: '100%', maxWidth: '320px' }}>
+                  <ArrcusLogo />
+                </div>
                 <p style={cardSubtitleStyle}>Arrcus</p>
               </div>
             </a>
           </div>
 
-          <div style={{ gridColumn: '1 / -1', textAlign: 'center' }}>
+          <div style={{ textAlign: 'center' }}>
             <p style={{
               fontSize: '0.72rem',
               fontFamily: 'DM Mono, monospace',
