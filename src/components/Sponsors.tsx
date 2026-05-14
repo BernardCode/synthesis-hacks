@@ -278,14 +278,9 @@ export default function Sponsors() {
                   <p style={cardSubtitleStyle}>Google Humboldt · Sunnyvale</p>
                 </div>
               </div>
+              </a>
             </div>
           </div>
-
-          {/* Title tier */}
-          <div>
-            <p style={tierLabelStyle}>TITLE SPONSOR</p>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <a
                 href="https://www.nttvc.co.jp/"
                 target="_blank"
                 rel="noreferrer"
