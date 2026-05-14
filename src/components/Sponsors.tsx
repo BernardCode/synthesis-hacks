@@ -58,22 +58,33 @@ function ImpactSVG() {
 
 function NttvcLogo() {
   return (
-    <svg width="100%" height="auto" viewBox="0 0 260 80" fill="none" aria-hidden="true" role="img">
+    <svg
+      width="100%"
+      height="auto"
+      viewBox="0 0 260 80"
+      fill="none"
+      aria-hidden="true"
+      role="img"
+      style={{ overflow: 'visible' }}
+    >
       <defs>
-        <filter id="nttvcGlow" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="1" result="color" />
-          <feComposite in="color" in2="blur" operator="in" result="glow" />
+        <filter id="nttvcGlow" x="-45%" y="-45%" width="190%" height="190%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="whiteColor" />
+          <feComposite in="whiteColor" in2="blur" operator="in" result="whiteGlow" />
+          <feFlood floodColor="#6effb1" floodOpacity="0.18" result="greenColor" />
+          <feComposite in="greenColor" in2="blur" operator="in" result="greenGlow" />
           <feMerge>
-            <feMergeNode in="glow" />
-            <feMergeNode in="glow" />
+            <feMergeNode in="greenGlow" />
+            <feMergeNode in="whiteGlow" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
       <text
-        x="0"
+        x="50%"
         y="62"
+        textAnchor="middle"
         fill="#111111"
         fontFamily="Georgia, serif"
         fontWeight="900"
@@ -89,64 +100,88 @@ function NttvcLogo() {
 
 function ArrcusLogo() {
   return (
-    <svg width="100%" height="auto" viewBox="0 0 260 72" fill="none" aria-hidden="true" role="img">
+    <svg
+      width="100%"
+      height="auto"
+      viewBox="0 0 260 72"
+      fill="none"
+      aria-hidden="true"
+      role="img"
+      style={{ overflow: 'visible' }}
+    >
       <defs>
-        <filter id="arrcusGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <filter id="arrcusGlow" x="-40%" y="-40%" width="180%" height="180%">
           <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="dilated" />
           <feGaussianBlur in="dilated" stdDeviation="5" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="color" />
-          <feComposite in="color" in2="blur" operator="in" result="glow" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="whiteColor" />
+          <feComposite in="whiteColor" in2="blur" operator="in" result="whiteGlow" />
+          <feFlood floodColor="#8cffb8" floodOpacity="0.15" result="greenColor" />
+          <feComposite in="greenColor" in2="blur" operator="in" result="greenGlow" />
           <feMerge>
-            <feMergeNode in="glow" />
+            <feMergeNode in="greenGlow" />
+            <feMergeNode in="whiteGlow" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
-      <path d="M12 60 L42 12 L74 60 H58 L46 31 L32 60 H12 Z" fill="#0B69C6" />
-      <text
-        x="90"
-        y="50"
-        fill="#111111"
-        fontFamily="Inter, sans-serif"
-        fontWeight="800"
-        fontSize="36"
-        letterSpacing="-0.02em"
-        filter="url(#arrcusGlow)"
-      >
-        ARRCUS
-      </text>
+      <g transform="translate(18,0)">
+        <path d="M12 60 L42 12 L74 60 H58 L46 31 L32 60 H12 Z" fill="#0B69C6" />
+        <text
+          x="108"
+          y="50"
+          fill="#111111"
+          fontFamily="Inter, sans-serif"
+          fontWeight="800"
+          fontSize="36"
+          letterSpacing="-0.02em"
+          filter="url(#arrcusGlow)"
+        >
+          ARRCUS
+        </text>
+      </g>
     </svg>
   );
 }
 
 function YriLogo() {
   return (
-    <svg width="100%" height="auto" viewBox="0 0 260 80" fill="none" aria-hidden="true" role="img">
+    <svg
+      width="100%"
+      height="auto"
+      viewBox="0 0 260 80"
+      fill="none"
+      aria-hidden="true"
+      role="img"
+      style={{ overflow: 'visible' }}
+    >
       <defs>
-        <filter id="yriGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <filter id="yriGlow" x="-45%" y="-45%" width="190%" height="190%">
           <feMorphology in="SourceAlpha" operator="dilate" radius="1.5" result="dilated" />
           <feGaussianBlur in="dilated" stdDeviation="6" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="color" />
-          <feComposite in="color" in2="blur" operator="in" result="glow" />
+          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="whiteColor" />
+          <feComposite in="whiteColor" in2="blur" operator="in" result="whiteGlow" />
+          <feFlood floodColor="#7dffab" floodOpacity="0.18" result="greenColor" />
+          <feComposite in="greenColor" in2="blur" operator="in" result="greenGlow" />
           <feMerge>
-            <feMergeNode in="glow" />
+            <feMergeNode in="greenGlow" />
+            <feMergeNode in="whiteGlow" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
-      <g filter="url(#yriGlow)">
-        <text
-          x="0"
-          y="62"
-          fill="#111111"
-          fontFamily="Georgia, serif"
-          fontWeight="900"
-          fontSize="68"
-          letterSpacing="-2"
-        >
-          YRI
-        </text>
-      </g>
+      <text
+        x="50%"
+        y="62"
+        textAnchor="middle"
+        fill="#111111"
+        fontFamily="Georgia, serif"
+        fontWeight="900"
+        fontSize="68"
+        letterSpacing="-2"
+        filter="url(#yriGlow)"
+      >
+        YRI
+      </text>
     </svg>
   );
 }
@@ -194,6 +229,63 @@ const sponsorLogoStyle: CSSProperties = {
   height: 'auto',
 };
 
+const sponsorSectionStyle: CSSProperties = {
+  position: 'relative',
+  padding: '6rem 1.5rem',
+  overflow: 'hidden',
+};
+
+const sponsorBackgroundDot: CSSProperties = {
+  position: 'absolute',
+  borderRadius: '50%',
+  filter: 'blur(86px)',
+  opacity: 0.35,
+  pointerEvents: 'none',
+};
+
+const sponsorGridStyle: CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gap: '1.75rem',
+  justifyItems: 'center',
+};
+
+const sponsorCardStyle: CSSProperties = {
+  position: 'relative',
+  width: '100%',
+  borderRadius: '28px',
+  padding: '2rem',
+  background: 'rgba(14, 14, 20, 0.92)',
+  border: '1px solid rgba(255,255,255,0.07)',
+  boxShadow: '0 35px 95px rgba(0,0,0,0.24)',
+  backdropFilter: 'blur(18px)',
+};
+
+const sponsorCardTitleStyle: CSSProperties = {
+  fontSize: '0.78rem',
+  fontFamily: 'DM Mono, monospace',
+  letterSpacing: '0.24em',
+  color: '#9bdc9b',
+  marginBottom: '1rem',
+};
+
+const sponsorCardLabelStyle: CSSProperties = {
+  fontSize: '1rem',
+  fontWeight: 700,
+  letterSpacing: '-0.04em',
+  marginTop: '1rem',
+  color: '#fff',
+};
+
+const sponsorLogoPanelStyle: CSSProperties = {
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  minHeight: '180px',
+};
+
 const sponsorLinkStyle: CSSProperties = {
   display: 'block',
   textDecoration: 'none',
@@ -238,7 +330,7 @@ const benefits: { icon: ReactNode; title: string; desc: string }[] = [
 
 export default function Sponsors() {
   return (
-    <section id="sponsors" style={{ padding: '6rem 1.5rem' }}>
+    <section id="sponsors" style={sponsorSectionStyle}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
         {/* Header */}
         <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
@@ -345,58 +437,66 @@ export default function Sponsors() {
         </div>
 
         {/* Current sponsors */}
-        <div
-          style={{
-            marginTop: '3.5rem',
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '2.5rem',
-            justifyItems: 'center',
-          }}
-        >
-          <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>TITLE SPONSOR</p>
-            <a
-              href="https://www.nttvc.co.jp/"
-              target="_blank"
-              rel="noreferrer"
-              style={sponsorLinkStyle}
-            >
-              <div style={titleSponsorStyle}>
-                <div style={{ width: '100%', maxWidth: '420px' }}>
+        <div style={{ marginTop: '3.5rem', position: 'relative' }}>
+          <div style={{
+            ...sponsorBackgroundDot,
+            width: '360px',
+            height: '360px',
+            background: 'radial-gradient(circle, rgba(109,255,184,0.16), transparent 55%)',
+            top: '-80px',
+            right: '-120px',
+          }} />
+          <div style={{
+            ...sponsorBackgroundDot,
+            width: '260px',
+            height: '260px',
+            background: 'radial-gradient(circle, rgba(143,215,255,0.14), transparent 52%)',
+            bottom: '-90px',
+            left: '-70px',
+          }} />
+
+          <div style={sponsorGridStyle}>
+            <div style={{ ...sponsorCardStyle, maxWidth: '720px' }}>
+              <div style={sponsorCardTitleStyle}>TITLE SPONSOR</div>
+              <div style={sponsorLogoPanelStyle}>
+                <div style={{
+                  position: 'absolute',
+                  inset: '12px',
+                  borderRadius: '28px',
+                  background: 'radial-gradient(circle at top, rgba(127, 255, 175, 0.12), transparent 55%)',
+                }} />
+                <div style={{ position: 'relative', width: '100%', maxWidth: '520px' }}>
                   <NttvcLogo />
                 </div>
-                <p style={cardSubtitleStyle}>NTTVC</p>
               </div>
-            </a>
-          </div>
+              <p style={sponsorCardLabelStyle}>NTTVC</p>
+            </div>
 
-          <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>SILVER</p>
-            <a
-              href="https://yri.ai"
-              target="_blank"
-              rel="noreferrer"
-              style={sponsorLinkStyle}
-            >
-              <div style={silverSponsorStyle}>
-                <div style={{ width: '100%', maxWidth: '380px' }}>
+            <div style={{ ...sponsorCardStyle, maxWidth: '660px', background: 'linear-gradient(180deg, rgba(9,14,20,0.96), rgba(18,24,35,0.98))' }}>
+              <div style={sponsorCardTitleStyle}>SILVER SPONSOR</div>
+              <div style={sponsorLogoPanelStyle}>
+                <div style={{
+                  position: 'absolute',
+                  inset: '10px',
+                  borderRadius: '28px',
+                  background: 'radial-gradient(circle at 30% 30%, rgba(123, 255, 214, 0.14), transparent 45%)',
+                }} />
+                <div style={{ position: 'relative', width: '100%', maxWidth: '460px' }}>
                   <YriLogo />
                 </div>
-                <p style={cardSubtitleStyle}>YRI</p>
               </div>
-            </a>
-          </div>
+              <p style={sponsorCardLabelStyle}>YRI</p>
+            </div>
 
-          <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>BRONZE</p>
-            <a
-              href="https://artofproblemsolving.com"
-              target="_blank"
-              rel="noreferrer"
-              style={sponsorLinkStyle}
-            >
-              <div style={bronzeSponsorStyle}>
+            <div style={{ ...sponsorCardStyle, maxWidth: '620px', background: 'linear-gradient(180deg, rgba(6,14,20,0.92), rgba(12,18,30,0.96))' }}>
+              <div style={sponsorCardTitleStyle}>BRONZE PARTNER</div>
+              <div style={sponsorLogoPanelStyle}>
+                <div style={{
+                  position: 'absolute',
+                  inset: '10px',
+                  borderRadius: '28px',
+                  background: 'radial-gradient(circle at 70% 30%, rgba(147, 203, 255, 0.12), transparent 45%)',
+                }} />
                 <Image
                   src="/AoPS_Main_Logo.png"
                   alt="Art of Problem Solving"
@@ -406,41 +506,43 @@ export default function Sponsors() {
                     width: '100%',
                     height: 'auto',
                     maxWidth: '320px',
-                    filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.95))',
+                    filter: 'drop-shadow(0 0 26px rgba(255,255,255,0.92)) drop-shadow(0 0 18px rgba(110,255,180,0.24))',
+                    position: 'relative',
+                    zIndex: 1,
                   }}
                 />
-                <p style={cardSubtitleStyle}>Art of Problem Solving</p>
               </div>
-            </a>
-          </div>
+              <p style={sponsorCardLabelStyle}>Art of Problem Solving</p>
+            </div>
 
-          <div style={{ textAlign: 'center' }}>
-            <p style={tierLabelStyle}>BRONZE</p>
-            <a
-              href="https://arrcus.com"
-              target="_blank"
-              rel="noreferrer"
-              style={sponsorLinkStyle}
-            >
-              <div style={bronzeSponsorStyle}>
-                <div style={{ width: '100%', maxWidth: '320px' }}>
+            <div style={{ ...sponsorCardStyle, maxWidth: '620px', background: 'radial-gradient(circle at 20% 20%, rgba(111, 255, 196, 0.08), transparent 52%), rgba(16,22,32,0.92)' }}>
+              <div style={sponsorCardTitleStyle}>BRONZE PARTNER</div>
+              <div style={sponsorLogoPanelStyle}>
+                <div style={{
+                  position: 'absolute',
+                  inset: '10px',
+                  borderRadius: '28px',
+                  background: 'radial-gradient(circle at 40% 60%, rgba(255,255,255,0.08), transparent 42%)',
+                }} />
+                <div style={{ position: 'relative', width: '100%', maxWidth: '360px' }}>
                   <ArrcusLogo />
                 </div>
-                <p style={cardSubtitleStyle}>Arrcus</p>
               </div>
-            </a>
-          </div>
+              <p style={sponsorCardLabelStyle}>Arrcus</p>
+            </div>
 
-          <div style={{ textAlign: 'center' }}>
-            <p style={{
-              fontSize: '0.72rem',
-              fontFamily: 'DM Mono, monospace',
-              color: 'var(--text-muted)',
-              letterSpacing: '0.08em',
-              opacity: 0.4,
-            }}>
-              MORE SPONSORS COMING SOON
-            </p>
+            <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
+              <p style={{
+                fontSize: '0.72rem',
+                fontFamily: 'DM Mono, monospace',
+                color: 'var(--text-muted)',
+                letterSpacing: '0.08em',
+                opacity: 0.45,
+                margin: 0,
+              }}>
+                MORE SPONSORS COMING SOON
+              </p>
+            </div>
           </div>
         </div>
       </div>
