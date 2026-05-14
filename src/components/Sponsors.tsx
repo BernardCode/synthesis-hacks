@@ -136,40 +136,15 @@ function ArrcusLogo() {
 
 function YriLogo() {
   return (
-    <svg
-      width="100%"
-      height="auto"
-      viewBox="0 0 260 80"
-      fill="none"
-      aria-hidden="true"
-      role="img"
-      style={{ overflow: 'visible' }}
-    >
-      <defs>
-        <filter id="yriGlow" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="glowColor" />
-          <feComposite in="glowColor" in2="blur" operator="in" result="glow" />
-          <feMerge>
-            <feMergeNode in="glow" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <text
-        x="50%"
-        y="62"
-        textAnchor="middle"
-        fill="#111111"
-        fontFamily="Georgia, serif"
-        fontWeight="900"
-        fontSize="68"
-        letterSpacing="-2"
-        filter="url(#yriGlow)"
-      >
-        YRI
-      </text>
-    </svg>
+    <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+      <Image
+        src="/YRI_Fellowship.png"
+        alt="YRI Fellowship"
+        width={360}
+        height={90}
+        style={{ width: '100%', height: 'auto', maxWidth: '360px' }}
+      />
+    </div>
   );
 }
 
