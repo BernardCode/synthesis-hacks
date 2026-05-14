@@ -186,12 +186,18 @@ const tierLabelStyle: CSSProperties = {
 const titleTierLabelStyle: CSSProperties = {
   ...tierLabelStyle,
   color: 'var(--accent)',
+  fontSize: '0.85rem',
+  letterSpacing: '0.22em',
+  fontWeight: 700,
   opacity: 1,
 };
 
 const bronzeTierLabelStyle: CSSProperties = {
   ...tierLabelStyle,
   color: '#cd7f32',
+  fontSize: '0.85rem',
+  letterSpacing: '0.22em',
+  fontWeight: 700,
   opacity: 1,
 };
 
@@ -440,7 +446,7 @@ export default function Sponsors() {
                     width: '100%',
                     height: 'auto',
                     maxWidth: '320px',
-                    filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.9))',
+                    filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
                   }}
                 />
                 <p style={cardSubtitleStyle}>Art of Problem Solving</p>
