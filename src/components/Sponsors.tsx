@@ -71,10 +71,9 @@ function NttvcLogo() {
     >
       <div
         style={{
-          width: '64px',
-          height: '64px',
+          width: '84px',
+          height: '84px',
           borderRadius: '999px',
-          background: 'rgba(255,255,255,0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -84,15 +83,15 @@ function NttvcLogo() {
         <Image
           src="/nttvc_icon.png"
           alt="NTTVC icon"
-          width={36}
-          height={36}
-          style={{ width: '36px', height: '36px', filter: 'brightness(0) invert(1)' }}
+          width={48}
+          height={48}
+          style={{ width: '48px', height: '48px', filter: 'brightness(0) invert(1)' }}
         />
       </div>
       <div
         style={{
           width: '100%',
-          maxWidth: '300px',
+          maxWidth: '360px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -102,8 +101,8 @@ function NttvcLogo() {
         <Image
           src="/nttvc_logo.png"
           alt="NTTVC"
-          width={260}
-          height={72}
+          width={340}
+          height={96}
           style={{ width: '100%', height: 'auto', filter: 'brightness(0) invert(1)' }}
         />
       </div>
@@ -126,22 +125,21 @@ function DeepAILogo() {
     >
       <div
         style={{
-          width: '64px',
-          height: '64px',
+          width: '84px',
+          height: '84px',
           borderRadius: '999px',
-          background: 'rgba(255,255,255,0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          filter: 'drop-shadow(0 0 18px rgba(176, 120, 255, 0.85))',
+          filter: 'drop-shadow(0 0 22px rgba(176, 120, 255, 0.95))',
         }}
       >
         <Image
           src="/deepai_logo.png"
           alt="DeepAI icon"
-          width={44}
-          height={44}
-          style={{ width: '44px', height: '44px' }}
+          width={64}
+          height={64}
+          style={{ width: '64px', height: '64px' }}
         />
       </div>
     </div>
@@ -589,18 +587,19 @@ export default function Sponsors() {
                 style={sponsorLinkStyle}
               >
                 <div style={bronzeSponsorStyle}>
-                  <Image
-                    src="/xyz-logo-color.png"
-                    alt="xyz"
-                    width={220}
-                    height={80}
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      maxWidth: '220px',
-                      filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
-                    }}
-                  />
+                      <img
+                        src="/xyz-logo-color.png"
+                        alt="xyz"
+                        width={220}
+                        height={80}
+                        style={{
+                          width: '100%',
+                          height: 'auto',
+                          maxWidth: '220px',
+                          filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
+                          display: 'block',
+                        }}
+                      />
                   <p style={cardSubtitleStyle}>xyz</p>
                 </div>
               </a>
