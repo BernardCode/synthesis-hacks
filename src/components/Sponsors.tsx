@@ -577,7 +577,7 @@ export default function Sponsors() {
                 </div>
               </a>
               <a
-                href="https://example.com"
+                href="https://gen.xyz/"
                 target="_blank"
                 rel="noreferrer"
                 style={sponsorLinkStyle}
