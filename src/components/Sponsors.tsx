@@ -12,19 +12,19 @@ function ExposureSVG() {
       <polyline points="30,4 36,4 36,10" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
       <polyline points="36,30 36,36 30,36" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
       <polyline points="10,36 4,36 4,30" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
-    </svg>
-  );
-}
-
-/* Directed graph - source node feeds two intermediaries into a destination */
-function PipelineSVG() {
-  return (
-    <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="6" cy="20" r="3" fill="currentColor" />
-      <circle cx="20" cy="11" r="2.4" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.7" />
-      <circle cx="20" cy="29" r="2.4" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.7" />
-      <circle cx="34" cy="20" r="3.5" stroke="currentColor" strokeWidth="1.4" fill="none" />
-      <circle cx="34" cy="20" r="1.4" fill="currentColor" opacity="0.6" />
+                  <Image
+                    src="/xyz-logo-color.png"
+                    alt="xyz"
+                    width={220}
+                    height={80}
+                    unoptimized
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: '220px',
+                      filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
+                    }}
+                  />
       <path d="M8.9 18.7 L17.6 13.2" stroke="currentColor" strokeWidth="0.95" opacity="0.45" strokeLinecap="round" />
       <path d="M8.9 21.3 L17.6 26.8" stroke="currentColor" strokeWidth="0.95" opacity="0.45" strokeLinecap="round" />
       <path d="M22.4 12 L31 18.4" stroke="currentColor" strokeWidth="0.95" opacity="0.55" strokeLinecap="round" />
@@ -131,16 +131,12 @@ function DeepAILogo() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          filter: 'drop-shadow(0 0 24px rgba(176, 120, 255, 0.95))',
         }}
       >
-        <Image
-          src="/actionlayer_logo.png"
-          alt="ActionLayer logo"
-          width={80}
-          height={80}
-          style={{ width: '80px', height: '80px' }}
-        />
+        <svg width="80" height="80" viewBox="0 0 220 220" role="img" aria-label="ActionLayer" style={{ overflow: 'visible', filter: 'drop-shadow(0 0 22px rgba(176,120,255,0.9))' }}>
+          <rect x="10" y="10" width="200" height="200" rx="20" fill="none" stroke="rgba(255,255,255,0.06)" />
+          <text x="110" y="130" textAnchor="middle" fill="#ffffff" fontFamily="Inter, sans-serif" fontWeight={800} fontSize={48} letterSpacing="-0.02em">AL</text>
+        </svg>
       </div>
     </div>
   );
@@ -489,7 +485,7 @@ export default function Sponsors() {
                 </div>
               </a>
               <a
-                href="https://actionlayer.com"
+                href="https://actionlayer.io/"
                 target="_blank"
                 rel="noreferrer"
                 style={sponsorLinkStyle}
