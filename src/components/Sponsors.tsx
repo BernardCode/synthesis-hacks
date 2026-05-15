@@ -125,21 +125,21 @@ function DeepAILogo() {
     >
       <div
         style={{
-          width: '84px',
-          height: '84px',
+          width: '92px',
+          height: '92px',
           borderRadius: '999px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          filter: 'drop-shadow(0 0 22px rgba(176, 120, 255, 0.95))',
+          filter: 'drop-shadow(0 0 24px rgba(176, 120, 255, 0.95))',
         }}
       >
         <Image
-          src="/deepai_logo.png"
-          alt="DeepAI icon"
-          width={64}
-          height={64}
-          style={{ width: '64px', height: '64px' }}
+          src="/actionlayer_logo.png"
+          alt="ActionLayer logo"
+          width={80}
+          height={80}
+          style={{ width: '80px', height: '80px' }}
         />
       </div>
     </div>
@@ -489,7 +489,7 @@ export default function Sponsors() {
                 </div>
               </a>
               <a
-                href="https://deepai.org/"
+                href="https://actionlayer.com"
                 target="_blank"
                 rel="noreferrer"
                 style={sponsorLinkStyle}
@@ -498,7 +498,7 @@ export default function Sponsors() {
                   <div style={{ width: '100%', maxWidth: '420px' }}>
                     <DeepAILogo />
                   </div>
-                  <p style={cardSubtitleStyle}>DeepAI</p>
+                  <p style={cardSubtitleStyle}>ActionLayer</p>
                 </div>
               </a>
             </div>
