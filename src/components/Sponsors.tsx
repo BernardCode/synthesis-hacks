@@ -12,19 +12,6 @@ function ExposureSVG() {
       <polyline points="30,4 36,4 36,10" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
       <polyline points="36,30 36,36 30,36" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
       <polyline points="10,36 4,36 4,30" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
-                  <Image
-                    src="/xyz-logo-color.png"
-                    alt="xyz"
-                    width={220}
-                    height={80}
-                    unoptimized
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      maxWidth: '220px',
-                      filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
-                    }}
-                  />
       <path d="M8.9 18.7 L17.6 13.2" stroke="currentColor" strokeWidth="0.95" opacity="0.45" strokeLinecap="round" />
       <path d="M8.9 21.3 L17.6 26.8" stroke="currentColor" strokeWidth="0.95" opacity="0.45" strokeLinecap="round" />
       <path d="M22.4 12 L31 18.4" stroke="currentColor" strokeWidth="0.95" opacity="0.55" strokeLinecap="round" />
