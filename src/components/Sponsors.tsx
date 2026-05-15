@@ -104,10 +104,96 @@ function NttvcLogo() {
           alt="NTTVC"
           width={260}
           height={72}
-          style={{ width: '100%', height: 'auto' }}
+          style={{ width: '100%', height: 'auto', filter: 'brightness(0) invert(1)' }}
         />
       </div>
     </div>
+  );
+}
+
+function DeepAILogo() {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '1rem',
+        width: '100%',
+        maxWidth: '420px',
+        padding: '0.5rem 0',
+      }}
+    >
+      <div
+        style={{
+          width: '64px',
+          height: '64px',
+          borderRadius: '999px',
+          background: 'rgba(255,255,255,0.08)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          filter: 'drop-shadow(0 0 18px rgba(176, 120, 255, 0.85))',
+        }}
+      >
+        <Image
+          src="/deepai_logo.png"
+          alt="DeepAI icon"
+          width={44}
+          height={44}
+          style={{ width: '44px', height: '44px' }}
+        />
+      </div>
+      <div
+        style={{
+          fontFamily: 'Georgia, serif',
+          fontSize: '2.4rem',
+          fontWeight: 700,
+          color: '#ffffff',
+          letterSpacing: '-0.02em',
+          lineHeight: 1,
+          filter: 'drop-shadow(0 0 18px rgba(255,255,255,0.9))',
+        }}
+      >
+        deepai
+      </div>
+    </div>
+  );
+}
+
+function OmiLogo() {
+  const dots = Array.from({ length: 8 }, (_, i) => {
+    const angle = (Math.PI / 4) * i - Math.PI / 2;
+    const cx = 40 + Math.cos(angle) * 24;
+    const cy = 40 + Math.sin(angle) * 24;
+    return <circle key={i} cx={cx} cy={cy} r="4.2" fill="#ffffff" />;
+  });
+  return (
+    <svg
+      width="100%"
+      height="auto"
+      viewBox="0 0 260 80"
+      fill="none"
+      aria-hidden="true"
+      role="img"
+      style={{
+        overflow: 'visible',
+        filter: 'drop-shadow(0 0 14px rgba(255,255,255,0.85)) drop-shadow(0 0 8px rgba(255,255,255,0.6))',
+      }}
+    >
+      {dots}
+      <text
+        x="92"
+        y="58"
+        fill="#ffffff"
+        fontFamily="Inter, system-ui, sans-serif"
+        fontWeight="800"
+        fontSize="56"
+        letterSpacing="-0.02em"
+      >
+        omi
+      </text>
+    </svg>
   );
 }
 
@@ -122,27 +208,20 @@ function ArrcusLogo() {
       role="img"
       style={{ overflow: 'visible' }}
     >
-      <defs>
-        <filter id="arrcusGlow" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-          <feFlood floodColor="#ffffff" floodOpacity="0.9" result="glowColor" />
-          <feComposite in="glowColor" in2="blur" operator="in" result="glow" />
-          <feMerge>
-            <feMergeNode in="glow" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <path d="M12 60 L42 12 L74 60 H58 L46 31 L32 60 H12 Z" fill="#0B69C6" />
+      <path
+        d="M12 60 L42 12 L74 60 H58 L46 31 L32 60 H12 Z"
+        fill="#3a8eea"
+        style={{ filter: 'drop-shadow(0 0 10px rgba(120, 180, 255, 0.7))' }}
+      />
       <text
         x="90"
         y="50"
-        fill="#111111"
+        fill="#ffffff"
         fontFamily="Inter, sans-serif"
         fontWeight="800"
         fontSize="36"
         letterSpacing="-0.02em"
-        filter="url(#arrcusGlow)"
+        style={{ filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.85)) drop-shadow(0 0 6px rgba(255,255,255,0.6))' }}
       >
         ARRCUS
       </text>
@@ -157,7 +236,7 @@ function YriLogo() {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        filter: 'drop-shadow(0 0 22px rgba(255,255,255,0.9))',
+        filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
       }}
     >
       <Image
@@ -399,21 +478,45 @@ export default function Sponsors() {
             justifyItems: 'center',
           }}
         >
-          <div style={{ textAlign: 'center' }}>
-            <p style={titleTierLabelStyle}>TITLE SPONSOR</p>
-            <a
-              href="https://nttvc.com/"
-              target="_blank"
-              rel="noreferrer"
-              style={sponsorLinkStyle}
+          <div style={{ width: '100%', textAlign: 'center' }}>
+            <p style={titleTierLabelStyle}>TITLE SPONSORS</p>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '2rem',
+                alignItems: 'center',
+                justifyItems: 'center',
+                marginTop: '1rem',
+              }}
             >
-              <div style={titleSponsorStyle}>
-                <div style={{ width: '100%', maxWidth: '420px' }}>
-                  <NttvcLogo />
+              <a
+                href="https://nttvc.com/"
+                target="_blank"
+                rel="noreferrer"
+                style={sponsorLinkStyle}
+              >
+                <div style={titleSponsorStyle}>
+                  <div style={{ width: '100%', maxWidth: '420px' }}>
+                    <NttvcLogo />
+                  </div>
+                  <p style={cardSubtitleStyle}>NTTVC</p>
                 </div>
-                <p style={cardSubtitleStyle}>NTTVC</p>
-              </div>
-            </a>
+              </a>
+              <a
+                href="https://deepai.org/"
+                target="_blank"
+                rel="noreferrer"
+                style={sponsorLinkStyle}
+              >
+                <div style={titleSponsorStyle}>
+                  <div style={{ width: '100%', maxWidth: '420px' }}>
+                    <DeepAILogo />
+                  </div>
+                  <p style={cardSubtitleStyle}>DeepAI</p>
+                </div>
+              </a>
+            </div>
           </div>
 
           <div style={{ textAlign: 'center' }}>
@@ -477,6 +580,19 @@ export default function Sponsors() {
                     <ArrcusLogo />
                   </div>
                   <p style={cardSubtitleStyle}>Arrcus</p>
+                </div>
+              </a>
+              <a
+                href="https://omi.me"
+                target="_blank"
+                rel="noreferrer"
+                style={sponsorLinkStyle}
+              >
+                <div style={bronzeSponsorStyle}>
+                  <div style={{ width: '100%', maxWidth: '220px' }}>
+                    <OmiLogo />
+                  </div>
+                  <p style={cardSubtitleStyle}>Omi</p>
                 </div>
               </a>
             </div>
