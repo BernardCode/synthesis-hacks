@@ -144,19 +144,6 @@ function DeepAILogo() {
           style={{ width: '44px', height: '44px' }}
         />
       </div>
-      <div
-        style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: '2.4rem',
-          fontWeight: 700,
-          color: '#ffffff',
-          letterSpacing: '-0.02em',
-          lineHeight: 1,
-          filter: 'drop-shadow(0 0 18px rgba(255,255,255,0.9))',
-        }}
-      >
-        deepai
-      </div>
     </div>
   );
 }
@@ -593,6 +580,28 @@ export default function Sponsors() {
                     <OmiLogo />
                   </div>
                   <p style={cardSubtitleStyle}>Omi</p>
+                </div>
+              </a>
+              <a
+                href="https://example.com"
+                target="_blank"
+                rel="noreferrer"
+                style={sponsorLinkStyle}
+              >
+                <div style={bronzeSponsorStyle}>
+                  <Image
+                    src="/xyz-logo-color.png"
+                    alt="xyz"
+                    width={220}
+                    height={80}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: '220px',
+                      filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
+                    }}
+                  />
+                  <p style={cardSubtitleStyle}>xyz</p>
                 </div>
               </a>
             </div>
