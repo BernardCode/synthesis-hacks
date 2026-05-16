@@ -137,13 +137,12 @@ function DeepAILogo() {
           justifyContent: 'center',
         }}
       >
-        <Image
+        <img
           src="/actionlayertiltedgradient.svg"
           alt="ActionLayer"
           width={140}
           height={56}
-          unoptimized
-          style={{ width: '100%', height: 'auto', maxWidth: '140px', filter: 'drop-shadow(0 0 20px rgba(176,120,255,0.9))' }}
+          style={{ width: '100%', height: 'auto', maxWidth: '140px', filter: 'drop-shadow(0 0 20px rgba(176,120,255,0.9))', display: 'block' }}
         />
       </div>
     </div>
