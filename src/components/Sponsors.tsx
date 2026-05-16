@@ -137,10 +137,14 @@ function DeepAILogo() {
           justifyContent: 'center',
         }}
       >
-        <svg width="80" height="80" viewBox="0 0 220 220" role="img" aria-label="ActionLayer" style={{ overflow: 'visible', filter: 'drop-shadow(0 0 22px rgba(176,120,255,0.9))' }}>
-          <rect x="10" y="10" width="200" height="200" rx="20" fill="none" stroke="rgba(255,255,255,0.06)" />
-          <text x="110" y="130" textAnchor="middle" fill="#ffffff" fontFamily="Inter, sans-serif" fontWeight={800} fontSize={48} letterSpacing="-0.02em">AL</text>
-        </svg>
+        <Image
+          src="/actionlayertiltedgradient.svg"
+          alt="ActionLayer"
+          width={140}
+          height={56}
+          unoptimized
+          style={{ width: '100%', height: 'auto', maxWidth: '140px', filter: 'drop-shadow(0 0 20px rgba(176,120,255,0.9))' }}
+        />
       </div>
     </div>
   );
@@ -590,13 +594,13 @@ export default function Sponsors() {
                       <img
                         src="/xyz-logo-color.png"
                         alt="xyz"
-                        width={220}
-                        height={80}
+                        width={140}
+                        height={50}
                         style={{
                           width: '100%',
                           height: 'auto',
-                          maxWidth: '220px',
-                          filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
+                          maxWidth: '140px',
+                          filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.9)) drop-shadow(0 0 6px rgba(255,255,255,0.6))',
                           display: 'block',
                         }}
                       />
