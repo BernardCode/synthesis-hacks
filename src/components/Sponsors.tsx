@@ -67,7 +67,7 @@ function NttvcLogo() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '1.25rem',
+        gap: '0.6rem',
         width: '100%',
         maxWidth: '520px',
         padding: '0.75rem 0',
@@ -75,8 +75,8 @@ function NttvcLogo() {
     >
       <div
         style={{
-          width: '195px',
-          height: '195px',
+          width: '235px',
+          height: '170px',
           borderRadius: '999px',
           display: 'flex',
           alignItems: 'center',
@@ -87,9 +87,9 @@ function NttvcLogo() {
         <Image
           src="/nttvc_icon.png"
           alt="NTTVC icon"
-          width={180}
-          height={180}
-          style={{ width: '180px', height: '180px', filter: 'brightness(0) invert(1)' }}
+          width={210}
+          height={150}
+          style={{ width: '210px', height: '150px', filter: 'brightness(0) invert(1)' }}
         />
       </div>
       <div
