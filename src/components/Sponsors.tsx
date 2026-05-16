@@ -75,21 +75,21 @@ function NttvcLogo() {
     >
       <div
         style={{
-          width: '150px',
-          height: '150px',
+          width: '195px',
+          height: '195px',
           borderRadius: '999px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          filter: 'drop-shadow(0 0 30px rgba(255,255,255,0.95))',
+          filter: 'drop-shadow(0 0 38px rgba(255,255,255,0.95))',
         }}
       >
         <Image
           src="/nttvc_icon.png"
           alt="NTTVC icon"
-          width={120}
-          height={120}
-          style={{ width: '120px', height: '120px', filter: 'brightness(0) invert(1)' }}
+          width={180}
+          height={180}
+          style={{ width: '180px', height: '180px', filter: 'brightness(0) invert(1)' }}
         />
       </div>
       <div
@@ -600,6 +600,7 @@ export default function Sponsors() {
                           width: '100%',
                           height: 'auto',
                           maxWidth: '140px',
+                          margin: '0 auto',
                           filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.9)) drop-shadow(0 0 6px rgba(255,255,255,0.6))',
                           display: 'block',
                         }}
