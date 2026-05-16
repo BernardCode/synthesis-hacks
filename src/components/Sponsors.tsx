@@ -20,6 +20,23 @@ function ExposureSVG() {
   );
 }
 
+/* Directed graph - source node feeds two intermediaries into a destination */
+function PipelineSVG() {
+  return (
+    <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <circle cx="6" cy="20" r="3" fill="currentColor" />
+      <circle cx="20" cy="11" r="2.4" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.7" />
+      <circle cx="20" cy="29" r="2.4" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.7" />
+      <circle cx="34" cy="20" r="3.5" stroke="currentColor" strokeWidth="1.4" fill="none" />
+      <circle cx="34" cy="20" r="1.4" fill="currentColor" opacity="0.6" />
+      <path d="M8.9 18.7 L17.6 13.2" stroke="currentColor" strokeWidth="0.95" opacity="0.45" strokeLinecap="round" />
+      <path d="M8.9 21.3 L17.6 26.8" stroke="currentColor" strokeWidth="0.95" opacity="0.45" strokeLinecap="round" />
+      <path d="M22.4 12 L31 18.4" stroke="currentColor" strokeWidth="0.95" opacity="0.55" strokeLinecap="round" />
+      <path d="M22.4 28 L31 21.6" stroke="currentColor" strokeWidth="0.95" opacity="0.55" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /* Ascending line chart - bottom-left to top-right with a terminal upward arrow */
 function ImpactSVG() {
   return (
