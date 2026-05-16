@@ -159,7 +159,7 @@ function OmiLogo() {
   return (
     <svg
       width="100%"
-      height="auto"
+      height="100%"
       viewBox="0 0 260 80"
       fill="none"
       aria-hidden="true"
@@ -189,7 +189,7 @@ function ArrcusLogo() {
   return (
     <svg
       width="100%"
-      height="auto"
+      height="100%"
       viewBox="0 0 260 72"
       fill="none"
       aria-hidden="true"
