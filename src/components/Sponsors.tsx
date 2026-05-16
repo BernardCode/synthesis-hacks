@@ -67,46 +67,46 @@ function NttvcLogo() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '1rem',
+        gap: '1.25rem',
         width: '100%',
-        maxWidth: '420px',
-        padding: '0.5rem 0',
+        maxWidth: '520px',
+        padding: '0.75rem 0',
       }}
     >
       <div
         style={{
-          width: '84px',
-          height: '84px',
+          width: '104px',
+          height: '104px',
           borderRadius: '999px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.9))',
+          filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.95))',
         }}
       >
         <Image
           src="/nttvc_icon.png"
           alt="NTTVC icon"
-          width={48}
-          height={48}
-          style={{ width: '48px', height: '48px', filter: 'brightness(0) invert(1)' }}
+          width={60}
+          height={60}
+          style={{ width: '60px', height: '60px', filter: 'brightness(0) invert(1)' }}
         />
       </div>
       <div
         style={{
           width: '100%',
-          maxWidth: '360px',
+          maxWidth: '440px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          filter: 'drop-shadow(0 0 18px rgba(255,255,255,0.9))',
+          filter: 'drop-shadow(0 0 22px rgba(255,255,255,0.95))',
         }}
       >
         <Image
           src="/nttvc_logo.png"
           alt="NTTVC"
-          width={340}
-          height={96}
+          width={400}
+          height={112}
           style={{ width: '100%', height: 'auto', filter: 'brightness(0) invert(1)' }}
         />
       </div>
@@ -123,26 +123,27 @@ function DeepAILogo() {
         justifyContent: 'center',
         gap: '1rem',
         width: '100%',
-        maxWidth: '420px',
-        padding: '0.5rem 0',
+        maxWidth: '520px',
+        padding: '0.75rem 0',
       }}
     >
       <div
         style={{
-          width: '92px',
-          height: '92px',
+          width: '110px',
+          height: '110px',
           borderRadius: '999px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          filter: 'drop-shadow(0 0 26px rgba(255,255,255,0.95))',
         }}
       >
         <img
           src="/actionlayertiltedgradient.svg"
           alt="ActionLayer"
-          width={140}
-          height={56}
-          style={{ width: '100%', height: 'auto', maxWidth: '140px', filter: 'drop-shadow(0 0 20px rgba(176,120,255,0.9))', display: 'block' }}
+          width={180}
+          height={72}
+          style={{ width: '100%', height: 'auto', maxWidth: '180px', filter: 'drop-shadow(0 0 26px rgba(255,255,255,0.95))', display: 'block' }}
         />
       </div>
     </div>
