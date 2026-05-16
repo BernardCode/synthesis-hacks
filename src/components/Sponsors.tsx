@@ -67,7 +67,7 @@ function NttvcLogo() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '0.6rem',
+        gap: '0.25rem',
         width: '100%',
         maxWidth: '520px',
         padding: '0.75rem 0',
