@@ -93,14 +93,14 @@ body::before {
 }
 
 .sponsor-card {
-  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
-  will-change: transform, box-shadow;
+  transition: transform 0.18s ease, filter 0.18s ease, opacity 0.18s ease;
+  will-change: transform, filter;
 }
 
 .sponsor-card:hover {
-  transform: translateY(-3px) scale(0.9);
-  box-shadow: 0 20px 40px rgba(196,255,80,0.14), 0 0 30px rgba(196,255,80,0.08);
-  filter: brightness(1.02);
+  transform: translateY(-2px);
+  filter: brightness(1.08) saturate(1.04) drop-shadow(0 8px 18px rgba(196,255,80,0.16));
+  opacity: 0.98;
 }
 
 /* Input style */
