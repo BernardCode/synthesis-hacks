@@ -301,6 +301,13 @@ const bronzeSponsorStyle: CSSProperties = {
   padding: '1rem 0',
 };
 
+const bronzeLogoFrameStyle: CSSProperties = {
+  height: '82px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
 const sponsorLogoStyle: CSSProperties = {
   display: 'block',
   maxWidth: '100%',
@@ -329,6 +336,7 @@ const cardSubtitleStyle: CSSProperties = {
   fontSize: '0.82rem',
   color: 'var(--text-muted)',
   fontFamily: 'DM Mono, monospace',
+  margin: 0,
 };
 
 const benefits: { icon: ReactNode; title: string; desc: string }[] = [
@@ -483,6 +491,7 @@ export default function Sponsors() {
                 href="https://nttvc.com/"
                 target="_blank"
                 rel="noreferrer"
+                className="sponsor-card"
                 style={sponsorLinkStyle}
               >
                 <div style={titleSponsorStyle}>
@@ -496,6 +505,7 @@ export default function Sponsors() {
                 href="https://actionlayer.io/"
                 target="_blank"
                 rel="noreferrer"
+                className="sponsor-card"
                 style={sponsorLinkStyle}
               >
                 <div style={titleSponsorStyle}>
@@ -514,6 +524,7 @@ export default function Sponsors() {
               href="https://www.yriscience.com/"
               target="_blank"
               rel="noreferrer"
+              className="sponsor-card"
               style={sponsorLinkStyle}
             >
               <div style={silverSponsorStyle}>
@@ -540,6 +551,7 @@ export default function Sponsors() {
                 href="https://artofproblemsolving.com"
                 target="_blank"
                 rel="noreferrer"
+                className="sponsor-card"
                 style={sponsorLinkStyle}
               >
                 <div style={bronzeSponsorStyle}>
@@ -562,6 +574,7 @@ export default function Sponsors() {
                 href="https://arrcus.com"
                 target="_blank"
                 rel="noreferrer"
+                className="sponsor-card"
                 style={sponsorLinkStyle}
               >
                 <div style={bronzeSponsorStyle}>
@@ -575,6 +588,7 @@ export default function Sponsors() {
                 href="https://omi.me"
                 target="_blank"
                 rel="noreferrer"
+                className="sponsor-card"
                 style={sponsorLinkStyle}
               >
                 <div style={bronzeSponsorStyle}>
@@ -588,24 +602,55 @@ export default function Sponsors() {
                 href="https://gen.xyz/"
                 target="_blank"
                 rel="noreferrer"
+                className="sponsor-card"
                 style={sponsorLinkStyle}
               >
                 <div style={bronzeSponsorStyle}>
-                      <img
-                        src="/xyz-logo-color.png"
-                        alt="xyz"
-                        width={140}
-                        height={50}
-                        style={{
-                          width: '100%',
-                          height: 'auto',
-                          maxWidth: '140px',
-                          margin: '0 auto',
-                          filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.9)) drop-shadow(0 0 6px rgba(255,255,255,0.6))',
-                          display: 'block',
-                        }}
-                      />
+                  <div style={bronzeLogoFrameStyle}>
+                    <Image
+                      src="/xyz-logo-color.png"
+                      alt="xyz"
+                      width={140}
+                      height={82}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        maxWidth: '140px',
+                        margin: '0 auto',
+                        filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.9)) drop-shadow(0 0 6px rgba(255,255,255,0.6))',
+                        display: 'block',
+                      }}
+                    />
+                  </div>
                   <p style={cardSubtitleStyle}>xyz</p>
+                </div>
+              </a>
+              <a
+                href="https://equinix.com"
+                target="_blank"
+                rel="noreferrer"
+                className="sponsor-card"
+                style={sponsorLinkStyle}
+              >
+                <div style={bronzeSponsorStyle}>
+                  <div style={bronzeLogoFrameStyle}>
+                    <Image
+                      src="/equinix_logo.svg"
+                      alt="Equinix"
+                      width={126}
+                      height={82}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        maxWidth: '126px',
+                        maxHeight: '82px',
+                        margin: '0 auto',
+                        display: 'block',
+                        filter: 'drop-shadow(0 0 22px rgba(255,255,255,0.42)) drop-shadow(0 0 12px rgba(255,255,255,0.2))',
+                      }}
+                    />
+                  </div>
+                  <p style={cardSubtitleStyle}>Equinix</p>
                 </div>
               </a>
             </div>

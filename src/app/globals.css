@@ -92,6 +92,17 @@ body::before {
   border-color: rgba(255,255,255,0.18);
 }
 
+.sponsor-card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+  will-change: transform, box-shadow;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-3px) scale(0.9);
+  box-shadow: 0 20px 40px rgba(196,255,80,0.14), 0 0 30px rgba(196,255,80,0.08);
+  filter: brightness(1.02);
+}
+
 /* Input style */
 .input-field {
   background: rgba(255,255,255,0.04);
