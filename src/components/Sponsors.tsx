@@ -75,21 +75,21 @@ function NttvcLogo() {
     >
       <div
         style={{
-          width: '104px',
-          height: '104px',
+          width: '150px',
+          height: '150px',
           borderRadius: '999px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.95))',
+          filter: 'drop-shadow(0 0 30px rgba(255,255,255,0.95))',
         }}
       >
         <Image
           src="/nttvc_icon.png"
           alt="NTTVC icon"
-          width={60}
-          height={60}
-          style={{ width: '60px', height: '60px', filter: 'brightness(0) invert(1)' }}
+          width={120}
+          height={120}
+          style={{ width: '120px', height: '120px', filter: 'brightness(0) invert(1)' }}
         />
       </div>
       <div
