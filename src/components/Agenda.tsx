@@ -44,7 +44,7 @@ export default function Agenda() {
     return () => window.removeEventListener('resize', calculate);
   }, []);
 
-  // Scroll handler — one getBoundingClientRect (the timeline), pure math for rows.
+  // Scroll handler - one getBoundingClientRect (the timeline), pure math for rows.
   // scaleY on the fill bar keeps it GPU-composited (no layout thrash).
   useEffect(() => {
     let rafPending = false;
@@ -71,7 +71,7 @@ export default function Agenda() {
           comet.style.opacity   = progress > 0.01 && progress < 0.99 ? '1' : '0';
         }
 
-        // Pure arithmetic — no per-row DOM reads
+        // Pure arithmetic - no per-row DOM reads
         const offsets  = rowOffsetsRef.current;
         const tlScrollY = rect.top;
         let newActive = -1;

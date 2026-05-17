@@ -37,7 +37,7 @@ body {
   max-width: 100vw;
 }
 
-/* Subtle film grain — kept low so it's a texture, not an effect */
+/* Subtle film grain - kept low so it's a texture, not an effect */
 body::before {
   content: '';
   position: fixed;
@@ -49,7 +49,7 @@ body::before {
   opacity: 0.18;
 }
 
-/* Engineering grid — only painted where requested via .grid-bg */
+/* Engineering grid - only painted where requested via .grid-bg */
 .grid-bg {
   background-image:
     linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
@@ -66,7 +66,7 @@ body::before {
   font-family: 'DM Mono', monospace;
 }
 
-/* System mark — square, not pill. Reads as a label, not a badge */
+/* System mark - square, not pill. Reads as a label, not a badge */
 .badge-accent {
   background: transparent;
   border: 1px solid var(--border-accent);
@@ -203,7 +203,7 @@ section {
 }
 
 /* ============================================================
-   HOW IT WORKS — continuous scroll-driven panels
+   HOW IT WORKS - continuous scroll-driven panels
    ============================================================ */
 .step-stage {
   position: relative;
@@ -262,7 +262,7 @@ section {
   gap: 5rem;
 }
 
-/* Hide the editorial side-marks on narrower viewports — they would overlap
+/* Hide the editorial side-marks on narrower viewports - they would overlap
    the headline. */
 .hero-margin-mark {
   display: block;
@@ -340,7 +340,7 @@ section {
 }
 
 /* ============================================================
-   VENUE CAROUSEL — MOBILE OVERRIDES
+   VENUE CAROUSEL - MOBILE OVERRIDES
    ============================================================ */
 @media (max-width: 768px) {
   .venue-carousel-frame {

@@ -68,7 +68,7 @@ const steps = [
     label: 'HACK',
     icon: <HackSVG />,
     title: 'Build for 12 hours',
-    desc: 'Mentors are around the whole day. Optional short workshops run in parallel — drop in if you want a hand. Build an app, a game, a website, a hardware hack; anything you can finish by 5 PM.',
+    desc: 'Mentors are around the whole day. Optional short workshops run in parallel - drop in if you want a hand. Build an app, a game, a website, a hardware hack; anything you can finish by 5 PM.',
     details: ['Mentors always available', 'Multiple workshops', 'Any project type', 'Free food & drinks'],
   },
   {

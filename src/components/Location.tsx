@@ -365,7 +365,7 @@ export default function Location() {
               },
               {
                 label: 'WHEN TO ARRIVE',
-                body: 'Doors open at 8 AM. Aim for 8:30 — that gives you time to check in, grab breakfast, and find a team before the opening ceremony at 9.',
+                body: 'Doors open at 8 AM. Aim for 8:30 - that gives you time to check in, grab breakfast, and find a team before the opening ceremony at 9.',
               },
             ].map((item) => (
               <div key={item.label}>

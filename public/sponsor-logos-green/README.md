@@ -11,3 +11,4 @@ All logos in this folder are recolored to the site accent green `#c4ff50` on tra
 - `xyz-green.png`
 - `equinix-green.svg`
 - `google-green.svg`
+- `pcbway-green.png`

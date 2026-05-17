@@ -1,4 +1,4 @@
-# Mobile UX Fixes — Design Spec
+# Mobile UX Fixes - Design Spec
 
 **Date:** 2026-04-24  
 **Status:** Approved
@@ -9,17 +9,17 @@ The site has several mobile UX issues: nav links overflow on small screens, emoj
 
 ## Scope
 
-Seven targeted fixes across six files. No new features, no layout redesigns — only production-quality mobile polish.
+Seven targeted fixes across six files. No new features, no layout redesigns - only production-quality mobile polish.
 
 ---
 
-## 1. Navbar — Simplified Mobile Layout
+## 1. Navbar - Simplified Mobile Layout
 
 **File:** `src/components/Navbar.tsx`
 
 On screens ≤ 768px, hide the nav links (Schedule, FAQ, Sponsors) and the Contact button. Show only:
 - Logo (left)
-- "Register" CTA button (right) — links to `https://synthesishacks.fillout.com/t/grGiZ8GF2rus`, styled like the existing Contact pill but labelled "Register"
+- "Register" CTA button (right) - links to `https://synthesishacks.fillout.com/t/grGiZ8GF2rus`, styled like the existing Contact pill but labelled "Register"
 
 Implementation: use a `useWindowWidth` hook or inline media query via a `useMediaQuery` hook that reads `window.innerWidth` on mount + resize. Apply conditional rendering in JSX. No CSS-only approach since the component is already fully inline-styled.
 
@@ -47,7 +47,7 @@ Add `scroll-padding-top: 80px` to the `html` rule (already has `scroll-behavior:
 
 ---
 
-## 4. HowItWorks — Touch Swipe
+## 4. HowItWorks - Touch Swipe
 
 **File:** `src/components/HowItWorks.tsx`
 
@@ -59,7 +59,7 @@ Swipe left → next step. Swipe right → previous step. Store start position in
 
 ---
 
-## 5. Location Carousel — Touch Swipe + Mobile Pause
+## 5. Location Carousel - Touch Swipe + Mobile Pause
 
 **File:** `src/components/Location.tsx`
 
@@ -67,19 +67,19 @@ Add touch swipe to the photo carousel frame div:
 - `onTouchStart`: record `touch.clientX`, set `paused = true`
 - `onTouchEnd`: compute delta; if `|delta| > 50px`, advance/retreat; set `paused = false`
 
-Keep the existing `onMouseEnter`/`onMouseLeave` pause handlers on the outer wrapper — desktop hover-pause stays intact. Touch simply adds a parallel pause path for mobile.
+Keep the existing `onMouseEnter`/`onMouseLeave` pause handlers on the outer wrapper - desktop hover-pause stays intact. Touch simply adds a parallel pause path for mobile.
 
 ---
 
-## 6. CursorEffect — Disable on Touch Devices
+## 6. CursorEffect - Disable on Touch Devices
 
 **File:** `src/components/CursorEffect.tsx`
 
-At component mount, check `window.matchMedia('(pointer: coarse)').matches`. If true (touch device), return `null` immediately — no DOM nodes, no event listeners. This prevents the custom cursor from appearing or interfering on mobile.
+At component mount, check `window.matchMedia('(pointer: coarse)').matches`. If true (touch device), return `null` immediately - no DOM nodes, no event listeners. This prevents the custom cursor from appearing or interfering on mobile.
 
 ---
 
-## 7. Agenda Timeline — Tighten Mobile Layout
+## 7. Agenda Timeline - Tighten Mobile Layout
 
 **File:** `src/app/globals.css`
 
@@ -106,13 +106,13 @@ Preferred: add className `agenda-timeline` to the `ref={timelineRef}` div and ov
 
 ## Implementation Order
 
-1. `globals.css` — scroll-padding-top (one line, no risk)
-2. `globals.css` — agenda timeline mobile class
-3. `Navbar.tsx` — simplified mobile layout
-4. `Hero.tsx` — SVG arrow
-5. `Location.tsx` — SVG arrow + touch swipe
-6. `HowItWorks.tsx` — touch swipe
-7. `CursorEffect.tsx` — touch device guard
+1. `globals.css` - scroll-padding-top (one line, no risk)
+2. `globals.css` - agenda timeline mobile class
+3. `Navbar.tsx` - simplified mobile layout
+4. `Hero.tsx` - SVG arrow
+5. `Location.tsx` - SVG arrow + touch swipe
+6. `HowItWorks.tsx` - touch swipe
+7. `CursorEffect.tsx` - touch device guard
 
 ---
 

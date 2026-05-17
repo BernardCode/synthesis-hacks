@@ -385,114 +385,9 @@ export default function Sponsors() {
   return (
     <section id="sponsors" style={{ padding: '6rem 1.5rem' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-        {/* Header */}
-        <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
-          <span className="badge-accent" style={{ marginBottom: '1rem', display: 'inline-block' }}>
-            Sponsorships
-          </span>
-          <h2
-            className="font-display"
-            style={{
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: 300,
-              letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-              marginBottom: '0.75rem',
-            }}
-          >
-            Help us make it happen
-          </h2>
-          <p
-            style={{
-              color: 'var(--text-muted)',
-              fontSize: '0.95rem',
-              lineHeight: 1.7,
-              maxWidth: '50ch',
-              margin: '0 auto',
-            }}
-          >
-            Synthesis Hacks is free. That works because sponsors cover food, prizes, supplies,
-            and the rest. Here&apos;s what we offer in return.
-          </p>
-        </div>
-
-        {/* Benefit cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '1rem',
-            marginBottom: '3rem',
-          }}
-        >
-          {benefits.map((item) => (
-            <div
-              key={item.title}
-              className="card"
-              style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}
-            >
-              <div style={{ color: 'var(--accent)' }}>{item.icon}</div>
-              <div>
-                <p style={{ fontWeight: 500, fontSize: '1rem', marginBottom: '0.35rem' }}>{item.title}</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.65 }}>{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA card */}
-        <div
-          style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-accent)',
-            borderRadius: '2px',
-            padding: '2.5rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '2rem',
-            flexWrap: 'wrap',
-          }}
-        >
-          <div>
-            <h3
-              className="font-display"
-              style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: '-0.02em', marginBottom: '0.5rem' }}
-            >
-              Interested in sponsoring?
-            </h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '40ch', lineHeight: 1.6 }}>
-              Check out our sponsorship prospectus to learn about partnership opportunities
-              and how you can support the next generation of builders.
-            </p>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexShrink: 0 }}>
-            <a
-              href="/prospectus"
-              className="btn-primary"
-              style={{ textDecoration: 'none', textAlign: 'center' }}
-            >
-              View Prospectus
-            </a>
-            <a
-              href="mailto:sponsors@synthesishacks.com"
-              style={{
-                fontSize: '0.75rem',
-                color: 'var(--text-muted)',
-                textAlign: 'center',
-                fontFamily: 'DM Mono, monospace',
-                textDecoration: 'none',
-              }}
-            >
-              sponsors@synthesishacks.com
-            </a>
-          </div>
-        </div>
-
         {/* Current sponsors */}
         <div
           style={{
-            marginTop: '3.5rem',
             display: 'grid',
             gridTemplateColumns: '1fr',
             gap: '2.5rem',
@@ -502,7 +397,7 @@ export default function Sponsors() {
           <div style={{ width: '100%', textAlign: 'center' }}>
             <div style={{ marginBottom: '1.4rem' }}>
               <p style={titleTierLabelStyle}>TITLE SPONSORS</p>
-              <p style={presentedByStyle}>Presented by</p>
+              <p style={presentedByStyle}>Thank you to our sponsors</p>
             </div>
             <div
               style={{
@@ -680,6 +575,34 @@ export default function Sponsors() {
                   <p style={cardSubtitleStyle}>Equinix</p>
                 </div>
               </a>
+              <a
+                href="https://www.pcbway.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="sponsor-card"
+                style={sponsorLinkStyle}
+              >
+                <div style={bronzeSponsorStyle}>
+                  <div style={bronzeLogoFrameStyle}>
+                    <Image
+                      src="/PCBWay_Logo.webp"
+                      alt="PCBWay"
+                      width={220}
+                      height={76}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        maxWidth: '190px',
+                        maxHeight: '76px',
+                        margin: '0 auto',
+                        display: 'block',
+                        filter: 'drop-shadow(0 0 18px rgba(255,255,255,0.46)) drop-shadow(0 0 8px rgba(255,255,255,0.24))',
+                      }}
+                    />
+                  </div>
+                  <p style={cardSubtitleStyle}>PCBWay</p>
+                </div>
+              </a>
             </div>
           </div>
 
@@ -693,6 +616,110 @@ export default function Sponsors() {
             }}>
               MORE SPONSORS COMING SOON
             </p>
+          </div>
+        </div>
+
+        {/* Sponsorship pitch */}
+        <div style={{ marginTop: '4rem' }}>
+          <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
+            <span className="badge-accent" style={{ marginBottom: '1rem', display: 'inline-block' }}>
+              Sponsorships
+            </span>
+            <h2
+              className="font-display"
+              style={{
+                fontSize: 'clamp(2rem, 5vw, 3rem)',
+                fontWeight: 300,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.1,
+                marginBottom: '0.75rem',
+              }}
+            >
+              Help us make it happen
+            </h2>
+            <p
+              style={{
+                color: 'var(--text-muted)',
+                fontSize: '0.95rem',
+                lineHeight: 1.7,
+                maxWidth: '50ch',
+                margin: '0 auto',
+              }}
+            >
+              Synthesis Hacks is free. That works because sponsors cover food, prizes, supplies,
+              and the rest. Here&apos;s what we offer in return.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1rem',
+              marginBottom: '3rem',
+            }}
+          >
+            {benefits.map((item) => (
+              <div
+                key={item.title}
+                className="card"
+                style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}
+              >
+                <div style={{ color: 'var(--accent)' }}>{item.icon}</div>
+                <div>
+                  <p style={{ fontWeight: 500, fontSize: '1rem', marginBottom: '0.35rem' }}>{item.title}</p>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.65 }}>{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-accent)',
+              borderRadius: '2px',
+              padding: '2.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '2rem',
+              flexWrap: 'wrap',
+            }}
+          >
+            <div>
+              <h3
+                className="font-display"
+                style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: '-0.02em', marginBottom: '0.5rem' }}
+              >
+                Interested in sponsoring?
+              </h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '40ch', lineHeight: 1.6 }}>
+                Check out our sponsorship prospectus to learn about partnership opportunities
+                and how you can support the next generation of builders.
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexShrink: 0 }}>
+              <a
+                href="/prospectus"
+                className="btn-primary"
+                style={{ textDecoration: 'none', textAlign: 'center' }}
+              >
+                View Prospectus
+              </a>
+              <a
+                href="mailto:sponsors@synthesishacks.com"
+                style={{
+                  fontSize: '0.75rem',
+                  color: 'var(--text-muted)',
+                  textAlign: 'center',
+                  fontFamily: 'DM Mono, monospace',
+                  textDecoration: 'none',
+                }}
+              >
+                sponsors@synthesishacks.com
+              </a>
+            </div>
           </div>
         </div>
       </div>

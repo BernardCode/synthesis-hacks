@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 const faqs = [
   {
     q: 'What is a hackathon?',
-    a: "Small teams build a project in a fixed amount of time — usually a website, app, game, or some other software thing. The point isn't to win. It's to actually finish something with a few other people in a day.",
+    a: "Small teams build a project in a fixed amount of time - usually a website, app, game, or some other software thing. The point isn't to win. It's to actually finish something with a few other people in a day.",
   },
   {
     q: 'Do I need to know how to code?',
@@ -13,11 +13,11 @@ const faqs = [
   },
   {
     q: 'What grade levels can participate?',
-    a: 'High school — grades 9 through 12. No prior experience needed.',
+    a: 'High school - grades 9 through 12. No prior experience needed.',
   },
   {
     q: 'Is it solo or team-based?',
-    a: 'Teams of 2 to 4. No team? Show up alone — we run a team-matching session right after check-in.',
+    a: 'Teams of 2 to 4. No team? Show up alone - we run a team-matching session right after check-in.',
   },
   {
     q: 'Is there a cost to attend?',
@@ -192,7 +192,7 @@ export default function FAQ() {
         >
           <div>
             <p style={{ fontWeight: 500, marginBottom: '0.2rem', fontSize: '0.95rem' }}>Still have questions?</p>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>Email us — we usually reply same day.</p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>Email us - we usually reply same day.</p>
           </div>
           <a href="mailto:team@synthesishacks.com" className="btn-primary" style={{ textDecoration: 'none', fontSize: '1rem', padding: '0.65rem 1.5rem' }}>
             Email us

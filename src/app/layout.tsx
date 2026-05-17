@@ -5,7 +5,7 @@ const SITE_URL = 'https://synthesishacks.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Synthesis Hacks — Free High School Hackathon | May 23, 2026 · Sunnyvale, CA",
+  title: "Synthesis Hacks - Free High School Hackathon | May 23, 2026 · Sunnyvale, CA",
   description:
     "A free, beginner-friendly 12-hour hackathon for Bay Area high school students. Build a real project, meet mentors, and compete for prizes. May 23, 2026 at Google Humboldt in Sunnyvale, CA. No experience needed.",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     apple: '/icon.png',
   },
   openGraph: {
-    title: "Synthesis Hacks — Free High School Hackathon | May 23, 2026",
+    title: "Synthesis Hacks - Free High School Hackathon | May 23, 2026",
     description:
       "A free 12-hour hackathon for Bay Area high schoolers. Build something real. No experience needed. May 23, 2026 · Google Humboldt, Sunnyvale.",
     type: "website",
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
         url: '/hackclub-card-bg.png',
         width: 1200,
         height: 630,
-        alt: "Synthesis Hacks — High School Hackathon, May 23 2026, Sunnyvale CA",
+        alt: "Synthesis Hacks - High School Hackathon, May 23 2026, Sunnyvale CA",
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Synthesis Hacks — Free High School Hackathon | May 23, 2026",
+    title: "Synthesis Hacks - Free High School Hackathon | May 23, 2026",
     description:
       "A free 12-hour hackathon for Bay Area high schoolers. No experience needed. May 23 · Google Humboldt, Sunnyvale.",
     images: ['/hackclub-card-bg.png'],

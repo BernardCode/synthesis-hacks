@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Hero() {
   return (
     <section
@@ -16,7 +18,7 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Editorial margin marks — desktop only, content-meaningful */}
+      {/* Editorial margin marks - desktop only, content-meaningful */}
       <div
         aria-hidden="true"
         className="hero-margin-mark hero-margin-left"
@@ -56,31 +58,9 @@ export default function Hero() {
         37.41°N · 122.04°W
       </div>
 
-      {/* Date / location / deadline stack */}
+      {/* Date / location / status stack */}
       <div className="fade-up fade-up-delay-1" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.65rem' }}>
-        <span className="badge-accent">May 23, 2026 · Google Humboldt</span>
-        <span style={{
-          fontFamily: 'DM Mono, monospace',
-          fontSize: '0.82rem',
-          letterSpacing: '0.1em',
-          color: 'var(--text-muted)',
-        }}>
-          227 Humboldt Ct, Sunnyvale, CA 94089 · 3rd Floor
-        </span>
-        <span style={{
-          fontFamily: 'DM Mono, monospace',
-          fontSize: '0.82rem',
-          letterSpacing: '0.1em',
-          color: 'var(--coral)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.45rem',
-        }}>
-          <svg width="7" height="7" viewBox="0 0 8 8" fill="none" aria-hidden="true">
-            <circle cx="4" cy="4" r="3.2" fill="var(--coral)" opacity="0.9" />
-          </svg>
-          Applications closed
-        </span>
+        <span className="badge-accent">May 23, 2026 · 227 Humboldt Ct, Sunnyvale, CA 94089</span>
       </div>
 
       {/* Headline */}
@@ -109,40 +89,89 @@ export default function Hero() {
         </em>
       </h1>
 
+      <div
+        className="fade-up fade-up-delay-3"
+        aria-label="Presented by title sponsors"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1.15rem',
+          flexWrap: 'wrap',
+          marginTop: '1.5rem',
+        }}
+      >
+        <span
+          style={{
+            fontFamily: 'DM Mono, monospace',
+            fontSize: '0.86rem',
+            letterSpacing: '0.12em',
+            color: 'var(--text-muted)',
+            textTransform: 'uppercase',
+          }}
+        >
+          Presented by
+        </span>
+        <span
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1.2rem',
+            filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.42))',
+          }}
+        >
+          <Image
+            src="/nttvc_logo.png"
+            alt="NTTVC"
+            width={132}
+            height={48}
+            style={{ width: '132px', height: 'auto', filter: 'brightness(0) invert(1)' }}
+            priority
+          />
+          <Image
+            src="/actionlayertiltedgradient.svg"
+            alt="ActionLayer"
+            width={44}
+            height={38}
+            style={{ width: '48px', height: 'auto', filter: 'brightness(0) invert(1)' }}
+            priority
+          />
+        </span>
+      </div>
+
       {/* Tagline */}
       <p
-        className="fade-up fade-up-delay-3"
+        className="fade-up fade-up-delay-4"
         style={{
           fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
           color: 'var(--text-muted)',
           fontWeight: 300,
           lineHeight: 1.6,
-          marginTop: '1.5rem',
-          maxWidth: '42ch',
+          marginTop: '1.25rem',
+          maxWidth: 'none',
         }}
       >
-        A free hackathon for high schoolers. Beginners welcome.
-        <br />
-        Show up alone or with friends. We&apos;ll match you into a team.
+        <span style={{ display: 'block', whiteSpace: 'nowrap' }}>
+          A free hackathon for high schoolers. Beginners welcome.
+        </span>
+        <span style={{ display: 'block', whiteSpace: 'nowrap' }}>
+          Applications are closed. Questions?{' '}
+          <a
+            href="mailto:team@synthesishacks.com"
+            style={{
+              color: 'var(--text-primary)',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(240,237,230,0.35)',
+            }}
+          >
+            Contact the team
+          </a>
+          .
+        </span>
       </p>
 
       {/* CTA row */}
-      <div className="fade-up fade-up-delay-4" style={{ marginTop: '2.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-        <span
-          className="btn-primary"
-          aria-disabled="true"
-          style={{
-            cursor: 'default',
-            background: 'var(--bg-card-hover)',
-            border: '1px solid var(--border-accent)',
-            color: 'var(--accent)',
-          }}
-        >
-          Applications closed
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
-            <path d="M3 6.5 L5.6 9 L10 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </span>
+      <div className="fade-up fade-up-delay-5" style={{ marginTop: '1.9rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         <a
           href="https://discord.gg/eBvUCeC3"
           target="_blank"
