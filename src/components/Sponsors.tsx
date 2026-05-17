@@ -75,7 +75,7 @@ function NttvcLogo() {
     >
       <div
         style={{
-          width: 'clamp(170px, 18vw, 270px)',
+          width: 'clamp(115px, 12vw, 165px)',
           aspectRatio: '270 / 188',
           flexShrink: 0,
           borderRadius: '999px',
@@ -90,16 +90,16 @@ function NttvcLogo() {
           alt="NTTVC icon"
           width={235}
           height={168}
-          style={{ width: '87%', height: 'auto', filter: 'brightness(0) invert(1)' }}
+          style={{ width: '86%', height: 'auto', filter: 'brightness(0) invert(1)' }}
         />
       </div>
       <div
         style={{
           width: '100%',
-          maxWidth: '500px',
-          minWidth: '180px',
-          flex: '1 1 220px',
-          marginLeft: '-1.4rem',
+          maxWidth: '540px',
+          minWidth: '220px',
+          flex: '1 1 280px',
+          marginLeft: '-0.45rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

@@ -137,17 +137,17 @@ export default function Hero() {
             <Image
               src="/nttvc_icon.png"
               alt=""
-              width={34}
-              height={24}
-              style={{ width: '34px', height: 'auto', filter: 'brightness(0) invert(1)' }}
+              width={44}
+              height={31}
+              style={{ width: '44px', height: 'auto', filter: 'brightness(0) invert(1)' }}
               priority
             />
             <Image
               src="/nttvc_logo.png"
               alt="NTTVC"
-              width={154}
-              height={56}
-              style={{ width: '154px', height: 'auto', filter: 'brightness(0) invert(1)' }}
+              width={132}
+              height={48}
+              style={{ width: '132px', height: 'auto', filter: 'brightness(0) invert(1)' }}
               priority
             />
           </a>
