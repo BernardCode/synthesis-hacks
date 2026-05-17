@@ -67,16 +67,17 @@ function NttvcLogo() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '0.25rem',
+        gap: 0,
         width: '100%',
-        maxWidth: '520px',
+        maxWidth: '620px',
         padding: '0.75rem 0',
       }}
     >
       <div
         style={{
-          width: '235px',
-          height: '170px',
+          width: 'clamp(170px, 18vw, 270px)',
+          aspectRatio: '270 / 188',
+          flexShrink: 0,
           borderRadius: '999px',
           display: 'flex',
           alignItems: 'center',
@@ -87,15 +88,18 @@ function NttvcLogo() {
         <Image
           src="/nttvc_icon.png"
           alt="NTTVC icon"
-          width={210}
-          height={150}
-          style={{ width: '210px', height: '150px', filter: 'brightness(0) invert(1)' }}
+          width={235}
+          height={168}
+          style={{ width: '87%', height: 'auto', filter: 'brightness(0) invert(1)' }}
         />
       </div>
       <div
         style={{
           width: '100%',
-          maxWidth: '440px',
+          maxWidth: '500px',
+          minWidth: '180px',
+          flex: '1 1 220px',
+          marginLeft: '-1.4rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -105,8 +109,8 @@ function NttvcLogo() {
         <Image
           src="/nttvc_logo.png"
           alt="NTTVC"
-          width={400}
-          height={112}
+          width={460}
+          height={130}
           style={{ width: '100%', height: 'auto', filter: 'brightness(0) invert(1)' }}
         />
       </div>
@@ -123,14 +127,14 @@ function DeepAILogo() {
         justifyContent: 'center',
         gap: '1rem',
         width: '100%',
-        maxWidth: '520px',
-        padding: '0.75rem 0',
+        maxWidth: '620px',
+        padding: '0.35rem 0 0.75rem',
       }}
     >
       <div
         style={{
-          width: '110px',
-          height: '110px',
+          width: 'min(280px, 100%)',
+          minHeight: '185px',
           borderRadius: '999px',
           display: 'flex',
           alignItems: 'center',
@@ -138,12 +142,12 @@ function DeepAILogo() {
           filter: 'drop-shadow(0 0 26px rgba(255,255,255,0.95))',
         }}
       >
-        <img
+        <Image
           src="/actionlayertiltedgradient.svg"
           alt="ActionLayer"
-          width={180}
-          height={72}
-          style={{ width: '100%', height: 'auto', maxWidth: '180px', filter: 'drop-shadow(0 0 26px rgba(255,255,255,0.95))', display: 'block' }}
+          width={280}
+          height={240}
+          style={{ width: '100%', height: 'auto', maxWidth: '280px', maxHeight: '185px', filter: 'drop-shadow(0 0 26px rgba(255,255,255,0.95))', display: 'block' }}
         />
       </div>
     </div>
@@ -252,15 +256,35 @@ const tierLabelStyle: CSSProperties = {
 const titleTierLabelStyle: CSSProperties = {
   ...tierLabelStyle,
   color: 'var(--accent)',
-  fontSize: '1rem',
-  letterSpacing: '0.22em',
-  fontWeight: 700,
+  fontSize: 'clamp(2rem, 5vw, 3rem)',
+  fontStyle: 'italic',
+  letterSpacing: '-0.02em',
+  lineHeight: 1.1,
+  margin: 0,
+  fontWeight: 300,
   opacity: 1,
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'Fraunces, serif',
+  filter: 'drop-shadow(0 0 10px rgba(196,255,80,0.48)) drop-shadow(0 0 26px rgba(196,255,80,0.24))',
+};
+
+const presentedByStyle: CSSProperties = {
+  fontSize: 'clamp(1.08rem, 2vw, 1.25rem)',
+  fontFamily: 'DM Sans, sans-serif',
+  color: 'var(--text-primary)',
+  letterSpacing: 0,
+  margin: '0.55rem 0 0',
+  opacity: 0.95,
+  fontWeight: 500,
 };
 
 const silverTierLabelStyle: CSSProperties = {
-  ...titleTierLabelStyle,
+  ...tierLabelStyle,
+  color: '#c9ced8',
+  fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
+  letterSpacing: '0.12em',
+  fontWeight: 700,
+  opacity: 1,
+  textShadow: '0 0 18px rgba(201,206,216,0.28)',
 };
 
 const bronzeTierLabelStyle: CSSProperties = {
@@ -285,8 +309,8 @@ const sponsorItemStyle: CSSProperties = {
 
 const titleSponsorStyle: CSSProperties = {
   ...sponsorItemStyle,
-  maxWidth: '420px',
-  padding: '2rem 0',
+  maxWidth: '520px',
+  padding: '1.5rem 0',
 };
 
 const silverSponsorStyle: CSSProperties = {
@@ -476,12 +500,15 @@ export default function Sponsors() {
           }}
         >
           <div style={{ width: '100%', textAlign: 'center' }}>
-            <p style={titleTierLabelStyle}>TITLE SPONSORS</p>
+            <div style={{ marginBottom: '1.4rem' }}>
+              <p style={titleTierLabelStyle}>TITLE SPONSORS</p>
+              <p style={presentedByStyle}>Presented by</p>
+            </div>
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '2rem',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))',
+                gap: '1.5rem',
                 alignItems: 'center',
                 justifyItems: 'center',
                 marginTop: '1rem',
@@ -495,7 +522,7 @@ export default function Sponsors() {
                 style={sponsorLinkStyle}
               >
                 <div style={titleSponsorStyle}>
-                  <div style={{ width: '100%', maxWidth: '420px' }}>
+                  <div style={{ width: '100%', maxWidth: '620px' }}>
                     <NttvcLogo />
                   </div>
                   <p style={cardSubtitleStyle}>NTTVC</p>
@@ -509,7 +536,7 @@ export default function Sponsors() {
                 style={sponsorLinkStyle}
               >
                 <div style={titleSponsorStyle}>
-                  <div style={{ width: '100%', maxWidth: '420px' }}>
+                  <div style={{ width: '100%', maxWidth: '500px' }}>
                     <DeepAILogo />
                   </div>
                   <p style={cardSubtitleStyle}>ActionLayer</p>
@@ -519,7 +546,7 @@ export default function Sponsors() {
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <p style={silverTierLabelStyle}>SILVER</p>
+            <p style={silverTierLabelStyle}>Silver</p>
             <a
               href="https://www.yriscience.com/"
               target="_blank"
