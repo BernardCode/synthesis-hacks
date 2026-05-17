@@ -1,0 +1,98 @@
+<svg width="3600" height="4800" viewBox="0 0 3600 4800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Synthesis Hacks back of shirt sponsor design</title>
+  <desc>One-color Synthesis Hacks back-of-shirt design using the site accent green.</desc>
+  <defs>
+    <style>
+      .ink { color: #c4ff50; }
+      .line { stroke: #c4ff50; stroke-width: 16; stroke-linecap: square; stroke-linejoin: miter; }
+      .thin { stroke: #c4ff50; stroke-width: 9; stroke-linecap: square; stroke-linejoin: miter; }
+      .micro { stroke: #c4ff50; stroke-width: 6; stroke-linecap: square; stroke-linejoin: miter; }
+      .fill { fill: #c4ff50; }
+      .display {
+        fill: #c4ff50;
+        font-family: Fraunces, Georgia, serif;
+        font-weight: 300;
+      }
+      .mono {
+        fill: #c4ff50;
+        font-family: "DM Mono", "SFMono-Regular", Consolas, monospace;
+        font-weight: 500;
+        letter-spacing: 24px;
+      }
+    </style>
+    <g id="side-ornament">
+      <path class="line" d="M0 0h210v210" />
+      <path class="line" d="M210 340v315h-118" />
+      <path class="line" d="M92 840h118v342" />
+      <path class="line" d="M210 1360v330H0" />
+      <path class="thin" d="M70 210v190" />
+      <path class="thin" d="M70 655v185" />
+      <path class="thin" d="M70 1182v178" />
+      <path class="micro" d="M210 104h96" />
+      <path class="micro" d="M210 498h96" />
+      <path class="micro" d="M210 1010h96" />
+      <path class="micro" d="M210 1518h96" />
+      <rect class="fill" x="48" y="382" width="44" height="44" />
+      <rect class="fill" x="188" y="818" width="44" height="44" />
+      <rect class="fill" x="48" y="1338" width="44" height="44" />
+      <circle class="fill" cx="210" cy="210" r="24" />
+      <circle class="fill" cx="210" cy="655" r="24" />
+      <circle class="fill" cx="210" cy="1182" r="24" />
+      <circle class="fill" cx="210" cy="1690" r="24" />
+    </g>
+    <g id="corner-burst">
+      <path class="thin" d="M0 90h180" />
+      <path class="thin" d="M90 0v180" />
+      <path class="micro" d="M28 28l124 124" />
+      <path class="micro" d="M152 28L28 152" />
+      <rect class="fill" x="75" y="75" width="30" height="30" />
+    </g>
+  </defs>
+
+  <g class="ink">
+    <use href="#side-ornament" x="330" y="1380" />
+    <g transform="translate(3270 1380) scale(-1 1)">
+      <use href="#side-ornament" />
+    </g>
+    <use href="#corner-burst" x="500" y="760" />
+    <use href="#corner-burst" x="2920" y="760" />
+    <use href="#corner-burst" x="500" y="3845" />
+    <use href="#corner-burst" x="2920" y="3845" />
+
+    <path class="thin" d="M720 1040h2160" />
+    <path class="thin" d="M720 3760h2160" />
+    <path class="micro" d="M900 1100h1800" />
+    <path class="micro" d="M900 3700h1800" />
+
+    <text class="display" x="1800" y="780" text-anchor="middle" font-size="260">
+      Synthesis <tspan font-style="italic">Hacks</tspan>
+    </text>
+    <text class="mono" x="1800" y="975" text-anchor="middle" font-size="78">
+      PROUDLY SPONSORED BY
+    </text>
+
+    <g transform="translate(760 1240)">
+      <image href="sponsor-logos-green/nttvc-green.png" x="0" y="0" width="980" height="283" preserveAspectRatio="xMidYMid meet" />
+      <image href="sponsor-logos-green/actionlayer-green.svg" x="1145" y="-18" width="470" height="403" preserveAspectRatio="xMidYMid meet" />
+      <image href="sponsor-logos-green/google-green.svg" x="1760" y="90" width="360" height="117" preserveAspectRatio="xMidYMid meet" />
+    </g>
+
+    <g transform="translate(700 1860)">
+      <image href="sponsor-logos-green/yri-green.png" x="0" y="0" width="760" height="224" preserveAspectRatio="xMidYMid meet" />
+      <image href="sponsor-logos-green/art-of-problem-solving-green.png" x="1070" y="0" width="760" height="267" preserveAspectRatio="xMidYMid meet" />
+      <image href="sponsor-logos-green/equinix-green.svg" x="2090" y="-26" width="350" height="228" preserveAspectRatio="xMidYMid meet" />
+    </g>
+
+    <g transform="translate(845 2505)">
+      <image href="sponsor-logos-green/arrcus-green.svg" x="0" y="0" width="520" height="144" preserveAspectRatio="xMidYMid meet" />
+      <image href="sponsor-logos-green/omi-green.svg" x="760" y="-20" width="470" height="145" preserveAspectRatio="xMidYMid meet" />
+      <image href="sponsor-logos-green/xyz-green.png" x="1510" y="-18" width="350" height="205" preserveAspectRatio="xMidYMid meet" />
+    </g>
+
+    <path class="thin" d="M1120 3110h1360" />
+    <path class="micro" d="M1260 3190h1080" />
+    <text class="mono" x="1800" y="3405" text-anchor="middle" font-size="56">
+      SUNNYVALE CA / MAY 23
+    </text>
+  </g>
+</svg>
