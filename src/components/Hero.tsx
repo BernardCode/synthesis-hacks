@@ -116,26 +116,73 @@ export default function Hero() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '1.2rem',
+            gap: '1.35rem',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
             filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.42))',
           }}
         >
-          <Image
-            src="/nttvc_logo.png"
-            alt="NTTVC"
-            width={132}
-            height={48}
-            style={{ width: '132px', height: 'auto', filter: 'brightness(0) invert(1)' }}
-            priority
-          />
-          <Image
-            src="/actionlayertiltedgradient.svg"
-            alt="ActionLayer"
-            width={44}
-            height={38}
-            style={{ width: '48px', height: 'auto', filter: 'brightness(0) invert(1)' }}
-            priority
-          />
+          <a
+            href="https://nttvc.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="NTTVC"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.25rem',
+              textDecoration: 'none',
+            }}
+          >
+            <Image
+              src="/nttvc_icon.png"
+              alt=""
+              width={34}
+              height={24}
+              style={{ width: '34px', height: 'auto', filter: 'brightness(0) invert(1)' }}
+              priority
+            />
+            <Image
+              src="/nttvc_logo.png"
+              alt="NTTVC"
+              width={154}
+              height={56}
+              style={{ width: '154px', height: 'auto', filter: 'brightness(0) invert(1)' }}
+              priority
+            />
+          </a>
+          <a
+            href="https://actionlayer.io/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="ActionLayer"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              textDecoration: 'none',
+            }}
+          >
+            <Image
+              src="/actionlayertiltedgradient.svg"
+              alt=""
+              width={44}
+              height={38}
+              style={{ width: '51px', height: 'auto', filter: 'brightness(0) invert(1)' }}
+              priority
+            />
+            <span
+              style={{
+                color: 'var(--text-primary)',
+                fontFamily: 'DM Sans, sans-serif',
+                fontSize: '1.02rem',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
+            >
+              ActionLayer
+            </span>
+          </a>
         </span>
       </div>
 
