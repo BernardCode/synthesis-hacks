@@ -229,7 +229,7 @@ function YriLogo() {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        filter: 'drop-shadow(0 0 16px rgba(255,255,255,0.95)) drop-shadow(0 0 10px rgba(255,255,255,0.7))',
+        filter: 'sepia(1) saturate(2.1) hue-rotate(348deg) brightness(1.08) drop-shadow(0 0 18px rgba(229,194,92,0.74)) drop-shadow(0 0 10px rgba(229,194,92,0.44))',
       }}
     >
       <Image
@@ -277,14 +277,14 @@ const presentedByStyle: CSSProperties = {
   fontWeight: 500,
 };
 
-const silverTierLabelStyle: CSSProperties = {
+const goldTierLabelStyle: CSSProperties = {
   ...tierLabelStyle,
-  color: '#c9ced8',
-  fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-  letterSpacing: '0.12em',
+  color: '#e5c25c',
+  fontSize: 'clamp(1.35rem, 3.3vw, 1.95rem)',
+  letterSpacing: '0.14em',
   fontWeight: 700,
   opacity: 1,
-  textShadow: '0 0 18px rgba(201,206,216,0.28)',
+  textShadow: '0 0 18px rgba(229,194,92,0.34), 0 0 34px rgba(229,194,92,0.18)',
 };
 
 const bronzeTierLabelStyle: CSSProperties = {
@@ -361,6 +361,12 @@ const cardSubtitleStyle: CSSProperties = {
   color: 'var(--text-muted)',
   fontFamily: 'DM Mono, monospace',
   margin: 0,
+};
+
+const goldCardSubtitleStyle: CSSProperties = {
+  ...cardSubtitleStyle,
+  color: '#e5c25c',
+  textShadow: '0 0 14px rgba(229,194,92,0.26)',
 };
 
 const benefits: { icon: ReactNode; title: string; desc: string }[] = [
@@ -441,7 +447,7 @@ export default function Sponsors() {
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <p style={silverTierLabelStyle}>Silver</p>
+            <p style={goldTierLabelStyle}>Gold</p>
             <a
               href="https://www.yriscience.com/"
               target="_blank"
@@ -453,7 +459,7 @@ export default function Sponsors() {
                 <div style={{ width: '100%', maxWidth: '380px' }}>
                   <YriLogo />
                 </div>
-                <p style={cardSubtitleStyle}>YRI</p>
+                <p style={goldCardSubtitleStyle}>YRI</p>
               </div>
             </a>
           </div>
