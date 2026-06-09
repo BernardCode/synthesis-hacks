@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Prizes from "@/components/Prizes";
+import Judges from "@/components/Judges";
+import Photos from "@/components/Photos";
 import Agenda from "@/components/Agenda";
 import Location from "@/components/Location";
 import RegisterForm from "@/components/RegisterForm";
@@ -21,6 +23,12 @@ export default function Home() {
           <hr className="divider" />
         </div>
 
+        <Photos />
+
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <hr className="divider" />
+        </div>
+
         <HowItWorks />
 
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
@@ -28,6 +36,12 @@ export default function Home() {
         </div>
 
         <Prizes />
+
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <hr className="divider" />
+        </div>
+
+        <Judges />
 
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
           <hr className="divider" />

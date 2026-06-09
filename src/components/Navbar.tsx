@@ -65,6 +65,7 @@ export default function Navbar() {
             /* Desktop: nav links + Contact */
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.75rem' }}>
               {[
+                { label: 'Photos', href: '#photos' },
                 { label: 'Schedule', href: '#schedule' },
                 { label: 'FAQ', href: '#faq' },
                 { label: 'Sponsors', href: '#sponsors' },

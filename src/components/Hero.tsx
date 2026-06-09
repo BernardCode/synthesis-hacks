@@ -60,7 +60,7 @@ export default function Hero() {
 
       {/* Date / location / status stack */}
       <div className="fade-up fade-up-delay-1" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.65rem' }}>
-        <span className="badge-accent">May 23, 2026 · 227 Humboldt Ct, Sunnyvale, CA 94089</span>
+        <span className="badge-accent">May 23, 2026 · Sunnyvale, CA · Event Complete</span>
       </div>
 
       {/* Headline */}
@@ -199,10 +199,10 @@ export default function Hero() {
         }}
       >
         <span style={{ display: 'block', whiteSpace: 'nowrap' }}>
-          A free hackathon for high schoolers. Beginners welcome.
+          Thank you to everyone who made this possible.
         </span>
         <span style={{ display: 'block', whiteSpace: 'nowrap' }}>
-          Applications are closed. Questions?{' '}
+          Questions?{' '}
           <a
             href="mailto:team@synthesishacks.com"
             style={{
@@ -219,6 +219,25 @@ export default function Hero() {
 
       {/* CTA row */}
       <div className="fade-up fade-up-delay-5" style={{ marginTop: '1.9rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <a
+          href="#photos"
+          style={{
+            background: 'var(--accent)',
+            color: '#0d0d14',
+            fontFamily: 'DM Mono, monospace',
+            fontSize: '0.82rem',
+            fontWeight: 500,
+            letterSpacing: '0.06em',
+            padding: '0.6rem 1.4rem',
+            borderRadius: '4px',
+            textDecoration: 'none',
+            transition: 'opacity 0.2s ease',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
+        >
+          View Photos
+        </a>
         <a
           href="https://discord.gg/eBvUCeC3"
           target="_blank"
